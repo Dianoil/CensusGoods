@@ -31,8 +31,8 @@ namespace CensusGoods.Wind
 
         private void tehsupport_Click(object sender, RoutedEventArgs e)
         {
-            Help help = new Help();
-            help.ShowDialog();
+            Support support = new Support();
+            support.ShowDialog();
             this.Hide();
         }
     }

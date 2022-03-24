@@ -26,14 +26,17 @@ namespace CensusGoods.Wind
 
         private void tehsupport_Click(object sender, RoutedEventArgs e)
         {
-            Help help = new Help();
-            help.ShowDialog();
+            Support support = new Support();
             this.Hide();
+            support.ShowDialog();
+          
         }
 
         private void reporttxt_Click(object sender, RoutedEventArgs e)
         {
-
+            Menu menu = new Menu(); 
+            this.Hide();
+            menu.ShowDialog();
         }
     }
 }

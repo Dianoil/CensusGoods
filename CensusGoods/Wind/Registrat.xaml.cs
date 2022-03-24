@@ -26,9 +26,10 @@ namespace CensusGoods.Wind
 
         private void regist_Click(object sender, RoutedEventArgs e)
         {
-            Autorization autorization = new Autorization();
-            autorization.ShowDialog();
+            Autorization autorization = new Autorization(); 
             this.Hide();
+            autorization.ShowDialog();
+           
         }
     }
 }

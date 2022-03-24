@@ -26,9 +26,9 @@ namespace CensusGoods.Wind
 
         private void savemessage_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
-            menu.ShowDialog();
+            Menu menu = new Menu();  
             this.Hide();
+            menu.ShowDialog();
         }
     }
 }

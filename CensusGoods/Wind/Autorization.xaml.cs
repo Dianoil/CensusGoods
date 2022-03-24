@@ -27,34 +27,41 @@ namespace CensusGoods.Wind
         private void entry_Click(object sender, RoutedEventArgs e)
         {
             Menu menu = new Menu();
-            menu.ShowDialog();
             this.Hide();
+            menu.ShowDialog();
+            
         }
 
         private void undo_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Вы действительно хотите выйти из приложения?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private void registr_Click(object sender, RoutedEventArgs e)
         {
-            Registrat registrat = new Registrat();
-            registrat.ShowDialog();
+            Registrat registrat = new Registrat();   
             this.Hide();
+            registrat.ShowDialog();
+         
         }
 
         private void help_Click(object sender, RoutedEventArgs e)
         {
             Help help = new Help();
-            help.ShowDialog();
             this.Hide();
+            help.ShowDialog();
+          
         }
 
         private void tehsupport_Click(object sender, RoutedEventArgs e)
         {
             Support support = new Support();
-            support.ShowDialog();
             this.Hide();
+            support.ShowDialog();
+           
         }
     }
 }
