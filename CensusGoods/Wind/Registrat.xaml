@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Registrat" Height="450" Width="800">
     <Grid>
+        
+        <!--Добавить поле про контрольный вопрос-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,38 +27,59 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Census goods"/>
         <TextBox Text="Номер телефона"
                  Grid.Row="1"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="numbertxt"/>
         <TextBox Text="E-mail"
                  Grid.Row="2"
-                 Grid.Column="1"/>
-        <TextBox Text="Пароль"
+                 Grid.Column="1"
+                 x:Name="emailtxt"/>
+        <TextBox Text="Логин"
                  Grid.Row="3"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="logintxt"/>
+        <TextBox Text="Пароль"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 x:Name="passwtxt"/>
+                 <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
         <Label Content="Валюта"
                Grid.Row="5"/>
         <ComboBox Grid.Row="5"
-                  Grid.Column="1"/>
+                  Grid.Column="1"
+                  x:Name="valutecb"/>
         <Label Content="Тип магазина"
                Grid.Row="6"/>
         <ComboBox Grid.Row="6"
-                  Grid.Column="1"/>
+                  Grid.Column="1"
+                  x:Name="typemagascb"/>
         <TextBox Text="Название фирмы"
                  Grid.Row="7"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="namecomptxt"/>
         <TextBox Text="ИНН"
                  Grid.Row="8"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="inntxt"/>
         <TextBox Text="ОГРН"
                  Grid.Row="9"
+                 Grid.Column="1"
+                 x:Name="ogrntxt"/>
+        <Label Content="Контрольный вопрос"
+               Grid.Row="10"/>
+        <ComboBox Grid.Row="10"
+                  Grid.Column="1"/>
+        <TextBox Text="Ответ на контрольный вопрос"
+                 Grid.Row="11"
                  Grid.Column="1"/>
-
         <Button Content="Регистрация"
                 Grid.Column="1"
-                Grid.Row="10"
+                Grid.Row="12"
                 x:Name="regist"
                 Click="regist_Click"/>
     </Grid>

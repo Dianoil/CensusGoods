@@ -63,7 +63,7 @@ namespace CensusGoods.Wind
 
         private void titlecomp_Click(object sender, RoutedEventArgs e)
         {
-
+            //информация о акке
         }
     }
 }

@@ -26,9 +26,27 @@ namespace CensusGoods.Wind
 
         private void entry_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
-            this.Hide();
-            menu.ShowDialog();
+            try
+            {
+                Company user = context.Company
+                .ToList().Where(i => i.Login == LoginTxt.Text && i.Password == PasswTxt.Text)
+                    .FirstOrDefault();
+                if (user != null)
+                {
+                    classi.DataUser.Company = user;
+                    Menu menu = new Menu();
+                    this.Hide();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неверно");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
 
@@ -42,6 +60,7 @@ namespace CensusGoods.Wind
 
         private void registr_Click(object sender, RoutedEventArgs e)
         {
+            
             Registrat registrat = new Registrat();   
             this.Hide();
             registrat.ShowDialog();
