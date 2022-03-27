@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Help" Height="450" Width="800">
     <Grid>
+        <!--Стремное по функционалу, переделать надо бы-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -51,6 +52,6 @@
                 x:Name="save"
                 Click="save_Click"/>
         <TextBlock Text="123"
-                   Grid.Row="2"/>
+                   Grid.Row="2"/> 
     </Grid>
 </Window>

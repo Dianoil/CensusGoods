@@ -8,7 +8,7 @@
         Title="Registrat" Height="450" Width="800">
     <Grid>
         
-        <!--Добавить поле про контрольный вопрос-->
+        <!--Маску номера телефона надо бы сделать-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

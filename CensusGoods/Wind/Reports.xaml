@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Reports" Height="450" Width="800">
     <Grid>
+        <!--Переходное окно на отчеты-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

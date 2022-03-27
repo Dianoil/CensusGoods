@@ -28,11 +28,11 @@
         <TextBox Text="Номер телефона"
                  Grid.Row="1"
                  Grid.Column="1"
-                 x:Name="NubCI"/>
+                 x:Name="NubCI"/> <!--При наведении маску показывать, или как-нить сделать-->
         <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"
-                 x:Name="EmailCI"/>
+                 x:Name="EmailCI"/> 
         <TextBox Text="Логин"
                  Grid.Row="3"
                  Grid.Column="1"
