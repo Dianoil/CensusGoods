@@ -27,30 +27,44 @@
         <Label Content="Census goods"/>
         <TextBox Text="Номер телефона"
                  Grid.Row="1"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="NubCI"/> <!--При наведении маску показывать, или как-нить сделать-->
         <TextBox Text="E-mail"
                  Grid.Row="2"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="EmailCI"/> 
         <TextBox Text="Логин"
                  Grid.Row="3"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="loginCI"/>
         <TextBox Text="Пароль"
                  Grid.Row="4"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 x:Name="PassqCI"/>
         <TextBox Text="Изменить контрольный вопрос" Grid.Row="5"/>
         <ComboBox Grid.Row="5" Grid.Column="1"/>
-        <TextBox Text="Ответ на контрольный вопрос"/>
-        <TextBox Text="ФИО контактного лица" Grid.Column="1"/>
+        <TextBox Text="Ответ на контрольный вопрос"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 x:Name="ContrQuestion"/>
+        <TextBox Text="ФИО контактного лица" Grid.Column="1"
+                 x:Name="FIOcontfaceCI"/>
         <StackPanel Grid.Row="3" Grid.RowSpan="3"
                     Grid.Column="1"
                     Background="Gray"  
-                    Visibility="Hidden" >
+                    Visibility="Hidden"
+                    x:Name="StackPanPassw">
            <TextBlock
                Text="При изменении информации необходимо ввести старый пароль"
                TextWrapping="Wrap"/>
-           <Button Content="Выйти"/>
-            <TextBox Text="Пароль"/>
-            <Button Content="Проверить"/>
+           <Button Content="Выйти"
+                   x:Name="exitSP"
+                   Click="exitSP_Click"/>
+            <TextBox Text="Пароль"
+                     x:Name="PasswSP"/>
+            <Button Content="Проверить"
+                    x:Name="SaveSP"
+                    Click="SaveSP_Click"/>
         </StackPanel>
         <Button Content="Сохранение информации"
                 Grid.Column="1"
