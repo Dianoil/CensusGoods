@@ -59,6 +59,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="classi\DataUser.cs" />
+    <Compile Include="classi\Enti.cs" />
+    <Compile Include="classi\ValidationClass.cs" />
     <Compile Include="Wind\Autorization.xaml.cs">
       <DependentUpon>Autorization.xaml</DependentUpon>
     </Compile>

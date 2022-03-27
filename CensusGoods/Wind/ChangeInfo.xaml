@@ -31,12 +31,27 @@
         <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"/>
-        <TextBox Text="Номер телефона"
+        <TextBox Text="Логин"
                  Grid.Row="3"
                  Grid.Column="1"/>
         <TextBox Text="Пароль"
                  Grid.Row="4"
                  Grid.Column="1"/>
+        <TextBox Text="Изменить контрольный вопрос" Grid.Row="5"/>
+        <ComboBox Grid.Row="5" Grid.Column="1"/>
+        <TextBox Text="Ответ на контрольный вопрос"/>
+        <TextBox Text="ФИО контактного лица" Grid.Column="1"/>
+        <StackPanel Grid.Row="3" Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Background="Gray"  
+                    Visibility="Hidden" >
+           <TextBlock
+               Text="При изменении информации необходимо ввести старый пароль"
+               TextWrapping="Wrap"/>
+           <Button Content="Выйти"/>
+            <TextBox Text="Пароль"/>
+            <Button Content="Проверить"/>
+        </StackPanel>
         <Button Content="Сохранение информации"
                 Grid.Column="1"
                 Grid.Row="8"

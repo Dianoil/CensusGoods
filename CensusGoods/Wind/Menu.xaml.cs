@@ -56,12 +56,14 @@ namespace CensusGoods.Wind
 
         private void reports_Click(object sender, RoutedEventArgs e)
         {
-
+            Reports reports = new Reports();
+            this.Hide();
+            reports.ShowDialog();
         }
 
         private void titlecomp_Click(object sender, RoutedEventArgs e)
         {
-
+            //информация о акке
         }
     }
 }
