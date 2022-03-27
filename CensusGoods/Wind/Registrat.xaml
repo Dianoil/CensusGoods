@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
         Title="Registrat" Height="450" Width="800">
@@ -31,11 +32,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Census goods"/>
-        <TextBox Text="Номер телефона"
-                 Grid.Row="1"
-                 Grid.Column="1"
-                 x:Name="numbertxt"
-                 />
+        <xctk:MaskedTextBox 
+            FontSize="16"
+            Grid.Column="1"
+            Grid.Row="1"
+            Mask="+7(000)000-00-00"/>
+
         <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"
