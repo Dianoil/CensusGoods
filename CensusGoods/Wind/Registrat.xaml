@@ -34,7 +34,8 @@
         <TextBox Text="Номер телефона"
                  Grid.Row="1"
                  Grid.Column="1"
-                 x:Name="numbertxt"/>
+                 x:Name="numbertxt"
+                 />
         <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"
@@ -42,7 +43,8 @@
         <TextBox Text="Логин"
                  Grid.Row="3"
                  Grid.Column="1"
-                 x:Name="logintxt"/>
+                 x:Name="logintxt"
+                 />
         <TextBox Text="Пароль"
                  Grid.Row="4"
                  Grid.Column="1"
