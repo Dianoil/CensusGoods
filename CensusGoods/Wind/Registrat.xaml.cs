@@ -66,8 +66,17 @@ namespace CensusGoods.Wind
                  "Пароль:  " + passwtxt.Text + "\n", "Создать пользователя:", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
+                    context.Company.Add(new Company()
+                    {
+                        //Login = txtLogin.Text.ToString(),
+                        //Password = pswPassword.Password.ToString(),
+                        //Surname = txtSname.Text.ToString(),
+                        //Name = txtName.Text.ToString(),
+
+                    });
                     context.SaveChanges();
                 }
+
 
                 Autorization autorization = new Autorization();
                 this.Hide();
