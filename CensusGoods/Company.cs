@@ -27,18 +27,11 @@ namespace CensusGoods
         public string Ogrn { get; set; }
         public int City { get; set; }
         public int Contacts { get; set; }
-        public string Login { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
-        public Nullable<int> Valute { get; set; }
-        public Nullable<int> ControlQuestion { get; set; }
-        public string Answer { get; set; }
-        public Nullable<int> TypeMagazin { get; set; }
     
         public virtual City City1 { get; set; }
         public virtual Contacts Contacts1 { get; set; }
-        public virtual ControlQuestion ControlQuestion1 { get; set; }
-        public virtual TypeMagazin TypeMagazin1 { get; set; }
-        public virtual Valute Valute1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductInfo> ProductInfo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

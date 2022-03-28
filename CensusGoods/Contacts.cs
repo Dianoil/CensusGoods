@@ -24,8 +24,11 @@ namespace CensusGoods
         public string FioContastFace { get; set; }
         public string NumberContactFace { get; set; }
         public string EmailContactFace { get; set; }
+        public Nullable<int> IdContrQuest { get; set; }
+        public string Answer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Company> Company { get; set; }
+        public virtual ControlQuestion ControlQuestion { get; set; }
     }
 }

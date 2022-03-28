@@ -6,7 +6,7 @@
                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="ChangeInfo" Height="1080" Width="1920">
+        Title="ChangeInfo" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -32,40 +32,31 @@
             Grid.Row="1"
             Mask="+7(000)000-00-00"
             x:Name="NubCI"/>
-        <TextBox Text="Email"
-                 FontSize="15"
+        <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"
-                 x:Name="EmailCI"
-                 GotFocus="EmailCI_GotFocus"
-                 LostFocus="EmailCI_LostFocus"/> 
-        <TextBox Text="Login"
-                 FontSize="15"
+                 x:Name="EmailCI"/> 
+        <TextBox Text="Логин"
                  Grid.Row="3"
                  Grid.Column="1"
-                 x:Name="loginCI"
-                 GotFocus="loginCI_GotFocus"
-                 LostFocus="loginCI_LostFocus"/>
-        <TextBox Text="Password"
+                 x:Name="loginCI"/>
+        <TextBox Text="Пароль"
                  Grid.Row="4"
                  Grid.Column="1"
-                 x:Name="PassqCI"
-                 GotFocus="PassqCI_GotFocus"
-                 LostFocus="PassqCI_LostFocus"/>
+                 x:Name="PassqCI"/>
         <TextBox Text="Изменить контрольный вопрос" Grid.Row="5"/>
-        <ComboBox Grid.Row="5" Grid.Column="1"
-                  x:Name="ContrQuest"/>
-        <TextBox Text="Ответ на вопрос"
+        <ComboBox Grid.Row="5" Grid.Column="1">
+            <TextBlock Text="Девичья фамилия матери"/>
+            <TextBlock Text="Кличка домашнего животного"/>
+            <TextBlock Text="Номер школы"/>
+            <TextBlock Text="Имя отца"/>
+        </ComboBox>
+        <TextBox Text="Ответ на контрольный вопрос"
                  Grid.Row="6"
                  Grid.Column="1"
-                 x:Name="ContrQuestion"
-                 GotFocus="ContrQuestion_GotFocus"
-                 LostFocus="ContrQuestion_LostFocus"/>
-        <TextBox Text="ФИО контактного лица"
-                 Grid.Column="1"
-                 x:Name="FIOcontfaceCI"
-                 GotFocus="FIOcontfaceCI_GotFocus"
-                 LostFocus="FIOcontfaceCI_LostFocus"/>
+                 x:Name="ContrQuestion"/>
+        <TextBox Text="ФИО контактного лица" Grid.Column="1"
+                 x:Name="FIOcontfaceCI"/>
         <StackPanel Grid.Row="3" Grid.RowSpan="3"
                     Grid.Column="1"
                     Background="Gray"  

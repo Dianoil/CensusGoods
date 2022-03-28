@@ -25,9 +25,9 @@ namespace CensusGoods.Wind
         }
 
         private void regist_Click(object sender, RoutedEventArgs e){
-            string logBD = context.Company.Where(i => i.Login == logintxt.Text.ToString()).Select(j => j.Login).FirstOrDefault();
+            string logBD = context.Company.Where(i => i.Email == logintxt.Text.ToString()).Select(j => j.Email).FirstOrDefault();
 
-            if (numbertxt.Text == "" || emailtxt.Text == "" || logintxt.Text == "" || passwtxt.Text == "" || namecomptxt.Text == "" || inntxt.Text == "" || ogrntxt.Text == "")
+            if (numReg.Text == "" || emailtxt.Text == "" || logintxt.Text == "" || passwtxt.Text == "" || namecomptxt.Text == "" || inntxt.Text == "" || ogrntxt.Text == "")
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -65,20 +65,11 @@ namespace CensusGoods.Wind
                 {
                     context.Company.Add(new Company()
                     {
-                        Login = logintxt.Text.ToString(),
-                        Password = passwtxt.Text.ToString(),
-                        //Valute = valutecb.Text.ToString(),
-                        //TypeMagazine = typemagascb.Text.ToString(),
-                        Name = namecomptxt.Text.ToString(),
-                        Inn = inntxt.Text.ToString(),
-                        Ogrn = ogrntxt.Text.ToString(),
-                        //ContrQuesst
-                        Answer = Anser.Text.ToString()
-                    });
-                    context.Contacts.Add(new Contacts()
-                    {
-                        NumberContactFace = numbertxt.Text.ToString(),
-                        EmailContactFace = emailtxt.Text.ToString(),
+                        //Login = txtLogin.Text.ToString(),
+                        //Password = pswPassword.Password.ToString(),
+                        //Surname = txtSname.Text.ToString(),
+                        //Name = txtName.Text.ToString(),
+
                     });
                     context.SaveChanges();
                 }
@@ -91,121 +82,6 @@ namespace CensusGoods.Wind
             //    MessageBox.Show("На данный момент вы еще не родились!", "Регистрация абоента", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }*/
         }
-        private void emailtxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (emailtxt.Text == "")
-            {
-                emailtxt.Text = "Email";
-            }
-        }
-
-        private void logintxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (logintxt.Text == "")
-            {
-                logintxt.Text = "Login";
-            }
-        }
-
-        private void passwtxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (passwtxt.Text == "")
-            {
-                passwtxt.Text = "Password";
-            }
-
-        }
-
-        private void namecomptxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (namecomptxt.Text == "")
-            {
-                namecomptxt.Text = "Название компании";
-            }
-
-        }
-
-        private void inntxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (inntxt.Text == "")
-            {
-                inntxt.Text = "ИНН";
-            }
-
-        }
-
-        private void ogrntxt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (ogrntxt.Text == "")
-            {
-                ogrntxt.Text = "ОГРН";
-            }
-        }
-
-        private void Anser_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (Anser.Text == "")
-            {
-                Anser.Text = "Ответ на вопрос";
-            }
-        }
-        private void emailtxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (emailtxt.Text == "Email")
-            {
-                emailtxt.Text = "";
-            }
-        }
-
-        private void logintxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (logintxt.Text == "Login")
-            {
-                logintxt.Text = "";
-            }
-        }
-
-        private void passwtxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (passwtxt.Text == "Password")
-            {
-                passwtxt.Text = "";
-            }
-        }
-
-        private void inntxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (inntxt.Text == "ИНН")
-            {
-                inntxt.Text = "";
-            }
-
-
-        }
-        private void ogrntxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (ogrntxt.Text == "ОГРН")
-            {
-                ogrntxt.Text = "";
-            }
-
-        }
-        private void Anser_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (Anser.Text == "Ответ на вопрос")
-            {
-                Anser.Text = "";
-            }
-        }
-
-        private void namecomptxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (namecomptxt.Text == "Название компании")
-            {
-                namecomptxt.Text = "";
-            }
-        }
-
-       
+        
     }
 }
