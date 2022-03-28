@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using static CensusGoods.classi.ValidationClass;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -41,10 +41,6 @@ namespace CensusGoods.Wind
             else if (ValidateCompany(namecomptxt.Text) == false)
             {
                 MessageBox.Show("Недопустимое название компании", "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //тут придумать по какой причине нельзя регать компани
-            }
-            else if (ValidateNumber(numbertxt.Text) == false)
-            {
-                MessageBox.Show("Неверный номер, проверьте написание", "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //начинается с +7 или 8 и всего 11 или 12 символов (мб маску получится сделать)
             }
             else if (ValidateEmail(emailtxt.Text) == false)
             {

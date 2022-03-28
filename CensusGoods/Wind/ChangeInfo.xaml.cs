@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.classi.Enti;
-
+using static CensusGoods.classi.ValidationClass;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -44,25 +44,58 @@ namespace CensusGoods.Wind
                     .FirstOrDefault();
                 if (user != null)
                 {
-                    if (true)
+                    if (ValidateFIO(FIOcontfaceCI.Text) ==  true)
+                    {
+                        if (FIOcontfaceCI != null)
+                        {
+                            context.Company.Add(new Company()
+                            {
+                                FioContactFace = FIOcontfaceCI.Text.ToString()
+                            });
+                        }
+                    }
+                    if (NubCI != null)
                     {
                         context.Company.Add(new Company()
                         {
-                            //Login = txtLogin.Text.ToString(),
-                            //Password = pswPassword.Password.ToString(),
-                            //Surname = txtSname.Text.ToString(),
-                            //Name = txtName.Text.ToString(),
-
-                        });
-                        context.SaveChanges();
-
-                        classi.DataUser.Company = user;
-                        context.SaveChanges();
-                        Menu menu = new Menu();
-                        this.Hide();
-                        menu.ShowDialog();
-
+                            NumberContactFace = NubCI.Text.ToString()
+                           });
                     }
+                    if (ValidateEmail(EmailCI.Text) != false)
+                    {
+                        if (EmailCI != null)
+                        {
+                            context.Company.Add(new Company()
+                            {
+                                EmailContactFace = EmailCI.Text.ToString()
+                            });
+                        }
+                    }
+                    if (loginCI != null)
+                    {
+                        context.Company.Add(new Company()
+                        {
+                            EmailContactFace = EmailCI.Text.ToString()
+                        });
+                    }
+                    if (ValidatePassw(PassqCI.Text) == true)
+                    {
+                        if (PassqCI != null)
+                        {
+                            context.Company.Add(new Company()
+                            {
+                                Password = PassqCI.Text.ToString()
+                            });
+                        }
+                    }
+                    if (ContrQuestion != null)
+                    {
+                        context.Company.Add(new Company()
+                        {
+                            ControlQuest = ContrQuestion.Text.ToString()
+                        });
+                    }
+                    context.SaveChanges();
                 }
                 else
                 {
@@ -76,3 +109,21 @@ namespace CensusGoods.Wind
         }
     }
 }
+/*context.Company.Add(new Company()
+{
+    //Login = txtLogin.Text.ToString(),
+    //Password = pswPassword.Password.ToString(),
+    //Surname = txtSname.Text.ToString(),
+    //Name = txtName.Text.ToString(),
+
+});
+context.SaveChanges();
+
+classi.DataUser.Company = user;
+context.SaveChanges();
+Menu menu = new Menu();
+this.Hide();
+menu.ShowDialog();
+
+ */
+
