@@ -10,5 +10,7 @@ namespace CensusGoods.classi
     {
         public static Company Company{ get; set; }
 
+        public static Contacts Contacts { get; set; }
+
     }
 }

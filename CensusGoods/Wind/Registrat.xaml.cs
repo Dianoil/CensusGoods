@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.classi.ValidationClass;
+using static CensusGoods.classi.Enti;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -24,9 +25,9 @@ namespace CensusGoods.Wind
         }
 
         private void regist_Click(object sender, RoutedEventArgs e){
-            string logBD = context.Company.Where(i => i.Login == logintxt.Text.ToString()).Select(j => j.Login).FirstOrDefault();
+            string logBD = context.Company.Where(i => i.Email == logintxt.Text.ToString()).Select(j => j.Email).FirstOrDefault();
 
-            if (numbertxt.Text == "" || emailtxt.Text == "" || logintxt.Text == "" || passwtxt.Text == "" || namecomptxt.Text == "" || inntxt.Text == "" || ogrntxt.Text == "")
+            if (numReg.Text == "" || emailtxt.Text == "" || logintxt.Text == "" || passwtxt.Text == "" || namecomptxt.Text == "" || inntxt.Text == "" || ogrntxt.Text == "")
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -72,8 +73,6 @@ namespace CensusGoods.Wind
                     });
                     context.SaveChanges();
                 }
-
-
                 Autorization autorization = new Autorization();
                 this.Hide();
                 autorization.ShowDialog();
@@ -83,5 +82,6 @@ namespace CensusGoods.Wind
             //    MessageBox.Show("На данный момент вы еще не родились!", "Регистрация абоента", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }*/
         }
+        
     }
 }

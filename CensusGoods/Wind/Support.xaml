@@ -19,11 +19,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Census goods"/>
-        <Label Content="Сообщить о проблеме"
-               Grid.Row="1"/>
         <ComboBox 
                   Grid.Column="1"
-                  Grid.Row="1"/>
+                  Grid.Row="1" Text="Сообщить о проблеме">
+            <TextBlock Text="Сообщить о проблеме"/>
+            <TextBlock Text="Пожелание"/>
+        </ComboBox>
         <TextBox Text="Сообщение"
                  Grid.Row="2"
                  Grid.Column="1"

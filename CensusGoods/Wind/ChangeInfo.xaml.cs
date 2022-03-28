@@ -42,40 +42,49 @@ namespace CensusGoods.Wind
                 Company user = context.Company
                 .ToList().Where(i => i.Password == PasswSP.Text)
                     .FirstOrDefault();
+
                 if (user != null)
                 {
-                    if (ValidateFIO(FIOcontfaceCI.Text) ==  true)
+                    if (ValidateFIO(FIOcontfaceCI.Text) == true)
                     {
                         if (FIOcontfaceCI != null)
                         {
-                            context.Company.Add(new Company()
+                            context.Contacts.Add(new Contacts()
                             {
-                                FioContactFace = FIOcontfaceCI.Text.ToString()
+                                FioContastFace = FIOcontfaceCI.Text.ToString()
                             });
                         }
                     }
                     if (NubCI != null)
                     {
-                        context.Company.Add(new Company()
+                        context.Contacts.Add(new Contacts()
                         {
                             NumberContactFace = NubCI.Text.ToString()
-                           });
+                        });
                     }
                     if (ValidateEmail(EmailCI.Text) != false)
                     {
                         if (EmailCI != null)
                         {
-                            context.Company.Add(new Company()
+                            context.Contacts.Add(new Contacts()
                             {
                                 EmailContactFace = EmailCI.Text.ToString()
                             });
                         }
                     }
+                    if (ValidateEmail(EmailCI.Text) == false)
+                    {
+                        if (EmailCI != null)
+                        {
+                            MessageBox.Show("Ввели неверную почту");
+                        }
+
+                    }
                     if (loginCI != null)
                     {
                         context.Company.Add(new Company()
                         {
-                            EmailContactFace = EmailCI.Text.ToString()
+                            Email = EmailCI.Text.ToString()
                         });
                     }
                     if (ValidatePassw(PassqCI.Text) == true)
@@ -90,12 +99,17 @@ namespace CensusGoods.Wind
                     }
                     if (ContrQuestion != null)
                     {
-                        context.Company.Add(new Company()
+                        context.Contacts.Add(new Contacts()
                         {
-                            ControlQuest = ContrQuestion.Text.ToString()
+                            Answer = ContrQuestion.Text.ToString()
                         });
                     }
+                    
+                    //classi.DataUser.Company = user;
                     context.SaveChanges();
+                    Menu menu = new Menu();
+                    this.Hide();
+                    menu.ShowDialog();
                 }
                 else
                 {
@@ -109,21 +123,3 @@ namespace CensusGoods.Wind
         }
     }
 }
-/*context.Company.Add(new Company()
-{
-    //Login = txtLogin.Text.ToString(),
-    //Password = pswPassword.Password.ToString(),
-    //Surname = txtSname.Text.ToString(),
-    //Name = txtName.Text.ToString(),
-
-});
-context.SaveChanges();
-
-classi.DataUser.Company = user;
-context.SaveChanges();
-Menu menu = new Menu();
-this.Hide();
-menu.ShowDialog();
-
- */
-

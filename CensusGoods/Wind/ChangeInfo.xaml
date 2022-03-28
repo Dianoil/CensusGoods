@@ -30,7 +30,8 @@
             FontSize="15"
             Grid.Column="1"
             Grid.Row="1"
-            Mask="+7(000)000-00-00"/>
+            Mask="+7(000)000-00-00"
+            x:Name="NubCI"/>
         <TextBox Text="E-mail"
                  Grid.Row="2"
                  Grid.Column="1"
@@ -44,7 +45,12 @@
                  Grid.Column="1"
                  x:Name="PassqCI"/>
         <TextBox Text="Изменить контрольный вопрос" Grid.Row="5"/>
-        <ComboBox Grid.Row="5" Grid.Column="1"/>
+        <ComboBox Grid.Row="5" Grid.Column="1">
+            <TextBlock Text="Девичья фамилия матери"/>
+            <TextBlock Text="Кличка домашнего животного"/>
+            <TextBlock Text="Номер школы"/>
+            <TextBlock Text="Имя отца"/>
+        </ComboBox>
         <TextBox Text="Ответ на контрольный вопрос"
                  Grid.Row="6"
                  Grid.Column="1"

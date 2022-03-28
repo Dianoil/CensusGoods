@@ -30,7 +30,7 @@ namespace CensusGoods.Wind
             try
             {
                 Company user = context.Company
-                .ToList().Where(i => i.Login == LoginTxt.Text && i.Password == PasswTxt.Text)
+                .ToList().Where(i => i.Email == LoginTxt.Text && i.Password == PasswTxt.Text)
                     .FirstOrDefault();
                 if (user != null)
                 {
