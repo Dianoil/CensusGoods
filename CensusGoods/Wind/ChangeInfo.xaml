@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
         <Label Content="Census goods"/>
         <xctk:MaskedTextBox 
-            FontSize="16"
+            FontSize="15"
             Grid.Column="1"
             Grid.Row="1"
             Mask="+7(000)000-00-00"/>
