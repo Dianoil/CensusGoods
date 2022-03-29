@@ -32,31 +32,38 @@
             Grid.Row="1"
             Mask="+7(000)000-00-00"
             x:Name="NubCI"/>
-        <TextBox Text="E-mail"
+        <TextBox 
                  Grid.Row="2"
                  Grid.Column="1"
-                 x:Name="EmailCI"/> 
-        <TextBox Text="Логин"
+                 x:Name="EmailCI"
+                 GotFocus="EmailCI_GotFocus"
+                 LostFocus="EmailCI_LostFocus"/> 
+        <TextBox 
                  Grid.Row="3"
                  Grid.Column="1"
-                 x:Name="loginCI"/>
-        <TextBox Text="Пароль"
+                 x:Name="loginCI"
+                 GotFocus="loginCI_GotFocus"
+                 LostFocus="loginCI_LostFocus"/>
+        <TextBox 
                  Grid.Row="4"
                  Grid.Column="1"
-                 x:Name="PassqCI"/>
+                 x:Name="PassqCI"
+                 GotFocus="PassqCI_GotFocus"
+                 LostFocus="PassqCI_LostFocus"/>
         <TextBox Text="Изменить контрольный вопрос" Grid.Row="5"/>
-        <ComboBox Grid.Row="5" Grid.Column="1">
-            <TextBlock Text="Девичья фамилия матери"/>
-            <TextBlock Text="Кличка домашнего животного"/>
-            <TextBlock Text="Номер школы"/>
-            <TextBlock Text="Имя отца"/>
-        </ComboBox>
-        <TextBox Text="Ответ на контрольный вопрос"
+        <ComboBox Grid.Row="5" Grid.Column="1"
+                  x:Name="ContrQuest"/>
+        <TextBox 
                  Grid.Row="6"
                  Grid.Column="1"
-                 x:Name="ContrQuestion"/>
-        <TextBox Text="ФИО контактного лица" Grid.Column="1"
-                 x:Name="FIOcontfaceCI"/>
+                 x:Name="ContrQuestion"
+                 GotFocus="ContrQuestion_GotFocus"
+                 LostFocus="ContrQuestion_LostFocus"/>
+        <TextBox 
+                 Grid.Column="1"
+                 x:Name="FIOcontfaceCI"
+                 GotFocus="FIOcontfaceCI_GotFocus"
+                 LostFocus="FIOcontfaceCI_LostFocus"/>
         <StackPanel Grid.Row="3" Grid.RowSpan="3"
                     Grid.Column="1"
                     Background="Gray"  

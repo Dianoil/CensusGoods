@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Autorization" Height="640" Width="1024">
+        Title="Autorization" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -14,202 +14,55 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="178*"/>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="125*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Вход в Census Goods"
-               FontSize="25"
-               HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center"
-               Foreground="#4B8AFC" 
-               FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,0,96.8,239.8" Grid.RowSpan="2"
-               />
-        <Image Source="/Image/logo.png"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Width="51"
-               Height="50"
-               Margin="5,0,0,0"
-               />
-        <Button Content="X"
-                Grid.Column="3"
-                Foreground="#4B8AFC"
-                Background="{x:Null}"
-                FontSize="25"
-                x:Name="undo"
-                Click="undo_Click"
-                HorizontalAlignment="Right"
-                VerticalContentAlignment="Center"
-                Margin="0,0,5,0"
-                BorderBrush="{x:Null}"
-                />
-        <Button
-                Grid.Row="3"
-                Grid.ColumnSpan="2"
-                Grid.Column="1"
-                Content="Войти"
-                VerticalContentAlignment="Center"
-                VerticalAlignment="Center"
-                x:Name="vhodinsystem"
-                Style="{StaticResource ButtonStateMenu}"
-                Click="vhodinsystem_Click"/>
-        <Image Source="/Image/lineemail.png"
-               Grid.ColumnSpan="4"
-               VerticalAlignment="Bottom"/>
-        <Image Source="/Image/logo1.png"
-               Grid.Column="1"
-              Grid.Row="1"
-               Grid.ColumnSpan="2"
-               Width="263"
-               Height="137"
-               />
-        <TextBox Grid.Row="2"
-                 Grid.ColumnSpan="2"
-                 Grid.Column="1"
-                 FontSize="22"
-                 HorizontalContentAlignment="Left"
-                 VerticalAlignment="Bottom"
-                 x:Name="LoginTxt"
-                 Margin="0,0,0,5"
-                 BorderBrush="{x:Null}"
-                 />
-        <Label Content="Введите e-mail"
-               Foreground="#C4C4C4"
-               Background="{x:Null}"
-               Grid.Row="2"
-               Grid.Column="1"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               FontSize="22"
-               VerticalContentAlignment="Top" Height="39" Width="158"
-               />
-        <Image Source="/Image/linelogin.png"
-               Grid.Row="3"
-               Grid.ColumnSpan="2"
-               Grid.Column="1"
-               VerticalAlignment="Top"/>
-        <StackPanel Grid.Row="2"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="2"
-                    Grid.RowSpan="2"
-                    Background="White"  
-                    Visibility="Hidden"
-                    x:Name="stackepanele">
-            <Button    
-                Content="Тут выводится логин"
-                HorizontalContentAlignment="Center"
-                x:Name="OutLogintxt"
-                Click="OutLogintxt_Click"
-                Style="{StaticResource ButtonAutor}"/>
-            <Label Content="Введите пароль"
-               Foreground="#C4C4C4"
-               Background="{x:Null}"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               FontSize="22"
-               VerticalContentAlignment="Top"
-               Margin="0,25,5,25"
-               />
-            <PasswordBox
-                 Visibility="Visible"
-                 Grid.Row="2"
-                 Grid.ColumnSpan="2"
-                 Grid.Column="1"
-                 FontSize="22"
-                 HorizontalContentAlignment="Left"
-                 VerticalAlignment="Bottom"
-                 x:Name="PasswTxt"
-                 BorderBrush="{x:Null}"
-                 Margin="0,5,25,5"
-                 />
-            <Button 
-                Background="{x:Null}"
-                FontSize="22"
-                BorderBrush="{x:Null}"
-                VerticalAlignment="Center"
-                Height="14.29"
-                Width="23.17"
-                HorizontalAlignment="Right"
-                VerticalContentAlignment="Center"
-                x:Name="EyeBut"
-                Visibility="Visible"
-                Click="EyeBut_Click"
-                Margin="0,-45,0,0">
-                <Button.Content>
-                    <Image Source="/Image/eye1.png"/>
-                </Button.Content>
-            </Button>
-            <Image Source="/Image/linelogin.png"/>
-            <Button
-                Content="Войти"
-                VerticalContentAlignment="Center"
-                VerticalAlignment="Center"
-                x:Name="entry"
-                Click="entry_Click"
-                Style="{StaticResource ButtonStateMenu}"
-                Margin="5,30,5,5"/>
-        </StackPanel>
-        <StackPanel x:Name="StackEye"
-                    Grid.Row="3"
-                    Visibility="Hidden"
-                    Grid.ColumnSpan="3" Margin="254,10.2,0.2,1.4" Grid.RowSpan="2">
-            <TextBox x:Name="PasswEye"
-                     FontSize="22" 
-                     Margin="0,5,25,5"/>
-            <Button 
-                Background="{x:Null}"
-                FontSize="22"
-                BorderBrush="{x:Null}"
-                VerticalAlignment="Center"
-                Height="20"
-                Width="25"
-                HorizontalAlignment="Right"
-                VerticalContentAlignment="Center"
-                x:Name="EyeBut1"
-                Visibility="Hidden"
-                Margin="0,-45,0,0"
-                Click="EyeBut1_Click">
-                <Button.Content>
-                    <Image Source="/Image/eye2.PNG"/>
-                </Button.Content>
-            </Button>
-        </StackPanel>
-        <Border Background="#152B43"
-                Grid.ColumnSpan="4"
-                Grid.Row="3"
-                VerticalAlignment="Bottom"
-                Height="22"/>
-        <!--<Button Content="Tex. поддержка"
+        <Label Content="Census Goods"/>
+        <Button Content="Tex. поддержка"
                Grid.Column="1"
                 x:Name="tehsupport"
-                Click="tehsupport_Click"/>-->
-        <!--<Button Grid.Column="1"
+                Click="tehsupport_Click"/>
+        <Button Grid.Column="1"
                 Grid.Row="5"
                 Content="Регистрация"
                 x:Name="registr"
-                Click="registr_Click"/>-->
-        <!--<Button Grid.Column="2"
+                Click="registr_Click"/>
+        <Button Grid.Column="2"
                 Grid.Row="5"
                 Content="Не могу войти"
                 x:Name="help"
-                Click="help_Click"/>-->
-        <!--<Button Grid.Column="2"
+                Click="help_Click"/>
+        <Button Grid.Column="1"
+                Grid.Row="4"
+                Content="Вход"
+                x:Name="entry"
+                Click="entry_Click"/>
+        <Button Grid.Column="2"
                 Grid.Row="4"
                 Content="Отмена"
                 x:Name="undo"
-                Click="undo_Click"/>-->
-        <!--<TextBox Grid.Row="2"
+                Click="undo_Click"/>
+        <TextBox Grid.Row="2"
                  Grid.Column="1"
                  FontSize="20"
                  HorizontalContentAlignment="Left"
                  VerticalAlignment="Center"
                  Grid.ColumnSpan="2"
-                 x:Name="PasswTxt"/>-->
-
-        <!--<Label Content="Пароль"
-               Grid.Row="2"/>-->
+                 x:Name="PasswTxt"/>
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 FontSize="20"
+                 HorizontalContentAlignment="Left"
+                 VerticalAlignment="Center"
+                 x:Name="LoginTxt"/>
+        <Label Content="Логин"
+               Grid.Row="1"/>
+        <Label Content="Пароль"
+               Grid.Row="2"/>
     </Grid>
 </Window>
