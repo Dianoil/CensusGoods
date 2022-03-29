@@ -8,8 +8,6 @@
         mc:Ignorable="d"
         Title="Registrat" Height="450" Width="800">
     <Grid>
-        
-        <!--Маску номера телефона надо бы сделать-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -36,52 +34,81 @@
             FontSize="16"
             Grid.Column="1"
             Grid.Row="1"
-            Mask="+7(000)000-00-00"/>
+            x:Name="numbertxt"
+            Mask="+7 (000)000-00-00"
+            />
 
-        <TextBox Text="E-mail"
+        <TextBox 
+                 FontSize="16"
                  Grid.Row="2"
                  Grid.Column="1"
-                 x:Name="emailtxt"/>
-        <TextBox Text="Логин"
+                 x:Name="emailtxt"
+                 GotFocus="emailtxt_GotFocus" 
+                 LostFocus="emailtxt_LostFocus"/>
+                
+        <TextBox 
                  Grid.Row="3"
                  Grid.Column="1"
+                 FontSize="16"
                  x:Name="logintxt"
+                 GotFocus="logintxt_GotFocus"
+                 LostFocus="logintxt_LostFocus"
                  />
-        <TextBox Text="Пароль"
+        <TextBox 
                  Grid.Row="4"
+                 FontSize="16"
                  Grid.Column="1"
-                 x:Name="passwtxt"/>
+                 x:Name="passwtxt" GotFocus="passwtxt_GotFocus"
+                 LostFocus="passwtxt_LostFocus"/>
                  <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
         <Label Content="Валюта"
-               Grid.Row="5"/>
+               Grid.Row="5"
+               FontSize="16"/>
         <ComboBox Grid.Row="5"
+                  FontSize="16"
                   Grid.Column="1"
                   x:Name="valutecb"/>
         <Label Content="Тип магазина"
+               FontSize="16"
                Grid.Row="6"/>
         <ComboBox Grid.Row="6"
+                  FontSize="16"
                   Grid.Column="1"
                   x:Name="typemagascb"/>
-        <TextBox Text="Название фирмы"
+        <TextBox 
                  Grid.Row="7"
+                 FontSize="16"
                  Grid.Column="1"
-                 x:Name="namecomptxt"/>
-        <TextBox Text="ИНН"
+                 x:Name="namecomptxt"
+                 LostFocus="namecomptxt_LostFocus"
+                 GotFocus="namecomptxt_GotFocus"/>
+        <TextBox FontSize="16"
                  Grid.Row="8"
                  Grid.Column="1"
+                 GotFocus="inntxt_GotFocus" 
+                 LostFocus="inntxt_LostFocus"
                  x:Name="inntxt"/>
-        <TextBox Text="ОГРН"
+        <TextBox FontSize="16"
                  Grid.Row="9"
                  Grid.Column="1"
-                 x:Name="ogrntxt"/>
+                 x:Name="ogrntxt"
+                 GotFocus="ogrntxt_GotFocus"
+                 LostFocus="ogrntxt_LostFocus"/>
         <Label Content="Контрольный вопрос"
+               FontSize="16"
                Grid.Row="10"/>
         <ComboBox Grid.Row="10"
-                  Grid.Column="1"/>
-        <TextBox Text="Ответ на контрольный вопрос"
+                  FontSize="16"
+                  Grid.Column="1"
+                  x:Name="ContrQuesst"/>
+        <TextBox FontSize="16"
                  Grid.Row="11"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 LostFocus="Anser_LostFocus"
+                 x:Name="Anser"
+                 GotFocus="Anser_GotFocus"/>
         <Button Content="Регистрация"
+                FontSize="16"
                 Grid.Column="1"
                 Grid.Row="12"
                 x:Name="regist"
