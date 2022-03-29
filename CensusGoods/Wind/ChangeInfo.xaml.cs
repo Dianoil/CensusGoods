@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.classi.Enti;
 using static CensusGoods.classi.ValidationClass;
+using static CensusGoods.classi.DataUser;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -48,15 +49,15 @@ namespace CensusGoods.Wind
                     {
                         if (FIOcontfaceCI != null)
                         {
-                            context.Company.Add(new Company()
+                            context.Contacts.Add(new Contacts()
                             {
-                                FioContactFace = FIOcontfaceCI.Text.ToString()
+                                FioContastFace = FIOcontfaceCI.Text.ToString()
                             });
                         }
                     }
                     if (NubCI != null)
                     {
-                        context.Company.Add(new Company()
+                        context.Contacts.Add(new Contacts()
                         {
                             NumberContactFace = NubCI.Text.ToString()
                            });
@@ -65,7 +66,7 @@ namespace CensusGoods.Wind
                     {
                         if (EmailCI != null)
                         {
-                            context.Company.Add(new Company()
+                            context.Contacts.Add(new Contacts()
                             {
                                 EmailContactFace = EmailCI.Text.ToString()
                             });
@@ -75,7 +76,7 @@ namespace CensusGoods.Wind
                     {
                         context.Company.Add(new Company()
                         {
-                            EmailContactFace = EmailCI.Text.ToString()
+                            Login = EmailCI.Text.ToString()
                         });
                     }
                     if (ValidatePassw(PassqCI.Text) == true)
@@ -92,7 +93,7 @@ namespace CensusGoods.Wind
                     {
                         context.Company.Add(new Company()
                         {
-                            ControlQuest = ContrQuestion.Text.ToString()
+                            Answer = ContrQuestion.Text.ToString()
                         });
                     }
                     context.SaveChanges();
@@ -107,6 +108,90 @@ namespace CensusGoods.Wind
                 MessageBox.Show(ex.Message);
             }
         }
+        private void FIOcontfaceCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (FIOcontfaceCI.Text == "")
+            {
+                FIOcontfaceCI.Text = "ФИО контактного номера";
+            }
+        }
+
+        private void EmailCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailCI.Text == "")
+            {
+                EmailCI.Text = "Email";
+            }
+        }
+
+        private void loginCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (loginCI.Text == "")
+            {
+                loginCI.Text = "Логин";
+            }
+
+        }
+
+        private void PassqCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "")
+            {
+                PassqCI.Text = "Пароль";
+            }
+
+        }
+
+        private void ContrQuestion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "")
+            {
+                PassqCI.Text = "Ответ на вопрос";
+            }
+        }
+        private void FIOcontfaceCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (FIOcontfaceCI.Text == "ФИО контактного номера")
+            {
+                FIOcontfaceCI.Text = "";
+            }
+        }
+
+        private void EmailCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailCI.Text == "Email")
+            {
+                EmailCI.Text = "";
+            }
+        }
+
+        private void loginCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (loginCI.Text == "Логин")
+            {
+                loginCI.Text = "";
+            }
+        }
+
+        private void PassqCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "Пароль")
+            {
+                PassqCI.Text = "";
+            }
+        }
+
+        private void ContrQuestion_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "Ответ на вопрос")
+            {
+                PassqCI.Text = "";
+            }
+
+
+        }
+
+       
     }
 }
 /*context.Company.Add(new Company()

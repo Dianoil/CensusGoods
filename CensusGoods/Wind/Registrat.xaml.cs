@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.classi.ValidationClass;
+using static CensusGoods.classi.Enti;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -64,16 +65,23 @@ namespace CensusGoods.Wind
                 {
                     context.Company.Add(new Company()
                     {
-                        //Login = txtLogin.Text.ToString(),
-                        //Password = pswPassword.Password.ToString(),
-                        //Surname = txtSname.Text.ToString(),
-                        //Name = txtName.Text.ToString(),
-
+                        Login = logintxt.Text.ToString(),
+                        Password = passwtxt.Text.ToString(),
+                        //Valute = valutecb.Text.ToString(),
+                        //TypeMagazine = typemagascb.Text.ToString(),
+                        Name = namecomptxt.Text.ToString(),
+                        Inn = inntxt.Text.ToString(),
+                        Ogrn = ogrntxt.Text.ToString(),
+                        //ContrQuesst
+                        Answer = Anser.Text.ToString()
+                    });
+                    context.Contacts.Add(new Contacts()
+                    {
+                        NumberContactFace = numbertxt.Text.ToString(),
+                        EmailContactFace = emailtxt.Text.ToString(),
                     });
                     context.SaveChanges();
                 }
-
-
                 Autorization autorization = new Autorization();
                 this.Hide();
                 autorization.ShowDialog();
@@ -83,5 +91,121 @@ namespace CensusGoods.Wind
             //    MessageBox.Show("На данный момент вы еще не родились!", "Регистрация абоента", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }*/
         }
+        private void emailtxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (emailtxt.Text == "")
+            {
+                emailtxt.Text = "Email";
+            }
+        }
+
+        private void logintxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (logintxt.Text == "")
+            {
+                logintxt.Text = "Логин";
+            }
+        }
+
+        private void passwtxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "")
+            {
+                passwtxt.Text = "Пароль";
+            }
+
+        }
+
+        private void namecomptxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "")
+            {
+                passwtxt.Text = "Название компании";
+            }
+
+        }
+
+        private void inntxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "")
+            {
+                passwtxt.Text = "ИНН";
+            }
+
+        }
+
+        private void ogrntxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "")
+            {
+                passwtxt.Text = "ОГРН";
+            }
+        }
+
+        private void Anser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "")
+            {
+                passwtxt.Text = "Ответ на вопрос";
+            }
+        }
+        private void emailtxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (emailtxt.Text == "Email")
+            {
+                emailtxt.Text = "";
+            }
+        }
+
+        private void logintxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (logintxt.Text == "Логин")
+            {
+                logintxt.Text = "";
+            }
+        }
+
+        private void passwtxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "Пароль")
+            {
+                passwtxt.Text = "";
+            }
+        }
+
+        private void inntxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "ИНН")
+            {
+                passwtxt.Text = "";
+            }
+
+
+        }
+        private void ogrntxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "ОГРН")
+            {
+                passwtxt.Text = "";
+            }
+
+        }
+        private void Anser_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "Ответ на вопрос")
+            {
+                passwtxt.Text = "";
+            }
+        }
+
+        private void namecomptxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (passwtxt.Text == "Название компании")
+            {
+                passwtxt.Text = "";
+            }
+        }
+
+       
     }
 }
