@@ -128,7 +128,7 @@ namespace CensusGoods.Wind
         {
             if (loginCI.Text == "")
             {
-                loginCI.Text = "Логин";
+                loginCI.Text = "Login";
             }
 
         }
@@ -137,16 +137,16 @@ namespace CensusGoods.Wind
         {
             if (PassqCI.Text == "")
             {
-                PassqCI.Text = "Пароль";
+                PassqCI.Text = "Password";
             }
 
         }
 
         private void ContrQuestion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (PassqCI.Text == "")
+            if (ContrQuestion.Text == "")
             {
-                PassqCI.Text = "Ответ на вопрос";
+                ContrQuestion.Text = "Ответ на вопрос";
             }
         }
         private void FIOcontfaceCI_GotFocus(object sender, RoutedEventArgs e)
@@ -167,7 +167,7 @@ namespace CensusGoods.Wind
 
         private void loginCI_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (loginCI.Text == "Логин")
+            if (loginCI.Text == "Login")
             {
                 loginCI.Text = "";
             }
@@ -175,7 +175,7 @@ namespace CensusGoods.Wind
 
         private void PassqCI_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (PassqCI.Text == "Пароль")
+            if (PassqCI.Text == "Password")
             {
                 PassqCI.Text = "";
             }
@@ -183,15 +183,11 @@ namespace CensusGoods.Wind
 
         private void ContrQuestion_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (PassqCI.Text == "Ответ на вопрос")
+            if (ContrQuestion.Text == "Ответ на вопрос")
             {
-                PassqCI.Text = "";
+                ContrQuestion.Text = "";
             }
-
-
-        }
-
-       
+        }       
     }
 }
 /*context.Company.Add(new Company()

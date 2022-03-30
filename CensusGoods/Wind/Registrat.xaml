@@ -6,7 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Registrat" Height="450" Width="800">
+        Title="Registrat" Height="1080" Width="1920">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,7 +38,7 @@
             Mask="+7 (000)000-00-00"
             />
 
-        <TextBox 
+        <TextBox Text="Email"
                  FontSize="16"
                  Grid.Row="2"
                  Grid.Column="1"
@@ -46,7 +46,7 @@
                  GotFocus="emailtxt_GotFocus" 
                  LostFocus="emailtxt_LostFocus"/>
                 
-        <TextBox 
+        <TextBox Text="Login"
                  Grid.Row="3"
                  Grid.Column="1"
                  FontSize="16"
@@ -54,11 +54,12 @@
                  GotFocus="logintxt_GotFocus"
                  LostFocus="logintxt_LostFocus"
                  />
-        <TextBox 
+        <TextBox Text="Password"
                  Grid.Row="4"
                  FontSize="16"
                  Grid.Column="1"
-                 x:Name="passwtxt" GotFocus="passwtxt_GotFocus"
+                 x:Name="passwtxt" 
+                 GotFocus="passwtxt_GotFocus"
                  LostFocus="passwtxt_LostFocus"/>
                  <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
         <Label Content="Валюта"
@@ -75,20 +76,23 @@
                   FontSize="16"
                   Grid.Column="1"
                   x:Name="typemagascb"/>
-        <TextBox 
+        <TextBox Text="Название компании"
                  Grid.Row="7"
                  FontSize="16"
                  Grid.Column="1"
                  x:Name="namecomptxt"
+                 GotFocus="namecomptxt_GotFocus"
                  LostFocus="namecomptxt_LostFocus"
-                 GotFocus="namecomptxt_GotFocus"/>
-        <TextBox FontSize="16"
+                 />
+        <TextBox Text="ИНН"
+                 FontSize="16"
                  Grid.Row="8"
                  Grid.Column="1"
                  GotFocus="inntxt_GotFocus" 
                  LostFocus="inntxt_LostFocus"
                  x:Name="inntxt"/>
         <TextBox FontSize="16"
+                 Text="ОГРН"
                  Grid.Row="9"
                  Grid.Column="1"
                  x:Name="ogrntxt"
@@ -102,6 +106,7 @@
                   Grid.Column="1"
                   x:Name="ContrQuesst"/>
         <TextBox FontSize="16"
+                 Text="Ответ на вопрос"
                  Grid.Row="11"
                  Grid.Column="1"
                  LostFocus="Anser_LostFocus"
