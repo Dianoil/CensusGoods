@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Menu" Height="450" Width="800">
+        Title="Menu" Height="1080" Width="1920"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -39,16 +42,11 @@
                 Grid.Row="2"
                 x:Name="supply"
                 Click="supply_Click"/>
-        <Button Content="Покупки"
+        <Button Content="Продажи"
                 Grid.Column="1"
                 Grid.Row="3"
                 x:Name="order"
                 Click="order_Click"/>
-        <Button Content="Долговая тетрадь"
-                Grid.Column="1"
-                Grid.Row="4"
-                x:Name="debtnotebook"
-                Click="debtnotebook_Click"/>
         <Button Content="Блокнот расходов"
                 Grid.Column="1"
                 Grid.Row="4"

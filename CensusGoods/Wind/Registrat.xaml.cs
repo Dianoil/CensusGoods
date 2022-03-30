@@ -103,7 +103,7 @@ namespace CensusGoods.Wind
         {
             if (logintxt.Text == "")
             {
-                logintxt.Text = "Логин";
+                logintxt.Text = "Login";
             }
         }
 
@@ -111,42 +111,42 @@ namespace CensusGoods.Wind
         {
             if (passwtxt.Text == "")
             {
-                passwtxt.Text = "Пароль";
+                passwtxt.Text = "Password";
             }
 
         }
 
         private void namecomptxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "")
+            if (namecomptxt.Text == "")
             {
-                passwtxt.Text = "Название компании";
+                namecomptxt.Text = "Название компании";
             }
 
         }
 
         private void inntxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "")
+            if (inntxt.Text == "")
             {
-                passwtxt.Text = "ИНН";
+                inntxt.Text = "ИНН";
             }
 
         }
 
         private void ogrntxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "")
+            if (ogrntxt.Text == "")
             {
-                passwtxt.Text = "ОГРН";
+                ogrntxt.Text = "ОГРН";
             }
         }
 
         private void Anser_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "")
+            if (Anser.Text == "")
             {
-                passwtxt.Text = "Ответ на вопрос";
+                Anser.Text = "Ответ на вопрос";
             }
         }
         private void emailtxt_GotFocus(object sender, RoutedEventArgs e)
@@ -159,7 +159,7 @@ namespace CensusGoods.Wind
 
         private void logintxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (logintxt.Text == "Логин")
+            if (logintxt.Text == "Login")
             {
                 logintxt.Text = "";
             }
@@ -167,7 +167,7 @@ namespace CensusGoods.Wind
 
         private void passwtxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "Пароль")
+            if (passwtxt.Text == "Password")
             {
                 passwtxt.Text = "";
             }
@@ -175,34 +175,34 @@ namespace CensusGoods.Wind
 
         private void inntxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "ИНН")
+            if (inntxt.Text == "ИНН")
             {
-                passwtxt.Text = "";
+                inntxt.Text = "";
             }
 
 
         }
         private void ogrntxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "ОГРН")
+            if (ogrntxt.Text == "ОГРН")
             {
-                passwtxt.Text = "";
+                ogrntxt.Text = "";
             }
 
         }
         private void Anser_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "Ответ на вопрос")
+            if (Anser.Text == "Ответ на вопрос")
             {
-                passwtxt.Text = "";
+                Anser.Text = "";
             }
         }
 
         private void namecomptxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (passwtxt.Text == "Название компании")
+            if (namecomptxt.Text == "Название компании")
             {
-                passwtxt.Text = "";
+                namecomptxt.Text = "";
             }
         }
 
