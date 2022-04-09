@@ -48,7 +48,7 @@ namespace CensusGoods.Wind
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void undo_Click(object sender, RoutedEventArgs e)
