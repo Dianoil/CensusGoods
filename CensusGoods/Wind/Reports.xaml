@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Reports" Height="450" Width="800">
+        Title="Reports" Height="1080" Width="1920">
     <Grid>
         <!--Переходное окно на отчеты-->
         <Grid.ColumnDefinitions>
