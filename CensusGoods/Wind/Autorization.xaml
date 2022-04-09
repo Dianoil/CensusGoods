@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Autorization"
-        Height="1080" Width="1920">
+        Title="Autorization" Height="640" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -15,55 +14,112 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="204*"/>
+            <RowDefinition Height="46*"/>
         </Grid.RowDefinitions>
-        <Label Content="Census Goods"/>
-        <Button Content="Tex. поддержка"
+        <Label Content="Census Goods"
+               HorizontalContentAlignment="Right"
+               VerticalContentAlignment="Center"
+               FontSize="25"
+               Foreground="#4B8AFC" Margin="0,0,0,125" Grid.RowSpan="2"
+               />
+        <Image Source="\Image\logo.png"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Width="51"
+               Height="50"
+               />
+        <Button Content="X"
+                Grid.Column="3"
+                Foreground="#4B8AFC"
+                Background="{x:Null}"
+                FontSize="25"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="{x:Null}" Height="37" Margin="237,0,0,0" Width="19"
+                />
+        <Image Source="\Image\lineemail.png"
+               Grid.Column="0"
+               Grid.Row="0"
+               VerticalAlignment="Center"
+               Grid.ColumnSpan="4" Height="1" Grid.RowSpan="2"/>
+        <Image Source="\Image\logo1.png"
+               Grid.Column="1"
+               Grid.Row="1"
+               Grid.ColumnSpan="2" Margin="124,0,124,112" Grid.RowSpan="2"
+               />
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 FontSize="22"
+                 HorizontalContentAlignment="Left"
+                 VerticalAlignment="Top"
+                 x:Name="LoginTxt" Height="29"
+                 BorderBrush="{x:Null}" Margin="0,95,0,0"
+                 />
+        <Label Content="Введите e-mail"
+               Foreground="#C4C4C4"
+               Background="{x:Null}"
+               Grid.Row="2"
+               Grid.Column="1"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               FontSize="22"
+               VerticalContentAlignment="Top" Height="39" Width="158"
+               />
+        <Image Source="\Image\linelogin.png"
+               Grid.Column="1"
+               Grid.Row="2"
+               Grid.ColumnSpan="2"
+               VerticalAlignment="Top" Height="1" Margin="0,123,0,0"/>
+        <Button Grid.Column="1"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                FontSize="22"
+                Content="Войти"
+                Background="#4B8AFC"
+                Foreground="#FFFFFF"
+                VerticalContentAlignment="Center"
+                VerticalAlignment="Center"
+                x:Name="entry"
+                Click="entry_Click"/>
+        <Border Background="#152B43"
+                Grid.ColumnSpan="4"
+                Grid.Row="4"
+                Width="1031"
+                Height="41"/>
+        <!--<Button Content="Tex. поддержка"
                Grid.Column="1"
                 x:Name="tehsupport"
-                Click="tehsupport_Click"/>
-        <Button Grid.Column="1"
+                Click="tehsupport_Click"/>-->
+        <!--<Button Grid.Column="1"
                 Grid.Row="5"
                 Content="Регистрация"
                 x:Name="registr"
-                Click="registr_Click"/>
-        <Button Grid.Column="2"
+                Click="registr_Click"/>-->
+        <!--<Button Grid.Column="2"
                 Grid.Row="5"
                 Content="Не могу войти"
                 x:Name="help"
-                Click="help_Click"/>
-        <Button Grid.Column="1"
-                Grid.Row="4"
-                Content="Вход"
-                x:Name="entry"
-                Click="entry_Click"/>
-        <Button Grid.Column="2"
+                Click="help_Click"/>-->
+        <!--<Button Grid.Column="2"
                 Grid.Row="4"
                 Content="Отмена"
                 x:Name="undo"
-                Click="undo_Click"/>
-        <TextBox Grid.Row="2"
+                Click="undo_Click"/>-->
+        <!--<TextBox Grid.Row="2"
                  Grid.Column="1"
                  FontSize="20"
                  HorizontalContentAlignment="Left"
                  VerticalAlignment="Center"
                  Grid.ColumnSpan="2"
-                 x:Name="PasswTxt"/>
-        <TextBox Grid.Row="1"
-                 Grid.Column="1"
-                 Grid.ColumnSpan="2"
-                 FontSize="20"
-                 HorizontalContentAlignment="Left"
-                 VerticalAlignment="Center"
-                 x:Name="LoginTxt"/>
-        <Label Content="Логин"
-               Grid.Row="1"/>
-        <Label Content="Пароль"
-               Grid.Row="2"/>
+                 x:Name="PasswTxt"/>-->
+
+        <!--<Label Content="Пароль"
+               Grid.Row="2"/>-->
     </Grid>
 </Window>
