@@ -27,28 +27,28 @@ namespace CensusGoods.Wind
 
         private void entry_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    Company user = context.Company
-            //    .ToList().Where(i => i.Email == LoginTxt.Text && i.Password == PasswTxt.Password)
-            //        .FirstOrDefault();
-            //    if (user != null)
-            //    {
-            //        classi.DataUser.Company = user;
-            //        //тут надо указать о роли чела
-            //        Menu menu = new Menu();
-            //        this.Hide();
-            //        menu.ShowDialog();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Логин или пароль введены неверно");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                Company user = context.Company
+                .ToList().Where(i => i.Email == LoginTxt.Text &&  i.Password == PasswTxt.Password)
+                    .FirstOrDefault();
+                if (user != null)
+                {
+                    classi.DataUser.Company = user;
+                    //тут надо указать о роли чела
+                    Menu menu = new Menu();
+                    this.Hide();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неверно");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void undo_Click(object sender, RoutedEventArgs e)
         {
