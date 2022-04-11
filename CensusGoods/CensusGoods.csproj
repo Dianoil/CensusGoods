@@ -282,6 +282,7 @@
     <Resource Include="Image\logo.png" />
     <Resource Include="Image\logo1.png" />
     <Resource Include="Image\Lineemail.png" />
+    <Resource Include="Image\eye2.PNG" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
