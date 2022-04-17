@@ -27,28 +27,32 @@ namespace CensusGoods.Wind
 
         private void entry_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Company user = context.Company
-                .ToList().Where(i => i.Email == LoginTxt.Text &&  i.Password == PasswTxt.Password)
-                    .FirstOrDefault();
-                if (user != null)
-                {
-                    classi.DataUser.Company = user;
-                    //тут надо указать о роли чела
-                    Menu menu = new Menu();
-                    this.Hide();
-                    menu.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Логин или пароль введены неверно");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Menu menu = new Menu();
+            this.Hide();
+            menu.ShowDialog();
+
+            //try
+            //{
+            //    Company user = context.Company
+            //    .ToList().Where(i => i.Email == LoginTxt.Text &&  i.Password == PasswTxt.Password)
+            //        .FirstOrDefault();
+            //    if (user != null)
+            //    {
+            //        classi.DataUser.Company = user;
+            //        //тут надо указать о роли чела
+            //        Menu menu = new Menu();
+            //        this.Hide();
+            //        menu.ShowDialog();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Логин или пароль введены неверно");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
         private void undo_Click(object sender, RoutedEventArgs e)
         {
@@ -83,10 +87,17 @@ namespace CensusGoods.Wind
         //}
         private void vhodinsystem_Click(object sender, RoutedEventArgs e)
         {
-            stackepanele.Visibility = Visibility.Visible;
-            EyeBut.Visibility = Visibility.Visible;
-            PasswTxt.Visibility = Visibility.Visible;
-            OutLogintxt.Content = LoginTxt.Text;
+            //if (LoginTxt.Text != null)
+            //{
+                stackepanele.Visibility = Visibility.Visible;
+                EyeBut.Visibility = Visibility.Visible;
+                PasswTxt.Visibility = Visibility.Visible;
+                OutLogintxt.Content = LoginTxt.Text;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Введите логин", "Внимание!", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            //}
         }
 
         private void EyeBut_Click(object sender, RoutedEventArgs e)
