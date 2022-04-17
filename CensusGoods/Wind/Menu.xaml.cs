@@ -85,5 +85,15 @@ namespace CensusGoods.Wind
         {
 
         }
+
+        private void OtchetBut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void undo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
