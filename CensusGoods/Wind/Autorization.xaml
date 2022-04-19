@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Autorization" Height="640" Width="1024">
+        Title="Autorization" Height="640" Width="1024"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
