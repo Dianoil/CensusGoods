@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderInfo
+    public partial class City
     {
-        public int Id { get; set; }
-        public int IdOrder { get; set; }
-        public int IdProduct { get; set; }
-        public string Comment { get; set; }
-        public int Quantity { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public City()
+        {
+            this.Company = new HashSet<Company>();
+        }
     
-        public virtual Ordery Ordery { get; set; }
-        public virtual Product Product { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Company> Company { get; set; }
     }
 }

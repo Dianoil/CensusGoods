@@ -7,23 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeMagazin
+    public partial class Supply
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypeMagazin()
+        public Supply()
         {
-            this.Company = new HashSet<Company>();
+            this.SupplyInfo = new HashSet<SupplyInfo>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int IdCompany { get; set; }
+        public System.DateTime DateSuppl { get; set; }
     
+        public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Company> Company { get; set; }
+        public virtual ICollection<SupplyInfo> SupplyInfo { get; set; }
     }
 }

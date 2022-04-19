@@ -7,27 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Ordery
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ordery()
+        public Product()
         {
             this.OrderInfo = new HashSet<OrderInfo>();
+            this.ProductInfo = new HashSet<ProductInfo>();
+            this.SectorProduct = new HashSet<SectorProduct>();
+            this.SupplyInfo = new HashSet<SupplyInfo>();
         }
     
         public int Id { get; set; }
-        public int IdSector { get; set; }
-        public int TypePayment { get; set; }
-        public System.DateTime OrdDate { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Comment { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderInfo> OrderInfo { get; set; }
-        public virtual Sector Sector { get; set; }
-        public virtual TypePayment TypePayment1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductInfo> ProductInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SectorProduct> SectorProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SupplyInfo> SupplyInfo { get; set; }
     }
 }

@@ -7,18 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SectorProduct
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int Id { get; set; }
-        public int IdProduct { get; set; }
-        public int IdSector { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Sector Sector { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
