@@ -7,28 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Sector
+    public partial class Ordery
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sector()
+        public Ordery()
         {
-            this.Ordery = new HashSet<Ordery>();
-            this.SectorProduct = new HashSet<SectorProduct>();
+            this.OrderInfo = new HashSet<OrderInfo>();
         }
     
         public int Id { get; set; }
-        public int CellSector { get; set; }
-        public int RangeSector { get; set; }
-        public string NameSector { get; set; }
+        public int IdSector { get; set; }
+        public int TypePayment { get; set; }
+        public System.DateTime OrdDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ordery> Ordery { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SectorProduct> SectorProduct { get; set; }
+        public virtual ICollection<OrderInfo> OrderInfo { get; set; }
+        public virtual Sector Sector { get; set; }
+        public virtual TypePayment TypePayment1 { get; set; }
     }
 }

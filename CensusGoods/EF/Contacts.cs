@@ -7,19 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SupplyInfo
+    public partial class Contacts
     {
-        public int Id { get; set; }
-        public int IdSupply { get; set; }
-        public int IdProduct { get; set; }
-        public int Quantity { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Contacts()
+        {
+            this.Company = new HashSet<Company>();
+        }
     
-        public virtual Product Product { get; set; }
-        public virtual Supply Supply { get; set; }
+        public int Id { get; set; }
+        public string FioContastFace { get; set; }
+        public string NumberContactFace { get; set; }
+        public string EmailContactFace { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Company> Company { get; set; }
     }
 }

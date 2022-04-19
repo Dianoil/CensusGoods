@@ -7,18 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductInfo
+    public partial class SupplyInfo
     {
         public int Id { get; set; }
-        public int IdCompany { get; set; }
+        public int IdSupply { get; set; }
         public int IdProduct { get; set; }
+        public int Quantity { get; set; }
     
-        public virtual Company Company { get; set; }
         public virtual Product Product { get; set; }
+        public virtual Supply Supply { get; set; }
     }
 }

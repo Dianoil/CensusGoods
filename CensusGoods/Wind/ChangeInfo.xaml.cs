@@ -40,7 +40,7 @@ namespace CensusGoods.Wind
         {
             try
             {
-                Company user = context.Company
+                EF.Company user = context.Company
                 .ToList().Where(i => i.Password == PasswSP.Text)
                     .FirstOrDefault();
                 if (user != null)
@@ -49,7 +49,7 @@ namespace CensusGoods.Wind
                     {
                         if (FIOcontfaceCI != null)
                         {
-                            context.Contacts.Add(new Contacts()
+                            context.Contacts.Add(new EF.Contacts()
                             {
                                 FioContastFace = FIOcontfaceCI.Text.ToString()
                             });
@@ -57,7 +57,7 @@ namespace CensusGoods.Wind
                     }
                     if (NubCI != null)
                     {
-                        context.Contacts.Add(new Contacts()
+                        context.Contacts.Add(new EF.Contacts()
                         {
                             NumberContactFace = NubCI.Text.ToString()
                            });
@@ -66,7 +66,7 @@ namespace CensusGoods.Wind
                     {
                         if (EmailCI != null)
                         {
-                            context.Contacts.Add(new Contacts()
+                            context.Contacts.Add(new EF.Contacts()
                             {
                                 EmailContactFace = EmailCI.Text.ToString()
                             });
@@ -74,7 +74,7 @@ namespace CensusGoods.Wind
                     }
                     if (loginCI != null)
                     {
-                        context.Company.Add(new Company()
+                        context.Company.Add(new EF.Company()
                         {
                             Login = EmailCI.Text.ToString()
                         });
@@ -83,7 +83,7 @@ namespace CensusGoods.Wind
                     {
                         if (PassqCI != null)
                         {
-                            context.Company.Add(new Company()
+                            context.Company.Add(new EF.Company()
                             {
                                 Password = PassqCI.Text.ToString()
                             });
@@ -91,7 +91,7 @@ namespace CensusGoods.Wind
                     }
                     if (ContrQuestion != null)
                     {
-                        context.Company.Add(new Company()
+                        context.Company.Add(new EF.Company()
                         {
                             Answer = ContrQuestion.Text.ToString()
                         });

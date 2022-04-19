@@ -5,33 +5,141 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Support" Height="1080" Width="1920">
+        Title="Support" Height="640" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Census goods"/>
-        <Label Content="Сообщить о проблеме"
-               Grid.Row="1"/>
-        <ComboBox 
+
+        <Border Background="White"
+                Grid.ColumnSpan="5"
+                Margin="0,0,-0.4,1.2"
+                />
+        <Label Content="Census Goods"
+               FontSize="25"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Foreground="#4B8AFC" 
+               FontWeight="Bold"
+               Margin="55,0,155.2,0.2"
+               />
+        <Image Source="/Image/logo.png"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Width="51"
+               Height="50"
+               />
+        <Image Source="/Image/lineemail.png"
+               Grid.ColumnSpan="5"
+               VerticalAlignment="Bottom" Height="1" Margin="0,0,-0.4,1.2"/>
+        <Button Content="X"
+                Grid.Column="4"
+                Foreground="#4B8AFC"
+                Background="{x:Null}"
+                FontSize="25"
+                x:Name="undo"
+                Click="undo_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0,0,4.6,1.2"
+                BorderBrush="{x:Null}" Width="18"
+                />
+        <Border Grid.Row="2"
+                Grid.RowSpan="5"
+                Grid.ColumnSpan="2"
+                Background="#E4E4E4"/>
+        <TextBlock
+            Grid.Row="1" 
+            Text="Обращение в службу поддержки"
+            FontSize="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+        <TextBlock Text="Цель обращения"
+                   Grid.Column="0"
+                   Grid.Row="2"
+                   FontSize="22"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0, 0, 20, 0"/>
+
+        <ComboBox x:Name="cmbGoalOfRequest" 
                   Grid.Column="1"
-                  Grid.Row="1"/>
-        <TextBox Text="Сообщение"
-                 Grid.Row="2"
-                 Grid.Column="1"
-                 x:Name="messagetxt"/>
-        <Button Content="Отправить сообщение"
-                Grid.Column="1"
-                Grid.Row="3"
-                x:Name="savemessage"
-                Click="savemessage_Click"/>
+                  Grid.Row="2"
+                  FontSize="18"
+                  VerticalAlignment="Center"
+                  Height="40"
+                  Margin="50, 0"
+                  IsEditable="True"/>
+
+        <TextBlock Text="Email для обратной связи"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   FontSize="22"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0, 0, 20, 0"/>
+
+        <TextBox Grid.Column="1"
+                  Grid.Row="3"
+                  FontSize="18"
+                  VerticalAlignment="Center"
+                  Height="40"
+                  Margin="50, 0"/>
+
+        <TextBlock Text="Текст обращения"
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   FontSize="22"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0, 0, 20, 0"/>
+
+        <TextBox Grid.Column="1"
+                 Grid.Row="3"
+                 Grid.RowSpan="4"
+                 FontSize="18"
+                 VerticalAlignment="Center"
+                 Height="200"
+                 Margin="50, 0"
+                 AcceptsReturn="True"/>
+
+        <WrapPanel Grid.Column="1"
+                   Grid.Row="7"
+                   Margin="50, 0"
+                   VerticalAlignment="Center">
+
+            <Button x:Name="btnSendMessage"
+                    Width="250"
+                    Height="40"
+                    Margin="0, 0, 40, 0"
+                    Content="Отправить сообщение"
+                    FontSize="18"
+                    Style="{StaticResource ButtonStateMenu}"
+                    Click="btnSendMessage_Click"/>
+
+            <Button x:Name="btnClose"
+                    Width="150"
+                    Height="40"
+                    Content="Отмена"
+                    FontSize="18"
+                    Click="btnClose_Click"
+                    Style="{StaticResource ButtonAutor}"/>
+        </WrapPanel>
+
     </Grid>
 </Window>

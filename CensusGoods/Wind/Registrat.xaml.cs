@@ -63,7 +63,7 @@ namespace CensusGoods.Wind
                  "Пароль:  " + passwtxt.Text + "\n", "Создать пользователя:", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    context.Company.Add(new Company()
+                    context.Company.Add(new EF.Company()
                     {
                         Login = logintxt.Text.ToString(),
                         Password = passwtxt.Text.ToString(),
@@ -75,7 +75,7 @@ namespace CensusGoods.Wind
                         //ContrQuesst
                         Answer = Anser.Text.ToString()
                     });
-                    context.Contacts.Add(new Contacts()
+                    context.Contacts.Add(new EF.Contacts()
                     {
                         NumberContactFace = numbertxt.Text.ToString(),
                         EmailContactFace = emailtxt.Text.ToString(),

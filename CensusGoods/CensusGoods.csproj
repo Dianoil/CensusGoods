@@ -71,76 +71,76 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="City.cs">
+    <Compile Include="EF\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="classi\DataUser.cs" />
     <Compile Include="classi\Enti.cs" />
     <Compile Include="classi\ValidationClass.cs" />
-    <Compile Include="Company.cs">
+    <Compile Include="EF\Company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contacts.cs">
+    <Compile Include="EF\Contacts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ControlQuestion.cs">
+    <Compile Include="EF\ControlQuestion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="EF\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="EF\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="EF\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="OrderInfo.cs">
+    <Compile Include="EF\OrderInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Ordery.cs">
+    <Compile Include="EF\Ordery.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
+    <Compile Include="EF\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductInfo.cs">
+    <Compile Include="EF\ProductInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sector.cs">
+    <Compile Include="EF\Sector.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SectorProduct.cs">
+    <Compile Include="EF\SectorProduct.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+    <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
+    <Compile Include="EF\sp_helpdiagrams_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Supply.cs">
+    <Compile Include="EF\Supply.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SupplyInfo.cs">
+    <Compile Include="EF\SupplyInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="EF\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypeMagazin.cs">
+    <Compile Include="EF\TypeMagazin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypePayment.cs">
+    <Compile Include="EF\TypePayment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Valute.cs">
+    <Compile Include="EF\Valute.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Wind\Autorization.xaml.cs">
@@ -170,15 +170,6 @@
     <Compile Include="Wind\Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wind\Report\ReportClient.xaml.cs">
-      <DependentUpon>ReportClient.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Wind\Report\ReportOrder.xaml.cs">
-      <DependentUpon>ReportOrder.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Wind\Report\ReportProduct.xaml.cs">
-      <DependentUpon>ReportProduct.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Wind\Support.xaml.cs">
       <DependentUpon>Support.xaml</DependentUpon>
     </Compile>
@@ -201,11 +192,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
+    <None Include="EF\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -254,18 +245,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Wind\Report\ReportClient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Wind\Report\ReportOrder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Wind\Report\ReportProduct.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Wind\Support.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,12 +264,13 @@
     <Resource Include="Image\client.png" />
     <Resource Include="Image\otchet.png" />
     <Resource Include="Image\tariff.png" />
-    <Content Include="Model1.Context.tt">
+    <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="EF\Model1.edmx.sql" />
+    <Content Include="EF\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>

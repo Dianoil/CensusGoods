@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ControlQuestion
+    public partial class Valute
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ControlQuestion()
+        public Valute()
         {
             this.Company = new HashSet<Company>();
         }

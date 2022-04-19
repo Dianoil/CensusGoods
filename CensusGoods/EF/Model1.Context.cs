@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CensusGoods
+namespace CensusGoods.EF
 {
     using System;
     using System.Data.Entity;

@@ -132,5 +132,12 @@ namespace CensusGoods.Wind
                 stackepanele.Visibility = Visibility.Hidden;
             }
         }
+
+        private void question_Click(object sender, RoutedEventArgs e)
+        {
+            Support support = new Support();
+            this.Close();
+            support.ShowDialog();
+        }
     }
 }
