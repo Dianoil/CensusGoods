@@ -6,7 +6,9 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Registrat" Height="1080" Width="1920">
+        Title="Registrat" Height="640" Width="1024"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -21,19 +23,44 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Census goods"/>
+        <Label Content="Census Goods"
+               FontSize="25"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Foreground="#4B8AFC" 
+               FontWeight="Bold"
+               Margin="55,0,81.2,76.6" Grid.RowSpan="2"
+               />
+        <Image Source="/Image/logo.png"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Width="51"
+               Height="50"
+               Margin="5,18,0,15.2"
+               />
+        <Image Source="/Image/lineemail.png"
+               Grid.ColumnSpan="5"
+               VerticalAlignment="Bottom" Height="1" Margin="0,0,-0.4,1.2"/>
+        <Button Content="X"
+                Grid.Column="4"
+                Foreground="#4B8AFC"
+                Background="{x:Null}"
+                FontSize="25"
+                x:Name="undo"
+                Click="undo_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0,0,4.6,1.2"
+                BorderBrush="{x:Null}" Width="18"
+                />
+
         <xctk:MaskedTextBox 
             FontSize="16"
             Grid.Column="1"
             Grid.Row="1"
+            Style="{StaticResource TextBoxMenu}"
             x:Name="numbertxt"
             Mask="+7 (000)000-00-00"
             />
@@ -44,79 +71,56 @@
                  Grid.Column="1"
                  x:Name="emailtxt"
                  GotFocus="emailtxt_GotFocus" 
-                 LostFocus="emailtxt_LostFocus"/>
-                
+                 LostFocus="emailtxt_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+
         <TextBox Text="Login"
-                 Grid.Row="3"
+                 Grid.Row="4"
                  Grid.Column="1"
                  FontSize="16"
                  x:Name="logintxt"
                  GotFocus="logintxt_GotFocus"
                  LostFocus="logintxt_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"
+                 />
+        <TextBox Text="ФИО"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 FontSize="16"
+                 x:Name="FIO"
+                 GotFocus="FIO_GotFocus"
+                 LostFocus="FIO_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"
                  />
         <TextBox Text="Password"
-                 Grid.Row="4"
+                 Grid.Row="5"
                  FontSize="16"
                  Grid.Column="1"
                  x:Name="passwtxt" 
                  GotFocus="passwtxt_GotFocus"
-                 LostFocus="passwtxt_LostFocus"/>
-                 <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
-        <Label Content="Валюта"
-               Grid.Row="5"
-               FontSize="16"/>
-        <ComboBox Grid.Row="5"
-                  FontSize="16"
-                  Grid.Column="1"
-                  x:Name="valutecb"/>
-        <Label Content="Тип магазина"
-               FontSize="16"
-               Grid.Row="6"/>
-        <ComboBox Grid.Row="6"
-                  FontSize="16"
-                  Grid.Column="1"
-                  x:Name="typemagascb"/>
-        <TextBox Text="Название компании"
-                 Grid.Row="7"
-                 FontSize="16"
-                 Grid.Column="1"
-                 x:Name="namecomptxt"
-                 GotFocus="namecomptxt_GotFocus"
-                 LostFocus="namecomptxt_LostFocus"
-                 />
-        <TextBox Text="ИНН"
-                 FontSize="16"
-                 Grid.Row="8"
-                 Grid.Column="1"
-                 GotFocus="inntxt_GotFocus" 
-                 LostFocus="inntxt_LostFocus"
-                 x:Name="inntxt"/>
-        <TextBox FontSize="16"
-                 Text="ОГРН"
-                 Grid.Row="9"
-                 Grid.Column="1"
-                 x:Name="ogrntxt"
-                 GotFocus="ogrntxt_GotFocus"
-                 LostFocus="ogrntxt_LostFocus"/>
-        <Label Content="Контрольный вопрос"
-               FontSize="16"
-               Grid.Row="10"/>
-        <ComboBox Grid.Row="10"
-                  FontSize="16"
-                  Grid.Column="1"
-                  x:Name="ContrQuesst"/>
-        <TextBox FontSize="16"
-                 Text="Ответ на вопрос"
-                 Grid.Row="11"
-                 Grid.Column="1"
-                 LostFocus="Anser_LostFocus"
-                 x:Name="Anser"
-                 GotFocus="Anser_GotFocus"/>
-        <Button Content="Регистрация"
-                FontSize="16"
+                 LostFocus="passwtxt_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+        <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
+
+        <Button Content="Назад"
                 Grid.Column="1"
-                Grid.Row="12"
+                Grid.Row="6"
+                FontSize="20"
+                x:Name="back"
+                VerticalContentAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Click="back_Click"
+                Style="{StaticResource ButtonAutor}" Margin="0,29.8,0.4,30.4" Width="100"/>
+
+        <Button Content="Регистрация"
+                Grid.Row="6"
+                FontSize="20"
                 x:Name="regist"
-                Click="regist_Click"/>
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"
+                VerticalAlignment="Center"
+                Click="regist_Click"
+                Style="{StaticResource ButtonAutor}" Grid.ColumnSpan="2" Margin="339,29.8,0,30.4" Width="220"/>
     </Grid>
 </Window>

@@ -161,9 +161,6 @@
     <Compile Include="Wind\Ordery.xaml.cs">
       <DependentUpon>Ordery.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wind\Product.xaml.cs">
-      <DependentUpon>Product.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Wind\Registrat.xaml.cs">
       <DependentUpon>Registrat.xaml</DependentUpon>
     </Compile>
@@ -230,10 +227,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wind\Ordery.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Wind\Product.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
