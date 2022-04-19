@@ -275,7 +275,6 @@
     <Resource Include="Image\but2.png" />
     <Resource Include="Image\butstart.png" />
     <Resource Include="Image\button1.png" />
-    <Resource Include="Image\client.png" />
     <Resource Include="Image\eye1.png" />
     <Resource Include="Image\inrest.png" />
     <Resource Include="Image\linelogin.png" />
@@ -283,6 +282,9 @@
     <Resource Include="Image\logo1.png" />
     <Resource Include="Image\Lineemail.png" />
     <Resource Include="Image\eye2.PNG" />
+    <Resource Include="Image\client.png" />
+    <Resource Include="Image\otchet.png" />
+    <Resource Include="Image\tariff.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -293,8 +295,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Image\otchet.png" />
-    <Resource Include="Image\tariff.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
