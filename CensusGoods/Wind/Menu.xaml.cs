@@ -24,46 +24,76 @@ namespace CensusGoods.Wind
             InitializeComponent();
         }
 
-        private void tehsupport_Click(object sender, RoutedEventArgs e)
+        //private void tehsupport_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void product_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void supply_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void order_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void debtnotebook_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void expencenotebook_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void reports_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Reports reports = new Reports();
+        //    this.Hide();
+        //    reports.ShowDialog();
+        //}
+
+        //private void titlecomp_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //информация о акке
+        //}
+
+        //private void OtchetBut_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        private void tariff_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void product_Click(object sender, RoutedEventArgs e)
+        private void client_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void supply_Click(object sender, RoutedEventArgs e)
+        private void useracc_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void order_Click(object sender, RoutedEventArgs e)
+        private void OtchetBut_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void debtnotebook_Click(object sender, RoutedEventArgs e)
+        private void undo_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void expencenotebook_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void reports_Click(object sender, RoutedEventArgs e)
-        {
-            Reports reports = new Reports();
-            this.Hide();
-            reports.ShowDialog();
-        }
-
-        private void titlecomp_Click(object sender, RoutedEventArgs e)
-        {
-            //информация о акке
         }
     }
 }

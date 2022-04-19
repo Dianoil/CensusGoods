@@ -13,41 +13,22 @@ FioContastFace nvarchar(100),
 NumberContactFace nvarchar(11),
 EmailContactFace nvarchar(100)
 )
-
-create table ControlQuestion
-(
-Id int identity primary key,
-Name nvarchar(50) not null
-)
-
-insert into ControlQuestion
-values
-('Девичья фамилия матери'),
-('Кличка домашнего животного'),
-('Номер школы'),
-('Имя отца')
-
-create table TypeCompany
-(
-Id int identity primary key,
-Name nvarchar(50) not null
-)
-insert into TypeCompany
-values
-('Розничный'),
-('Оптовый')
-
 create table Valute
 (
 Id int identity primary key,
-Name nvarchar(50) not null
+Name nvarchar(100) not null
 )
-insert into Valute
-values
-('RUB'),
-('KZH'),
-('YUAN'),
-('BYN')
+create table ControlQuestion
+(
+Id int identity primary key,
+Name nvarchar(100) not null
+)
+create table TypeMagazin
+(
+Id int identity primary key,
+Name nvarchar(100)
+)
+
 create table Company
 (
 Id int identity primary key,
@@ -56,16 +37,17 @@ Inn nvarchar(12) not null,
 Ogrn nvarchar(13) not null,
 City int not null,
 Contacts int not null,
-Email nvarchar(100) not null,
+Login nvarchar(100) not null,
 Password nvarchar(100) not null,
-IdTypeCompany int not null,
-IdValute int not null,
-IdControlQuestion int not null,
-foreign key (IdTypeCompany) references TypeCompany(Id),
-foreign key (IdValute) references Valute(Id),
-foreign key (IdControlQuestion) references ControlQuestion(Id),
+Valute int,
+ControlQuestion int,
+Answer nvarchar(100),
+TypeMagazin int,
 foreign key (City) references City(Id),
-foreign key (Contacts) references Contacts(Id)
+foreign key (Contacts) references Contacts(Id),
+foreign key (Valute) references Valute(Id),
+foreign key (ControlQuestion) references ControlQuestion(Id),
+foreign key (TypeMagazin) references TypeMagazin(Id)
 )
 create table Product
 (
@@ -73,7 +55,7 @@ Id int identity primary key,
 Name nvarchar(100) not null,
 Price decimal not null default 0,
 Comment nvarchar(200),
-Image nvarchar(50)
+Image nvarchar(100)
 )
 create table Supply
 (
@@ -112,10 +94,6 @@ create table TypePayment
 Id int identity primary key,
 Name nvarchar(50)
 )
-insert into TypePayment
-values
-('Оплачено'),
-('В долг')
 create table Ordery
 (
 Id int identity primary key,
@@ -123,7 +101,7 @@ IdSector int not null,
 TypePayment int not null,
 OrdDate datetime not null,
 foreign key (IdSector) references Sector(Id),
-foreign key (TypePayment) references TypePayment(Id),
+foreign key (TypePayment) references TypePayment(Id)
 )
 create table ProductInfo
 (

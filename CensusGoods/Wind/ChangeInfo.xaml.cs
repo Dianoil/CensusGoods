@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.classi.Enti;
 using static CensusGoods.classi.ValidationClass;
+using static CensusGoods.classi.DataUser;
 namespace CensusGoods.Wind
 {
     /// <summary>
@@ -42,10 +43,9 @@ namespace CensusGoods.Wind
                 Company user = context.Company
                 .ToList().Where(i => i.Password == PasswSP.Text)
                     .FirstOrDefault();
-
                 if (user != null)
                 {
-                    if (ValidateFIO(FIOcontfaceCI.Text) == true)
+                    if (ValidateFIO(FIOcontfaceCI.Text) ==  true)
                     {
                         if (FIOcontfaceCI != null)
                         {
@@ -60,7 +60,7 @@ namespace CensusGoods.Wind
                         context.Contacts.Add(new Contacts()
                         {
                             NumberContactFace = NubCI.Text.ToString()
-                        });
+                           });
                     }
                     if (ValidateEmail(EmailCI.Text) != false)
                     {
@@ -72,19 +72,11 @@ namespace CensusGoods.Wind
                             });
                         }
                     }
-                    if (ValidateEmail(EmailCI.Text) == false)
-                    {
-                        if (EmailCI != null)
-                        {
-                            MessageBox.Show("Ввели неверную почту");
-                        }
-
-                    }
                     if (loginCI != null)
                     {
                         context.Company.Add(new Company()
                         {
-                            Email = EmailCI.Text.ToString()
+                            Login = EmailCI.Text.ToString()
                         });
                     }
                     if (ValidatePassw(PassqCI.Text) == true)
@@ -99,17 +91,12 @@ namespace CensusGoods.Wind
                     }
                     if (ContrQuestion != null)
                     {
-                        context.Contacts.Add(new Contacts()
+                        context.Company.Add(new Company()
                         {
                             Answer = ContrQuestion.Text.ToString()
                         });
                     }
-                    
-                    //classi.DataUser.Company = user;
                     context.SaveChanges();
-                    Menu menu = new Menu();
-                    this.Hide();
-                    menu.ShowDialog();
                 }
                 else
                 {
@@ -121,5 +108,103 @@ namespace CensusGoods.Wind
                 MessageBox.Show(ex.Message);
             }
         }
+        private void FIOcontfaceCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (FIOcontfaceCI.Text == "")
+            {
+                FIOcontfaceCI.Text = "ФИО контактного номера";
+            }
+        }
+
+        private void EmailCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailCI.Text == "")
+            {
+                EmailCI.Text = "Email";
+            }
+        }
+
+        private void loginCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (loginCI.Text == "")
+            {
+                loginCI.Text = "Login";
+            }
+
+        }
+
+        private void PassqCI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "")
+            {
+                PassqCI.Text = "Password";
+            }
+
+        }
+
+        private void ContrQuestion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ContrQuestion.Text == "")
+            {
+                ContrQuestion.Text = "Ответ на вопрос";
+            }
+        }
+        private void FIOcontfaceCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (FIOcontfaceCI.Text == "ФИО контактного номера")
+            {
+                FIOcontfaceCI.Text = "";
+            }
+        }
+
+        private void EmailCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailCI.Text == "Email")
+            {
+                EmailCI.Text = "";
+            }
+        }
+
+        private void loginCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (loginCI.Text == "Login")
+            {
+                loginCI.Text = "";
+            }
+        }
+
+        private void PassqCI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassqCI.Text == "Password")
+            {
+                PassqCI.Text = "";
+            }
+        }
+
+        private void ContrQuestion_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (ContrQuestion.Text == "Ответ на вопрос")
+            {
+                ContrQuestion.Text = "";
+            }
+        }       
     }
 }
+/*context.Company.Add(new Company()
+{
+    //Login = txtLogin.Text.ToString(),
+    //Password = pswPassword.Password.ToString(),
+    //Surname = txtSname.Text.ToString(),
+    //Name = txtName.Text.ToString(),
+
+});
+context.SaveChanges();
+
+classi.DataUser.Company = user;
+context.SaveChanges();
+Menu menu = new Menu();
+this.Hide();
+menu.ShowDialog();
+
+ */
+

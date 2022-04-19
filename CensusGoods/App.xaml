@@ -4,6 +4,41 @@
              xmlns:local="clr-namespace:CensusGoods"
              StartupUri="Wind/Autorization.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="Button" x:Key="ButtonStateMenu">
+            <Setter Property="Background" Value="#4B8AFC"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonAutor">
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Background" Value="#E3E3E3"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="TextBoxMenu">
+            <Setter Property="FontFamily" Value="Baskerville,Georgia"/>
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="SelectionBrush" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+        </Style>
     </Application.Resources>
 </Application>

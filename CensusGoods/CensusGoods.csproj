@@ -119,6 +119,12 @@
     <Compile Include="SectorProduct.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Supply.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,7 +134,13 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TypeMagazin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TypePayment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Valute.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Wind\Autorization.xaml.cs">
@@ -260,6 +272,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\but2.png" />
+    <Resource Include="Image\butstart.png" />
+    <Resource Include="Image\button1.png" />
+    <Resource Include="Image\client.png" />
+    <Resource Include="Image\eye1.png" />
+    <Resource Include="Image\inrest.png" />
+    <Resource Include="Image\linelogin.png" />
+    <Resource Include="Image\logo.png" />
+    <Resource Include="Image\logo1.png" />
+    <Resource Include="Image\Lineemail.png" />
+    <Resource Include="Image\eye2.PNG" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -270,6 +293,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\otchet.png" />
+    <Resource Include="Image\tariff.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
