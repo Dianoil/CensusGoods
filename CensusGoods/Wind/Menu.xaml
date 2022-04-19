@@ -19,22 +19,42 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="161*"/>
-            <RowDefinition Height="122*"/>
-            <RowDefinition Height="122*"/>
-            <RowDefinition Height="122*"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Background="White"
                 Grid.ColumnSpan="5" Margin="0,0,-0.4,1.2"
                 />
+        <Frame 
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Margin="10,15,10,5"
+            Grid.RowSpan="4"
+            Background="White"
+            x:Name="FrameMenu"/>
+        <Button 
+                Content="Тут название акка"
+                Background="{x:Null}"
+                FontSize="25"
+                Grid.Column="3"
+                x:Name="useracc"
+                Click="useracc_Click"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="{x:Null}" 
+                FontWeight="Bold" 
+                Grid.ColumnSpan="2">
+        </Button>
         <Label Content="Census Goods"
                FontSize="25"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Foreground="#4B8AFC" 
                FontWeight="Bold"
-               Margin="55,0,180,0.2" Grid.ColumnSpan="2"
+               Margin="55,0,149,0.2"
+               Grid.ColumnSpan="2"
                />
         <Image Source="/Image/logo.png"
                HorizontalAlignment="Left"
@@ -54,66 +74,51 @@
                 x:Name="undo"
                 Click="undo_Click"
                 HorizontalAlignment="Right"
+                VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 Margin="0,0,4.6,1.2"
                 BorderBrush="{x:Null}" Width="18"
                 />
-        <Button 
+        <Grid Grid.Row="1">
+            <Button 
                 Background="{x:Null}"
-                FontSize="25"
-                Grid.Row="3"
                 x:Name="OtchetBut"
-                Margin="5,0,5,0"
+                Margin="5,-125,5,0"
                 Click="OtchetBut_Click"
                 HorizontalAlignment="Right"
+                VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 BorderBrush="{x:Null}">
-            <Image  Source="/Image/otchet.png"/>
-        </Button>
-        <Button 
+                <Image  Source="/Image/otchet.png"/>
+            </Button>
+            <Button 
                 Background="{x:Null}"
-                FontSize="25"
-                Grid.Row="2"
                 x:Name="tariff"
                 Click="tariff_Click"
-                Margin="5,0,5,0"
+                Margin="5,-250,5,0"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
+                VerticalAlignment="Center"
                 BorderBrush="{x:Null}">
-            <Image  Source="/Image/tariff.png"/>
-        </Button>
-        <Button 
+                <Image  Source="/Image/tariff.png"/>
+            </Button>
+            <Button 
                 Background="{x:Null}"
-                FontSize="25"
-                Grid.Row="1"
                 x:Name="client"
                 Click="client_Click"
-                Margin="5,0,5,0"
+                Margin="5,-400,5,0"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
+                VerticalAlignment="Center"
                 BorderBrush="{x:Null}">
-            <Image  Source="/Image/client.png"/>
-        </Button>
-        <Button 
-                Content="Тут название акка"
-                Background="{x:Null}"
-                FontSize="25"
-                Grid.Column="3"
-                x:Name="useracc"
-                Click="useracc_Click"
-                Margin="0,0,27.6,0.2"
-                HorizontalAlignment="Right"
-                VerticalContentAlignment="Center"
-                BorderBrush="{x:Null}" FontWeight="Bold" Grid.ColumnSpan="2" Width="374">
-        </Button>
-        <DataGrid Grid.Row="1"
-                  Grid.Column="1"
-                  Grid.ColumnSpan="4"
-                  Margin="0,42.8,27.6,27.4"
-                  Grid.RowSpan="4"/>
+                <Image  Source="/Image/client.png"
+                    />
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
 
-
-        <!--<Label Content="Census goods"/>
+<!--<Label Content="Census goods"/>
         <Button x:Name="tehsupport"
                 Content="Тех. поддержка"
                 Grid.Column="1"
@@ -146,6 +151,3 @@
                 Grid.Column="3"
                 x:Name="titlecomp"
                 Click="titlecomp_Click"/>-->
-
-    </Grid>
-</Window>
