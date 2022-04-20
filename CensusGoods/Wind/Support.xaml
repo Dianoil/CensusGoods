@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Support" Height="640" Width="1024"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
         ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -85,8 +86,7 @@
                   FontSize="18"
                   VerticalAlignment="Center"
                   Height="40"
-                  Margin="50, 0"
-                  IsEditable="True"/>
+                  Margin="50, 0"/>
 
         <TextBlock Text="Email для обратной связи"
                    Grid.Column="0"

@@ -83,7 +83,10 @@ namespace CensusGoods.Wind
 
         private void useracc_Click(object sender, RoutedEventArgs e)
         {
-
+            (sender as Button).ContextMenu.IsEnabled = true;
+            (sender as Button).ContextMenu.PlacementTarget = (sender as Button);
+            (sender as Button).ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+            (sender as Button).ContextMenu.IsOpen = true;
         }
 
         private void OtchetBut_Click(object sender, RoutedEventArgs e)
@@ -97,6 +100,48 @@ namespace CensusGoods.Wind
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void Monitoring_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Employers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Car_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Supply_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExitProdile_Click(object sender, RoutedEventArgs e)
+        {
+            Autorization auth = new Autorization();
+            this.Close();
+            auth.ShowDialog();
+
+        }
+
+        private void Lk_Click(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.IsEnabled = false;
+            Registrat registrat = new Registrat();
+            registrat.ShowDialog();
+
         }
     }
 }

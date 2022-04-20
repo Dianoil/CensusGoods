@@ -6,69 +6,67 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Registrat" Height="640" Width="1024"
+        Title="Registrat" Height="640" Width="512"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#E4E4E4">
+    <Grid Margin="10" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="114*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="91*"/>
         </Grid.RowDefinitions>
         <Label Content="Census Goods"
                FontSize="25"
                HorizontalContentAlignment="Center"
+               HorizontalAlignment="Left"
+               Margin="5"
                VerticalContentAlignment="Center"
                Foreground="#4B8AFC" 
-               FontWeight="Bold"
-               Margin="55,0,81.2,76.6" Grid.RowSpan="2"
+               FontWeight="Bold" Width="270"
                />
         <Image Source="/Image/logo.png"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"
                Width="51"
-               Height="50"
-               Margin="5,18,0,15.2"
+               Height="50" Margin="5"
                />
         <Image Source="/Image/lineemail.png"
-               Grid.ColumnSpan="5"
-               VerticalAlignment="Bottom" Height="1" Margin="0,0,-0.4,1.2"/>
+               VerticalAlignment="Bottom" 
+                />
         <Button Content="X"
-                Grid.Column="4"
                 Foreground="#4B8AFC"
                 Background="{x:Null}"
                 FontSize="25"
                 x:Name="undo"
                 Click="undo_Click"
                 HorizontalAlignment="Right"
+                HorizontalContentAlignment="Center"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
-                Margin="0,0,4.6,1.2"
-                BorderBrush="{x:Null}" Width="18"
+                Margin="5"
+                BorderBrush="{x:Null}" 
+                
                 />
 
         <xctk:MaskedTextBox 
-            FontSize="16"
-            Grid.Column="1"
+            FontSize="22"
+            HorizontalAlignment="Center"
             Grid.Row="1"
             Style="{StaticResource TextBoxMenu}"
             x:Name="numbertxt"
-            Mask="+7 (000)000-00-00"
+            Mask="+7 (000)000-00-00" 
             />
 
         <TextBox Text="Email"
-                 FontSize="16"
+                 FontSize="22"
                  Grid.Row="2"
-                 Grid.Column="1"
+                 HorizontalAlignment="Center"
                  x:Name="emailtxt"
                  GotFocus="emailtxt_GotFocus" 
                  LostFocus="emailtxt_LostFocus"
@@ -76,26 +74,24 @@
 
         <TextBox Text="Login"
                  Grid.Row="4"
-                 Grid.Column="1"
-                 FontSize="16"
+                 FontSize="22"
+                 HorizontalAlignment="Center"
                  x:Name="logintxt"
                  GotFocus="logintxt_GotFocus"
                  LostFocus="logintxt_LostFocus"
-                 Style="{StaticResource TextBoxMenu}"
-                 />
+                 Style="{StaticResource TextBoxMenu}"/>
         <TextBox Text="ФИО"
                  Grid.Row="3"
-                 Grid.Column="1"
-                 FontSize="16"
+                 FontSize="22"
                  x:Name="FIO"
+                 HorizontalAlignment="Center"
                  GotFocus="FIO_GotFocus"
                  LostFocus="FIO_LostFocus"
-                 Style="{StaticResource TextBoxMenu}"
-                 />
+                 Style="{StaticResource TextBoxMenu}"/>
         <TextBox Text="Password"
                  Grid.Row="5"
-                 FontSize="16"
-                 Grid.Column="1"
+                 FontSize="22"
+                 HorizontalAlignment="Center"
                  x:Name="passwtxt" 
                  GotFocus="passwtxt_GotFocus"
                  LostFocus="passwtxt_LostFocus"
@@ -103,24 +99,25 @@
         <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
 
         <Button Content="Назад"
-                Grid.Column="1"
                 Grid.Row="6"
-                FontSize="20"
+                FontSize="22"
                 x:Name="back"
                 VerticalContentAlignment="Center"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
                 Click="back_Click"
-                Style="{StaticResource ButtonAutor}" Margin="0,29.8,0.4,30.4" Width="100"/>
+                Style="{StaticResource ButtonAutor}"
+                Margin="0,30,66,30" Width="123"/>
 
         <Button Content="Регистрация"
                 Grid.Row="6"
-                FontSize="20"
+                FontSize="22"
                 x:Name="regist"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center"
                 VerticalAlignment="Center"
                 Click="regist_Click"
-                Style="{StaticResource ButtonAutor}" Grid.ColumnSpan="2" Margin="339,29.8,0,30.4" Width="220"/>
+                Style="{StaticResource ButtonAutor}"
+                Margin="100,30,0,30" Width="178"/>
     </Grid>
 </Window>
