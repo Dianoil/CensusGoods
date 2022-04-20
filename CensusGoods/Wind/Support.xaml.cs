@@ -19,9 +19,9 @@ namespace CensusGoods.Wind
     /// </summary>
     public partial class Support : Window
     {
-        List<string> GoalOfRequestList = new List<string>() { "Выберите цель обращения", "Цель 1", "Цель 2", "Цель 3" };
+        List<string> GoalOfRequestList = new List<string>() { "Выберите цель обращения", "Забыл логин", "Забыл пароль", "Другая причина" };
 
-        public Support()
+        public Support() 
         {
             InitializeComponent();
             InitializeComponent();
