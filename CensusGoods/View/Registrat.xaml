@@ -6,20 +6,16 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
-        Title="Registrat" Height="640" Width="512"
+        Title="Registrat"  Height="640" Width="512"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="#E4E4E4">
     <Grid Margin="10" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="114*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="91*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <Label Content="Census Goods"
                FontSize="25"
@@ -50,74 +46,95 @@
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 Margin="5"
-                BorderBrush="{x:Null}" 
-                
+                BorderBrush="{x:Null}"                
                 />
-
-        <xctk:MaskedTextBox 
+        <Button                 
+                FontSize="22"
+                x:Name="back"
+                Width="25"
+                Height="25"
+                Style="{StaticResource ButtonAutor}"
+                Background="{x:Null}"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Right"
+                Margin="0 0 35 0"
+                BorderBrush="{x:Null}"
+                HorizontalContentAlignment="Center"
+                Click="back_Click">
+            <Image Source="/Image/home.png"/>
+        </Button>
+        <StackPanel Grid.Row="1"
+                    Margin="10">
+            <xctk:MaskedTextBox 
             FontSize="22"
-            HorizontalAlignment="Center"
-            Grid.Row="1"
+            HorizontalContentAlignment="Center"
+            Margin="15"
             Style="{StaticResource TextBoxMenu}"
             x:Name="numbertxt"
             Mask="+7 (000)000-00-00" 
             />
 
-        <TextBox Text="Email"
+            <TextBox Text="Электронная почта"
                  FontSize="22"
-                 Grid.Row="2"
-                 HorizontalAlignment="Center"
+                 HorizontalContentAlignment="Center"
                  x:Name="emailtxt"
                  GotFocus="emailtxt_GotFocus" 
                  LostFocus="emailtxt_LostFocus"
+                 Margin="15"
                  Style="{StaticResource TextBoxMenu}"/>
 
-        <TextBox Text="Login"
-                 Grid.Row="4"
+            <TextBox Text="Логин"
+                 Margin="15"
                  FontSize="22"
-                 HorizontalAlignment="Center"
+                 HorizontalContentAlignment="Center"
                  x:Name="logintxt"
                  GotFocus="logintxt_GotFocus"
                  LostFocus="logintxt_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-        <TextBox Text="ФИО"
-                 Grid.Row="3"
+            <TextBox Text="Пароль"
+                 Margin="15"
                  FontSize="22"
-                 x:Name="FIO"
-                 HorizontalAlignment="Center"
-                 GotFocus="FIO_GotFocus"
-                 LostFocus="FIO_LostFocus"
-                 Style="{StaticResource TextBoxMenu}"/>
-        <TextBox Text="Password"
-                 Grid.Row="5"
-                 FontSize="22"
-                 HorizontalAlignment="Center"
+                 HorizontalContentAlignment="Center"
                  x:Name="passwtxt" 
                  GotFocus="passwtxt_GotFocus"
                  LostFocus="passwtxt_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-        <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
-
-        <Button Content="Назад"
-                Grid.Row="6"
+            <!--При наведении мыши показать пример написания пароля (от 8 символов, минимум одна: заглавная, строчная, знак). Возможна замена на passwordbox-->
+            <TextBox Text="ФИО"
+                 Margin="15"
+                 FontSize="22"
+                 x:Name="FIO"
+                 HorizontalContentAlignment="Center"
+                 GotFocus="FIO_GotFocus"
+                 LostFocus="FIO_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox Text="Город"
+                 Margin="25"
+                 FontSize="22"
+                 x:Name="City"
+                 HorizontalContentAlignment="Center"
+                 GotFocus="City_GotFocus"
+                 LostFocus="City_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+        </StackPanel>
+        <Image Source="/Image/linelogin.png" Grid.Row="2"
+               VerticalAlignment="Top"/>
+        <Button 
+                Grid.Row="2"
                 FontSize="22"
-                x:Name="back"
+                x:Name="NextStage"
+                Width="25"
+                Height="25"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Center"
                 VerticalContentAlignment="Center"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Click="back_Click"
+                Click="NextStage_Click"
+                BorderBrush="{x:Null}"
+                Background="{x:Null}"
                 Style="{StaticResource ButtonAutor}"
-                Margin="0,30,66,30" Width="123"/>
+                >
+            <Image Source="/Image/arrow.png"/>
+        </Button>
 
-        <Button Content="Регистрация"
-                Grid.Row="6"
-                FontSize="22"
-                x:Name="regist"
-                HorizontalAlignment="Left"
-                VerticalContentAlignment="Center"
-                VerticalAlignment="Center"
-                Click="regist_Click"
-                Style="{StaticResource ButtonAutor}"
-                Margin="100,30,0,30" Width="178"/>
     </Grid>
 </Window>
