@@ -1,0 +1,60 @@
+﻿<Page x:Class="CensusGoods.Page.PageUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CensusGoods.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUser">
+    <!--Loaded="LoadGrid"-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <GroupBox x:Name="GR_BOX" HorizontalAlignment="Left" Width="auto" Margin="0,10,0,0">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Поиск " VerticalAlignment="Center"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <StackPanel x:Name="FamSearch" Orientation="Horizontal" HorizontalAlignment="Left" Margin="50,0,0,0" Width="200">
+                            <Label Content="Название тарифа  " Width="61"/>
+                            <xctk:WatermarkTextBox FontSize="16" x:Name="Name1" Width="140"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                        <Button Content=" Найти " Click="Search" Width="60" Margin="10"/>
+                        <Button Content=" Сброс " Click="ResetSearch" Width="60" Margin="10"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox>
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text=" Список " VerticalAlignment="Center"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <DataGrid x:Name="GridMain" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="NameTariff" Header="Название тарифа" Binding="{Binding Path=Groups.Name, Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="DateStart" Header="Дата начала" Binding="{Binding Path=YearOfBirth, Mode=TwoWay,
+                            StringFormat={} {0:dd.MM.yyyy 00.00.00},
+                            UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="DateEnd" Header="Дата конца" Binding="{Binding Path=YearOfBirth, Mode=TwoWay,
+                            StringFormat={} {0:dd.MM.yyyy 00.00.00},
+                            UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="Cost" Header="Цена по тарифу" Binding="{Binding Path=Name3, Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Page>
