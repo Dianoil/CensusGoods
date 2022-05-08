@@ -4,39 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1fd35f186e94441398eeea4180a8fe25" Name="Diagram1">
-        <EntityTypeShape EntityType="CensusGoodsModel.City" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Company" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Contacts" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.ControlQuestion" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.OrderInfo" Width="1.5" PointX="10.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Ordery" Width="1.5" PointX="8" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Product" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.ProductInfo" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Sector" Width="1.5" PointX="5.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.SectorProduct" Width="1.5" PointX="10" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Supply" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.SupplyInfo" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.TypeMagazin" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.TypePayment" Width="1.5" PointX="5.75" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Valute" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__City__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__Contact__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__Control__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__TypeMag__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__Valute__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__ProductIn__IdCom__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Supply__IdCompan__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__OrderInfo__IdOrd__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__OrderInfo__IdPro__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Ordery__IdSector__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Ordery__TypePaym__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__ProductIn__IdPro__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__SectorPro__IdPro__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__SupplyInf__IdPro__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__SectorPro__IdSec__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__SupplyInf__IdSup__3B75D760" ManuallyRouted="false" />
+      <Diagram DiagramId="2e300fb935ae4f2492bbc85c2b183303" Name="Diagram1">
+        <EntityTypeShape EntityType="CensusGoodsModel.City" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Company" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Container" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.InfoContainer" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Product" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Receipt" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Role" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Sector" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Tariff" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CensusGoodsModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Company__contact__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Company__contact__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idCompa__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Container__idSec__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idCon__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__infoCon__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idPro__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idTarif__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="CensusGoodsModel.FK__User__idRole__286302EC" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -17,18 +17,14 @@ namespace CensusGoods.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sector()
         {
-            this.Ordery = new HashSet<Ordery>();
-            this.SectorProduct = new HashSet<SectorProduct>();
+            this.Container = new HashSet<Container>();
         }
     
-        public int Id { get; set; }
-        public int CellSector { get; set; }
-        public int RangeSector { get; set; }
-        public string NameSector { get; set; }
+        public int id { get; set; }
+        public int cellSector { get; set; }
+        public string nameSector { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ordery> Ordery { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SectorProduct> SectorProduct { get; set; }
+        public virtual ICollection<Container> Container { get; set; }
     }
 }

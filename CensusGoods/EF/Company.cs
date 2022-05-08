@@ -17,31 +17,21 @@ namespace CensusGoods.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Company()
         {
-            this.ProductInfo = new HashSet<ProductInfo>();
-            this.Supply = new HashSet<Supply>();
+            this.Receipt = new HashSet<Receipt>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Inn { get; set; }
-        public string Ogrn { get; set; }
-        public int City { get; set; }
-        public int Contacts { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> Valute { get; set; }
-        public Nullable<int> ControlQuestion { get; set; }
-        public string Answer { get; set; }
-        public Nullable<int> TypeMagazin { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string inn { get; set; }
+        public string ogrn { get; set; }
+        public string registrNum { get; set; }
+        public string discount { get; set; }
+        public int city { get; set; }
+        public int contacts { get; set; }
     
         public virtual City City1 { get; set; }
-        public virtual Contacts Contacts1 { get; set; }
-        public virtual ControlQuestion ControlQuestion1 { get; set; }
-        public virtual TypeMagazin TypeMagazin1 { get; set; }
-        public virtual Valute Valute1 { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductInfo> ProductInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supply> Supply { get; set; }
+        public virtual ICollection<Receipt> Receipt { get; set; }
     }
 }

@@ -17,25 +17,15 @@ namespace CensusGoods.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.OrderInfo = new HashSet<OrderInfo>();
-            this.ProductInfo = new HashSet<ProductInfo>();
-            this.SectorProduct = new HashSet<SectorProduct>();
-            this.SupplyInfo = new HashSet<SupplyInfo>();
+            this.InfoContainer = new HashSet<InfoContainer>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Comment { get; set; }
-        public string Image { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+        public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderInfo> OrderInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductInfo> ProductInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SectorProduct> SectorProduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SupplyInfo> SupplyInfo { get; set; }
+        public virtual ICollection<InfoContainer> InfoContainer { get; set; }
     }
 }

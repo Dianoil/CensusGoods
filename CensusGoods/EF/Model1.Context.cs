@@ -15,10 +15,10 @@ namespace CensusGoods.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class CensusGoodsEntities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public CensusGoodsEntities1()
+            : base("name=CensusGoodsEntities1")
         {
         }
     
@@ -29,20 +29,15 @@ namespace CensusGoods.EF
     
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<Contacts> Contacts { get; set; }
-        public virtual DbSet<ControlQuestion> ControlQuestion { get; set; }
-        public virtual DbSet<OrderInfo> OrderInfo { get; set; }
-        public virtual DbSet<Ordery> Ordery { get; set; }
+        public virtual DbSet<Container> Container { get; set; }
+        public virtual DbSet<InfoContainer> InfoContainer { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductInfo> ProductInfo { get; set; }
+        public virtual DbSet<Receipt> Receipt { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Sector> Sector { get; set; }
-        public virtual DbSet<SectorProduct> SectorProduct { get; set; }
-        public virtual DbSet<Supply> Supply { get; set; }
-        public virtual DbSet<SupplyInfo> SupplyInfo { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<TypeMagazin> TypeMagazin { get; set; }
-        public virtual DbSet<TypePayment> TypePayment { get; set; }
-        public virtual DbSet<Valute> Valute { get; set; }
+        public virtual DbSet<Tariff> Tariff { get; set; }
+        public virtual DbSet<User> User { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

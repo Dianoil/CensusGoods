@@ -1,0 +1,290 @@
+﻿<Window x:Class="CensusGoods.Wind.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CensusGoods.Wind"
+        mc:Ignorable="d"
+        Title="Menu" Height="640" Width="1024"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        MinHeight="640"
+        MinWidth="1024"
+        Background="#E3E3E3"
+        Icon="/Image/logo2.png"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="360*"/>
+            <ColumnDefinition Width="202*"/>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="203*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="White"
+                Grid.ColumnSpan="5"
+                />
+        <Frame 
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Margin=" 10 15 10 10"
+            Background="White"
+            x:Name="FrameMenu"/>
+        <Button 
+                Content="Тут название акка"
+                Background="{x:Null}"
+                FontSize="20"
+                Grid.Column="3"
+                x:Name="useracc"
+                Click="useracc_Click"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="{x:Null}" 
+                FontWeight="Bold" 
+                Grid.ColumnSpan="2" Height="37"
+                Width="224">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Выйти" 
+                              x:Name="ExitProdile" 
+                              Click="ExitProdile_Click"
+                              />
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+        <Label Content="Census Goods"
+               FontSize="25"
+               HorizontalContentAlignment="Left"
+               Margin="10"
+               VerticalContentAlignment="Center"
+               Foreground="#4B8AFC" 
+               FontWeight="Bold"
+               Grid.Column="1"
+               />
+        <Image Source="/Image/logo.png"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Width="51"
+               Height="50"
+               />
+        <Image Source="/Image/lineemail.png"
+               Grid.ColumnSpan="4"
+               VerticalAlignment="Bottom"/>
+        <Button Content="X"
+                Grid.Column="4"
+                Foreground="#4B8AFC"
+                Background="{x:Null}"
+                FontSize="25"
+                x:Name="undo"
+                Margin="0 0 10 0"
+                Click="undo_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="{x:Null}" Width="18" Height="36"
+                />
+        
+        <Grid Grid.Row="1">
+            <!--Функции админа-->
+            <StackPanel x:Name="FunctionAdmin"
+                        Visibility="Hidden">
+                <Button 
+                Background="{x:Null}"
+                x:Name="lk"
+                Click="Lk_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/client.png"
+                    />
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление рук. лица"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="tariffAdd"
+                Click="tariffAdd_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/tariff.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление тарифа"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+            </StackPanel>
+            
+            <!--Функции директора склада-->
+            <StackPanel x:Name="FunctionMainGoods"
+                        Visibility="Hidden">
+                <Button 
+                Background="{x:Null}"
+                x:Name="companyAdd"
+                Click="companyAdd_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/employers.png"
+                    />
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавить компанию"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="watchCompanyInfo"
+                Click="watchCompanyInfo_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/tariff.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Тарифы"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+
+            <!--Функции директора компании-->
+            <StackPanel x:Name="FunctionMainCompany"
+                        Visibility="Hidden">
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="watchReceipt"
+                Click="watchReceipt_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/tariff.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Итоговый чек"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button 
+                Background="{x:Null}"
+                x:Name="monitoringUser"
+                Click="monitoringUser_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Мониторинг работников"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image  Source="/Image/client.png"/>
+                </Button>
+                <Button 
+                Background="{x:Null}"
+                x:Name="monitoringContainer"
+                Click="monitoringContainer_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Мониторинг продуктов"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image  Source="/Image/monitoring.png"/>
+                </Button>
+                <Button 
+                Background="{x:Null}"
+                x:Name="AddUser"
+                Click="AddUser_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление работников"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image  Source="/Image/employers.png"/>
+                </Button>
+                <Button 
+                Background="{x:Null}"
+                x:Name="AddProduct"
+                Click="AddProduct_Click"
+                Margin="10"
+                Width="35"
+                Height="35"
+                BorderBrush="{x:Null}">
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление продуктов"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image  Source="/Image/product.png"/>
+                </Button>
+            </StackPanel>
+
+            <!--Функции работника-->
+            <StackPanel x:Name="FuntionEmployee"
+                        Visibility="Hidden">
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="AddInfoContainer"
+                Click="AddInfoContainer_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/basket.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление информации о контейнере"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+
+
+        </Grid>
+    </Grid>
+</Window>

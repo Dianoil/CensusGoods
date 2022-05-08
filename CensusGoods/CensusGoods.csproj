@@ -71,19 +71,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\DataUser.cs" />
+    <Compile Include="Class\Enti.cs" />
+    <Compile Include="Class\ValidationClass.cs" />
     <Compile Include="EF\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="classi\DataUser.cs" />
-    <Compile Include="classi\Enti.cs" />
-    <Compile Include="classi\ValidationClass.cs" />
     <Compile Include="EF\Company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Contacts.cs">
+    <Compile Include="EF\Container.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\ControlQuestion.cs">
+    <Compile Include="EF\InfoContainer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Model1.Context.cs">
@@ -101,22 +101,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EF\OrderInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Ordery.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\ProductInfo.cs">
+    <Compile Include="EF\Receipt.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Sector.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\SectorProduct.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
@@ -125,64 +119,25 @@
     <Compile Include="EF\sp_helpdiagrams_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Supply.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\SupplyInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\TypeMagazin.cs">
+    <Compile Include="EF\Tariff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\TypePayment.cs">
+    <Compile Include="EF\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Valute.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Windows\AddInfo.xaml.cs">
+      <DependentUpon>AddInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\PageCar.xaml.cs">
-      <DependentUpon>PageCar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page\PageClientCompany.xaml.cs">
-      <DependentUpon>PageClientCompany.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page\PageMonitoring.xaml.cs">
-      <DependentUpon>PageMonitoring.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page\PageReports.xaml.cs">
-      <DependentUpon>PageReports.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page\PageTariff.xaml.cs">
-      <DependentUpon>PageTariff.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page\PageUser.xaml.cs">
-      <DependentUpon>PageUser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddCar.xaml.cs">
-      <DependentUpon>AddCar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddCompany.xaml.cs">
-      <DependentUpon>AddCompany.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddOrder.xaml.cs">
-      <DependentUpon>AddOrder.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddSupply.xaml.cs">
-      <DependentUpon>AddSupply.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Autorization.xaml.cs">
+    <Compile Include="Windows\Autorization.xaml.cs">
       <DependentUpon>Autorization.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Menu.xaml.cs">
+    <Compile Include="Windows\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Registrat.xaml.cs">
-      <DependentUpon>Registrat.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Support.xaml.cs">
+    <Compile Include="Windows\Support.xaml.cs">
       <DependentUpon>Support.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -221,59 +176,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Page\PageCar.xaml">
+    <Page Include="Windows\AddInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page\PageClientCompany.xaml">
+    <Page Include="Windows\Autorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page\PageMonitoring.xaml">
+    <Page Include="Windows\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page\PageReports.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page\PageTariff.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page\PageUser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AddCar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AddCompany.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AddOrder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AddSupply.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Autorization.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Registrat.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Support.xaml">
+    <Page Include="Windows\Support.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -299,21 +214,24 @@
     <Resource Include="Image\logo1.png" />
     <Resource Include="Image\Lineemail.png" />
     <Resource Include="Image\eye2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\Model1.edmx.sql" />
     <Content Include="EF\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\logo2.png" />
+    <Resource Include="Image\basket.PNG" />
+    <Resource Include="Image\product.PNG" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
