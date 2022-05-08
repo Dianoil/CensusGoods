@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
         Title="Autorization" Height="640" Width="1024"
+        MinHeight="640"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize">
     <Grid>
