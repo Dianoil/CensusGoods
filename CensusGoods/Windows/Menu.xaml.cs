@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.Class.Enti;
 using static CensusGoods.Class.DataUser;
+using CensusGoods.Pages;
 
 namespace CensusGoods.Wind
 {
@@ -25,6 +26,23 @@ namespace CensusGoods.Wind
         {
             InitializeComponent();
             useracc.Content = $" {User.login}";
+        }
+        public enum pageDemo
+        {
+            PageDirectoryGoods = 3,
+            PageDirectoryCompany = 2
+        }
+        public void OpenPageDemo(pageDemo page)
+        {
+            switch (page)
+            {
+                case pageDemo.PageDirectoryGoods:
+                    FrameMenu.Navigate(new PageDirectoryGoods(this));
+                    break;
+                case pageDemo.PageDirectoryCompany:
+                    FrameMenu.Navigate(new PageDirectoryCompany(this));
+                    break;
+            }
         }
         private void useracc_Click(object sender, RoutedEventArgs e)
         {
@@ -70,7 +88,6 @@ namespace CensusGoods.Wind
 
         #endregion
 
-
         #region DirectGoods
         private void companyAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +101,6 @@ namespace CensusGoods.Wind
 
         private void watchCompanyInfo_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         #endregion

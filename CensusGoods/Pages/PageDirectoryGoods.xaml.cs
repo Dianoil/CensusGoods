@@ -20,9 +20,39 @@ namespace CensusGoods.Pages
     /// </summary>
     public partial class PageDirectoryGoods : Page
     {
-        public PageDirectoryGoods()
+        public PageDirectoryGoods(Wind.Menu menu)
         {
             InitializeComponent();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GridMain_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+
+        }
+
+        private void RebootButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GridMain_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void GridMain_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
         }
     }
 }

@@ -25,6 +25,7 @@
         <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idPro__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idTarif__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="CensusGoodsModel.FK__User__idRole__286302EC" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_DirComp" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
