@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:CensusGoods.Wind"
         mc:Ignorable="d"
         Title="Autorization" Height="640" Width="1024"
-        MinHeight="640"
         WindowStartupLocation="CenterScreen"  
         Icon="/Image/logo2.png"
         WindowStyle="None"
@@ -98,7 +97,7 @@
                  BorderBrush="{x:Null}"
                  
                  />
-        <Label Content="Введите e-mail"
+        <Label Content="Введите логин"
                Foreground="#C4C4C4"
                Background="{x:Null}"
                Grid.Row="2"
@@ -207,7 +206,7 @@
                 Grid.ColumnSpan="4"
                 Grid.Row="3"
                 VerticalAlignment="Bottom"
-                Height="22"/>
+                Height="24" Grid.RowSpan="2"/>
         <!--<Button Content="Tex. поддержка"
                Grid.Column="1"
                 x:Name="tehsupport"

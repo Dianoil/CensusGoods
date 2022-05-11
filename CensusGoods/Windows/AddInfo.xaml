@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CensusGoods.Windows"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="Добавление информации" 
         Height="640" Width="512"
@@ -17,7 +18,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         
         <Grid>
@@ -39,19 +39,6 @@
             <Image Source="/Image/lineemail.png"
                VerticalAlignment="Bottom" 
                 />
-            <Button Content="X"
-                Foreground="#4B8AFC"
-                Background="{x:Null}"
-                FontSize="25"
-                x:Name="undo"
-                Click="undo_Click"
-                HorizontalAlignment="Right"
-                HorizontalContentAlignment="Center"
-                VerticalAlignment="Center"
-                VerticalContentAlignment="Center"
-                Margin="5"
-                BorderBrush="{x:Null}"                
-                />
             <Button                 
                 FontSize="22"
                 x:Name="back"
@@ -61,7 +48,6 @@
                 Background="{x:Null}"
                 VerticalContentAlignment="Center"
                 HorizontalAlignment="Right"
-                Margin="0 0 35 0"
                 BorderBrush="{x:Null}"
                 HorizontalContentAlignment="Center"
                 Click="back_Click">
@@ -74,11 +60,15 @@
                     Margin="10"
                     x:Name="AddDirectoryGoods"
                     Visibility="Hidden">
+           
             <TextBox 
                  Text="ФИО Руководителя склада"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="NameMainGoods"
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  GotFocus="NameMainGoods_GotFocus"
                  LostFocus="NameMainGoods_LostFocus"
                  Margin="10"
@@ -86,6 +76,10 @@
             <TextBox Text="Логин"
                  Margin="10"
                  FontSize="22"
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+
                  HorizontalContentAlignment="Center"
                  x:Name="loginTBox"
                  GotFocus="loginTBox_GotFocus"
@@ -94,30 +88,60 @@
             <TextBox
                  Text="Пароль"
                  Margin="10"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="PasswTBox" 
                  GotFocus="PasswTBox_GotFocus"
                  LostFocus="PasswTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <TextBox 
-                 Text="Номер Руководителя склада"
-                 FontSize="22"
+            <xctk:MaskedTextBox Mask="+7 (900) 000-00-00"
+                                x:Name="NumberMainGoods"
+                                GotFocus="NumberMainGoods_GotFocus"
+                                LostFocus="NumberMainGoods_LostFocus"
+                 FontSize="22"                 
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
-                 x:Name="NumberMainGoods"
-                 GotFocus="NumberMainGoods_GotFocus"
-                 LostFocus="NumberMainGoods_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox 
                  Text="Почта Руководителя склада"
-                 FontSize="22"
+                 FontSize="22"                 
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+
                  HorizontalContentAlignment="Center"
                  x:Name="EmailMainGoods"
                  GotFocus="EmailMainGoods_GotFocus"
                  LostFocus="EmailMainGoods_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
+
+            <Grid Margin="0 260 0 0">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                     FontSize="22"
+                     x:Name="SaveAddDirectory"
+                     Width="25"
+                     Margin="10"
+                     Height="25"
+                     HorizontalContentAlignment="Center"
+                     HorizontalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Click="SaveAddDirectory_Click"
+                     BorderBrush="{x:Null}"
+                     Background="{x:Null}"
+                     Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+
+            </Grid>
         </StackPanel>
         
         <!--Добавление директора компании-->
@@ -127,23 +151,32 @@
                     Visibility="Hidden">
             <TextBox 
                  Text="ФИО Руководителя компании"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="NameMainCompany"
                  GotFocus="NameMainCompany_GotFocus"
                  LostFocus="NameMainCompany_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
-            <TextBox Text="Логин"
-                 Margin="10"
-                 FontSize="22"
-                 HorizontalContentAlignment="Center"
-                 x:Name="loginTBox1"
-                 GotFocus="loginTBox_GotFocus"
-                 LostFocus="loginTBox_LostFocus"
-                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox Text="Логин"                  
+                     BorderThickness="1"
+                     BorderBrush="Gray"
+                     Foreground="Gray"
+                     Margin="10"
+                     FontSize="22"
+                     HorizontalContentAlignment="Center"
+                     x:Name="loginTBox1"
+                     GotFocus="loginTBox_GotFocus"
+                     LostFocus="loginTBox_LostFocus"
+                     Style="{StaticResource TextBoxMenu}"/>
             <TextBox
-                 Text="Пароль"
+                 Text="Пароль"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  Margin="10"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
@@ -151,8 +184,9 @@
                  GotFocus="PasswTBox_GotFocus"
                  LostFocus="PasswTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <TextBox 
-                 Text="Номер Руководителя компании"
+            <xctk:MaskedTextBox Mask="+7 (900) 000-00-00"               BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="NumberMainCompany"
@@ -161,7 +195,9 @@
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox 
-                 Text="Почта Руководителя компании"
+                 Text="Почта Руководителя компании"                  BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="EmailMainCompany"
@@ -169,6 +205,27 @@
                  LostFocus="EmailMainCompany_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
+
+            <Grid Margin="0 260 0 0">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                    FontSize="22"
+                    x:Name="SaveAddCompany"
+                    Margin="10"
+                    Width="25"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveAddCompany_Click"
+                    BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+
+            </Grid>
         </StackPanel>
         
         <!--Добавление работника склада-->
@@ -178,7 +235,10 @@
                     Visibility="Hidden">
             <TextBox 
                  Text="ФИО Работника"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="NameEmployee"
                  GotFocus="NameEmployee_GotFocus"
@@ -187,7 +247,10 @@
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox Text="Логин"
                  Margin="10"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="loginTBox2"
                  GotFocus="loginTBox_GotFocus"
@@ -195,16 +258,21 @@
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox
                  Text="Пароль"
-                 Margin="10"
+                 Margin="10"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="PasswTBox2" 
                  GotFocus="PasswTBox_GotFocus"
                  LostFocus="PasswTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <TextBox 
-                 Text="Номер Работника"
-                 FontSize="22"
+            <xctk:MaskedTextBox Mask="+7 (900) 000-00-00"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="NumberEmployee"
                  GotFocus="NumberEmployee_GotFocus"
@@ -213,13 +281,35 @@
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox 
                  Text="Почта Работника"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="EmailEmployee"
                  GotFocus="EmailEmployee_GotFocus"
                  LostFocus="EmailEmployee_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
+            <Grid Margin="0 260 0 0">
+                  <Image Source="/Image/linelogin.png"
+                         VerticalAlignment="Top"/>
+                <Button 
+                      FontSize="22"
+                      x:Name="SaveAddEmployee"
+                      Width="25" 
+                      Margin="10"
+                      Height="25"
+                      HorizontalContentAlignment="Center"
+                      HorizontalAlignment="Center"
+                      VerticalContentAlignment="Center"
+                      Click="SaveAddEmployee_Click"
+                      BorderBrush="{x:Null}"
+                      Background="{x:Null}"
+                      Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+            </Grid>
         </StackPanel>
         
         <!--Добавление тарифа-->
@@ -229,7 +319,10 @@
                     Visibility="Hidden">
             <TextBox 
                  Text="Название тарифа"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="NameTariff"
                  GotFocus="NameTariff_GotFocus"
@@ -238,12 +331,35 @@
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox Text="Процент по тарифу"
                  Margin="10"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="precentForTariff"
                  GotFocus="precentForTariff_GotFocus"
                  LostFocus="precentForTariff_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
+            <Grid Margin="0 400 0 0">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                    FontSize="22"
+                    x:Name="SaveTariff"
+                    Width="25"
+                    Margin="10"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveTariff_Click"
+                    BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+
+            </Grid>
         </StackPanel>
         
         <!--Добавление продукта-->
@@ -253,7 +369,10 @@
                     Visibility="Hidden">
             <TextBox 
                  Text="Название продукта"
-                 FontSize="22"
+                 FontSize="22"                 
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="NameProduct"
                  GotFocus="NameProduct_GotFocus"
@@ -263,7 +382,10 @@
             <!--Тут надо придумать добавление изображение-->
             <TextBox Text="Изображение"
                  Margin="10"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="imageProduct"
                  GotFocus="imageProduct_GotFocus"
@@ -271,13 +393,38 @@
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox
                  Text="Описание"
-                 Margin="10"
+                 Margin="10"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="descriptionTBox" 
                  GotFocus="descriptionTBox_GotFocus"
                  LostFocus="descriptionTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
+            <Grid Margin="0 350 0 0">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                    FontSize="22"
+                    x:Name="SaveProduct"
+                    Width="25"
+                    Margin="10"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveProduct_Click"
+                    BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    Style="{StaticResource ButtonAutor}"
+                >
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+
+            </Grid>
+
         </StackPanel>
         
         <!--Добавление инфы о контейнере-->
@@ -298,7 +445,10 @@
                  x:Name="NameProductCBox"/>
             <TextBox 
                  Text="Количество продукта"
-                 FontSize="22"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  HorizontalContentAlignment="Center"
                  x:Name="QuantityProductTBox"
                  GotFocus="QuantityProductTBox_GotFocus"
@@ -306,7 +456,10 @@
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox Text="Брутто"
-                 Margin="10"
+                 Margin="10"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="BruttoTBox"
@@ -318,28 +471,26 @@
                         Width="200"
                         x:Name="DateStart"
                         HorizontalContentAlignment="Center"/>
+            <Grid Margin="0 230 0 0">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                    FontSize="22"
+                    x:Name="SaveInfoContainer"
+                    Width="25"
+                    Margin="10"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveInfoContainer_Click"
+                    BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+
+            </Grid>
         </StackPanel>
-
-        <Grid Grid.Row="2">
-            <Image Source="/Image/linelogin.png"
-               VerticalAlignment="Top"/>
-            <Button 
-                FontSize="22"
-                x:Name="NextStage"
-                Width="25"
-                Height="25"
-                HorizontalContentAlignment="Center"
-                HorizontalAlignment="Center"
-                VerticalContentAlignment="Center"
-                Click="NextStage_Click"
-                BorderBrush="{x:Null}"
-                Background="{x:Null}"
-                Style="{StaticResource ButtonAutor}"
-                >
-                <Image Source="/Image/arrow.png"/>
-            </Button>
-
-        </Grid>
-
     </Grid>
 </Window>

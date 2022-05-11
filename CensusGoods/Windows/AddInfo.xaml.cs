@@ -23,7 +23,9 @@ namespace CensusGoods.Windows
         public AddInfo()
         {
             InitializeComponent();
+
         }
+
         #region verify
         private void loginTBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -414,13 +416,12 @@ namespace CensusGoods.Windows
             menu.IsEnabled = true;
             this.Close();
         }
-
-        private void NextStage_Click(object sender, RoutedEventArgs e)
+        private void SaveAddDirectory_Click(object sender, RoutedEventArgs e)
         {
-
             string logBD = CensGoodsEnt.User.Where(i => i.emailContactFace ==
             loginTBox.Text.ToString()).Select(j => j.emailContactFace)
             .FirstOrDefault();
+
 
             #region Директор склада
             if (loginTBox.Text == "" || PasswTBox.Text == "" ||
@@ -435,12 +436,17 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, знак)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailMainGoods.Text) == false)
             {
                 MessageBox.Show("Неверная почта, проверьте написание",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+            else if (ValidateLogin(loginTBox.Text) == false)
+            {
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
             }
             else
@@ -469,6 +475,13 @@ namespace CensusGoods.Windows
             }
             #endregion
 
+        }
+
+        private void SaveAddCompany_Click(object sender, RoutedEventArgs e)
+        {
+            string logBD = CensGoodsEnt.User.Where(i => i.emailContactFace ==
+            loginTBox.Text.ToString()).Select(j => j.emailContactFace)
+            .FirstOrDefault();
             #region Директор компании
 
             if (loginTBox1.Text == "" || PasswTBox1.Text == "" ||
@@ -483,7 +496,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox1.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, знак)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailMainCompany.Text) == false)
@@ -491,6 +504,12 @@ namespace CensusGoods.Windows
                 MessageBox.Show("Неверная почта, проверьте написание",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
             }
+            else if (ValidateLogin(loginTBox1.Text) == false)
+            {
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+
             else
             {
                 MessageBoxResult result = MessageBox.Show(
@@ -518,6 +537,13 @@ namespace CensusGoods.Windows
 
             #endregion
 
+        }
+
+        private void SaveAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            string logBD = CensGoodsEnt.User.Where(i => i.emailContactFace ==
+            loginTBox.Text.ToString()).Select(j => j.emailContactFace)
+            .FirstOrDefault();
             #region Работник склада
 
             if (loginTBox2.Text == "" || PasswTBox2.Text == "" ||
@@ -532,7 +558,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox2.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, знак)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailEmployee.Text) == false)
@@ -540,6 +566,12 @@ namespace CensusGoods.Windows
                 MessageBox.Show("Неверная почта, проверьте написание",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
             }
+            else if (ValidateLogin(loginTBox2.Text) == false)
+            {
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+
             else
             {
                 MessageBoxResult result = MessageBox.Show(
@@ -568,12 +600,22 @@ namespace CensusGoods.Windows
 
             #endregion
 
+        }
+
+        private void SaveTariff_Click(object sender, RoutedEventArgs e)
+        {
             #region Тариф
 
             if (NameTariff.Text == "" || precentForTariff.Text == "")
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
+            else if (ValidateLogin(NameTariff.Text) == false)
+            {
+                MessageBox.Show("Недопустимое название тарифа, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Добавление тарифа", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+
             else
             {
                 MessageBoxResult result = MessageBox.Show(
@@ -597,6 +639,10 @@ namespace CensusGoods.Windows
 
             #endregion
 
+        }
+
+        private void SaveProduct_Click(object sender, RoutedEventArgs e)
+        {
             #region Продукт
 
             if (NameProduct.Text == "" || imageProduct.Text == "" ||
@@ -604,6 +650,12 @@ namespace CensusGoods.Windows
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
+            else if (ValidateLogin(NameProduct.Text) == false)
+            {
+                MessageBox.Show("Недопустимое название тарифа, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Добавление продукта", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+
             else
             {
                 MessageBoxResult result = MessageBox.Show(
@@ -628,6 +680,10 @@ namespace CensusGoods.Windows
 
             #endregion
 
+        }
+
+        private void SaveInfoContainer_Click(object sender, RoutedEventArgs e)
+        {
             #region Инфоконтенер
             if (NumContainerCBox.SelectedValuePath == "" ||
                 NameProductCBox.SelectedValuePath == "" ||
@@ -655,6 +711,7 @@ namespace CensusGoods.Windows
                 }
             }
             #endregion
+
         }
         #endregion
     }

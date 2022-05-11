@@ -33,7 +33,7 @@ namespace CensusGoods.Class
             {
                 if (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я' ||
                     (
-                    (passw[s] == '-' || passw[s] == ' ') && (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я')
+                    (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я')
                     )
                    )
                 {
@@ -43,6 +43,24 @@ namespace CensusGoods.Class
             }
             return true;
         }
+        public static bool ValidateLogin(string login)
+        {
+            int s = 7;
+            while (s < login.Length)
+            {
+                if (login[s] >= 'А' && login[s] <= 'Я' || login[s] >= 'а' && login[s] <= 'я' ||
+                    (
+                    (login[s] >= 'А' && login[s] <= 'Я' || login[s] >= 'а' && login[s] <= 'я')
+                    )
+                   )
+                {
+                    s++;
+                }
+                else return false;
+            }
+            return true;
+        }
+
         public static bool ValidateCompany(string company)
         {
             int s = 0;

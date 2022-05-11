@@ -22,7 +22,7 @@
             <ColumnDefinition Width="203*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Background="White"
@@ -68,7 +68,7 @@
                Grid.Column="1"
                />
         <Image Source="/Image/logo.png"
-               HorizontalAlignment="Left"
+               HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Width="51"
                Height="50"
@@ -90,7 +90,7 @@
                 BorderBrush="{x:Null}" Width="18" Height="36"
                 />
         
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="0,15,0,0">
             <!--Функции админа-->
             <StackPanel x:Name="FunctionAdmin"
                         Visibility="Hidden">
