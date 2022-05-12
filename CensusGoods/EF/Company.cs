@@ -18,6 +18,7 @@ namespace CensusGoods.EF
         public Company()
         {
             this.Receipt = new HashSet<Receipt>();
+            this.InfoUserCompany = new HashSet<InfoUserCompany>();
         }
     
         public int id { get; set; }
@@ -27,11 +28,11 @@ namespace CensusGoods.EF
         public string registrNum { get; set; }
         public string discount { get; set; }
         public int city { get; set; }
-        public int contacts { get; set; }
     
         public virtual City City1 { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InfoUserCompany> InfoUserCompany { get; set; }
     }
 }

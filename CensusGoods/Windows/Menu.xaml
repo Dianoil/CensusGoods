@@ -154,6 +154,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+                
                 <Button
                 Width="35"
                 Height="35"
@@ -177,6 +178,7 @@
             <StackPanel x:Name="FunctionMainCompany"
                         Visibility="Hidden">
                 <Button
+                        Visibility="Hidden"
                 Width="35"
                 Height="35"
                 Background="{x:Null}"

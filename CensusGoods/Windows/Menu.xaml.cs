@@ -27,23 +27,23 @@ namespace CensusGoods.Wind
             InitializeComponent();
             useracc.Content = $" {User.login}";
         }
-        public enum pageDemo
-        {
-            PageDirectoryGoods = 3,
-            PageDirectoryCompany = 2
-        }
-        public void OpenPageDemo(pageDemo page)
-        {
-            switch (page)
-            {
-                case pageDemo.PageDirectoryGoods:
-                    FrameMenu.Navigate(new PageDirectoryGoods(this));
-                    break;
-                case pageDemo.PageDirectoryCompany:
-                    FrameMenu.Navigate(new PageDirectoryCompany(this));
-                    break;
-            }
-        }
+        //public enum pageDemo
+        //{
+        //    PageDirectoryGoods = 3,
+        //    PageDirectoryCompany = 2
+        //}
+        //public void OpenPageDemo(pageDemo page)
+        //{
+        //    switch (page)
+        //    {
+        //        case pageDemo.PageDirectoryGoods:
+        //            FrameMenu.Navigate(new PageDirectoryGoods(this));
+        //            break;
+        //        case pageDemo.PageDirectoryCompany:
+        //            FrameMenu.Navigate(new PageDirectoryCompany(this));
+        //            break;
+        //    }
+        //}
         private void useracc_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
@@ -101,6 +101,7 @@ namespace CensusGoods.Wind
 
         private void watchCompanyInfo_Click(object sender, RoutedEventArgs e)
         {
+            FrameMenu.Navigate(new Pages.PageDirectoryGoods());
         }
 
         #endregion
@@ -113,7 +114,7 @@ namespace CensusGoods.Wind
 
         private void monitoringUser_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameMenu.Navigate(new Pages.PageDirectoryCompany());
         }
 
         private void monitoringContainer_Click(object sender, RoutedEventArgs e)

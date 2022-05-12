@@ -10,8 +10,9 @@ r.idTariff as 'Тариф компании'
 
 
 
-from Company c
-left join [User] m on c.contacts = m.id
+from [User] m
+left join InfoUserCompany i on m.id = i.idUser
+left join Company c on c.id = i.idCompany
 left join [Role] tm on m.idRole = tm.id
 left join [Receipt] r on c.id = r.idCompany
 left join [Receipt] on c.id = r.idTariff

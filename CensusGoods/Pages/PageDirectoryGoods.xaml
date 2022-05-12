@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CensusGoods.Pages"
      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
-      Loaded="Page_Loaded"
+
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDirectoryGoods">
 
@@ -19,7 +19,7 @@
                     VerticalAlignment="Center">
             <GroupBox x:Name="GRBox"
                       HorizontalAlignment="Left"
-                      Width="auto"
+                      Width="640"
                       Margin="0 10 0 0">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
@@ -28,46 +28,53 @@
                     </StackPanel>
                 </GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical" 
+                                VerticalAlignment="Center">
                         <StackPanel x:Name="NameSearch"
                                     Orientation="Horizontal"
                                     HorizontalAlignment="Left"
-                                    Margin="50 0 0 0"
-                                    Width="200">
-                            <Label Content="Название" Width="61"/>
+                                    >
+                            <Label Content="Название компании"
+                                   VerticalContentAlignment="Center"
+                                   HorizontalAlignment="Left"/>
                             <xctk:WatermarkTextBox
-                            FontSize="16"
-                            x:Name="NameCompanyTBox"
-                            Width="140"/>
+                                Margin="10"
+                                FontSize="16"
+                                x:Name="NameCompanyTBox"
+                                Width="150"
+                                />
                         </StackPanel>
                         <StackPanel
                             x:Name="NumberCompanySP"
                             Orientation="Horizontal"
                             HorizontalAlignment="Left">
-                            <Label Content="Номер телефона директора"
+                            <Label Content="Номер телефона"
                                    Width="110"/>
                             <xctk:MaskedTextBox
-                                FontSize="16"
+                                Margin="21 0 0 0"
+                                x:Name="PhoneTBox"
+                                FontSize="18"
                                 Mask="+7 (000) 000-00-00"
-                                VerticalAlignment="Center"
+                                VerticalAlignment="Center" Width="150"
                                 />
                         </StackPanel>
                     </StackPanel>
                     <StackPanel
                         Orientation="Horizontal"
-                        Margin="20 0 0 0">
+                        HorizontalAlignment="Right"
+                        Margin="10 0 0 0">
                         <Button Content="Найти"
                                 x:Name="SearchButton"
                                 Click="SearchButton_Click"
                                 Width="60"
-                                Margin="10"
+                                Margin="15"
                                 FontSize="16"
                                 Style="{StaticResource ButtonAutor}"/>
                         <Button Content="Сброс"
                                 x:Name="RebootButton"
                                 Click="RebootButton_Click"
                                 Width="60"
-                                Margin="10"
+                                Margin="15"
                                 FontSize="16"
                                 Style="{StaticResource ButtonAutor}"/>
 
@@ -83,30 +90,28 @@
                           AutoGenerateColumns="False"
                           IsReadOnly="False"
                           CanUserAddRows="True"
-                          RowEditEnding="GridMain_RowEditEnding"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
-                          PreviewKeyDown="GridMain_PreviewKeyDown"
                           SelectionUnit="FullRow"
                           Focusable="True"
                           RowDetailsVisibilityMode="VisibleWhenSelected">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="NameDirectory"
                                             Header="ФИО Директора компании"
-                                            Binding="{Binding Path=fioContastFace, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            Binding="{Binding Path=Директор_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridTextColumn x:Name="NameCompany"
                                             Header="Название компании"
-                                            Binding="{Binding Path=[name], Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            Binding="{Binding Path=Название_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridTextColumn x:Name="Phone"
                                             Header="Номер телефона директора"
-                                            Binding="{Binding Path=numberContactFace, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            Binding="{Binding Path=Номер_телефона_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                         <DataGridTextColumn x:Name="discount"
                                             Header="Персональная скидка"
-                                            Binding="{Binding Path=discount, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            Binding="{Binding Path=Скидка_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridComboBoxColumn x:Name="tariff"
                                             Header="Тариф"
-                                            SelectedValueBinding="{Binding Path=idTariff, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            SelectedValueBinding="{Binding Path=Тариф_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                     </DataGrid.Columns>
 

@@ -17,7 +17,7 @@ namespace CensusGoods.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Company = new HashSet<Company>();
+            this.InfoUserCompany = new HashSet<InfoUserCompany>();
         }
     
         public int id { get; set; }
@@ -29,7 +29,7 @@ namespace CensusGoods.EF
         public int idRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Company> Company { get; set; }
+        public virtual ICollection<InfoUserCompany> InfoUserCompany { get; set; }
         public virtual Role Role { get; set; }
     }
 }

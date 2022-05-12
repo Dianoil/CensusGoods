@@ -15,10 +15,10 @@ namespace CensusGoods.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class CensusGoodsEntities1 : DbContext
+    public partial class CensusGoodsEntities2 : DbContext
     {
-        public CensusGoodsEntities1()
-            : base("name=CensusGoodsEntities1")
+        public CensusGoodsEntities2()
+            : base("name=CensusGoodsEntities2")
         {
         }
     
@@ -31,6 +31,7 @@ namespace CensusGoods.EF
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Container> Container { get; set; }
         public virtual DbSet<InfoContainer> InfoContainer { get; set; }
+        public virtual DbSet<InfoUserCompany> InfoUserCompany { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Receipt> Receipt { get; set; }
         public virtual DbSet<Role> Role { get; set; }
@@ -39,6 +40,7 @@ namespace CensusGoods.EF
         public virtual DbSet<Tariff> Tariff { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Vm_DirComp> Vm_DirComp { get; set; }
+        public virtual DbSet<Vm_User> Vm_User { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

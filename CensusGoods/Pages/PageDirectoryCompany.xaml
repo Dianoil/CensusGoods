@@ -5,10 +5,117 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CensusGoods.Pages"
       mc:Ignorable="d" 
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDirectoryCompany">
-
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <GroupBox x:Name="GRBox"
+                      HorizontalAlignment="Left"
+                      Width="640"
+                      Margin="0 10 0 0">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Поиск:"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" 
+                                VerticalAlignment="Center">
+                        <StackPanel x:Name="NameSearch"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    >
+                            <Label Content="Название компании"
+                                   VerticalContentAlignment="Center"
+                                   HorizontalAlignment="Left"/>
+                            <xctk:WatermarkTextBox
+                                Margin="10"
+                                FontSize="16"
+                                x:Name="NameCompanyTBox"
+                                Width="150"
+                                />
+                        </StackPanel>
+                        <StackPanel
+                            x:Name="NumberCompanySP"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                            <Label Content="ФИО Работника"
+                                   Width="110"
+                                   Margin="6"
+                                   VerticalAlignment="Center"/>
+                            <xctk:WatermarkTextBox
+                                Margin="10"
+                                FontSize="16"
+                                x:Name="FIOTBox"
+                                Width="150"
+                                />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="10 0 0 0">
+                        <Button Content="Найти"
+                                x:Name="SearchButton"
+                                Click="SearchButton_Click"
+                                Width="60"
+                                Margin="15"
+                                FontSize="16"
+                                Style="{StaticResource ButtonAutor}"/>
+                        <Button Content="Сброс"
+                                x:Name="RebootButton"
+                                Click="RebootButton_Click"
+                                Width="60"
+                                Margin="15"
+                                FontSize="16"
+                                Style="{StaticResource ButtonAutor}"/>
+
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Text="Список"
+                               VerticalAlignment="Center"/>
+                </GroupBox.Header>
+                <DataGrid x:Name="GridMain"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="False"
+                          CanUserAddRows="True"
+                          SelectionMode="Single"
+                          CellEditEnding="GridMain_CellEditEnding"
+                          SelectionUnit="FullRow"
+                          Focusable="True"
+                          RowDetailsVisibilityMode="VisibleWhenSelected">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="NameDirectory"
+                                            Header="ФИО Работника"
+                                            Binding="{Binding Path=ФИО_Работника, 
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="Email"
+                                            Header="Почта работника"
+                                            Binding="{Binding Path=Почта_работника,
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="Phone"
+                                            Header="Номер телефона работника"
+                                            Binding="{Binding Path=Номер_телефона_работника,
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="Company"
+                                            Header="Компания"
+                                            Binding="{Binding Path=Компания,
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+
     </Grid>
 </Page>

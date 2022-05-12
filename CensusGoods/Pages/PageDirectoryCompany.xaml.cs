@@ -20,9 +20,56 @@ namespace CensusGoods.Pages
     /// </summary>
     public partial class PageDirectoryCompany : Page
     {
-        public PageDirectoryCompany(Wind.Menu menu)
+        int isAddEdit = 1;
+        private Class.DirectCompanyHelper googsHelper = new Class.DirectCompanyHelper();
+
+        public PageDirectoryCompany()
         {
             InitializeComponent();
+            GridMain.ItemsSource = googsHelper.GetVm_DirUser();
+
+        }
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NameCompanyTBox.Text is null && FIOTBox.Text is null)
+                return;
+            if (NameCompanyTBox.Text is null)
+            {
+                if (FIOTBox.Text != null)
+                {
+                    GridMain.ItemsSource = googsHelper.GetVm_DirUser().Where(i => i.ФИО_Работника == (string)FIOTBox.Text).ToList();
+                }
+            }
+            else if (NameCompanyTBox.Text != null)
+            {
+                if (FIOTBox.Text is null)
+                {
+                    GridMain.ItemsSource = googsHelper.GetVm_DirUser().Where(i => i.ФИО_Работника == (string)NameCompanyTBox.Text).ToList();
+                }
+                else
+                {
+                    GridMain.ItemsSource = googsHelper.GetVm_DirUser().Where(i => i.Компания == (string)NameCompanyTBox.Text && i.ФИО_Работника
+                    == (string)FIOTBox.Text).ToList();
+                }
+            }
+        }
+
+        private void RebootButton_Click(object sender, RoutedEventArgs e)
+        {
+            NameCompanyTBox.Text = null;
+            NameCompanyTBox.Text = null;
+            GridMain.ItemsSource = googsHelper.GetVm_DirUser();
+        }
+
+        private void IsAddEdit(object sender, AddingNewItemEventArgs e)
+        {
+
+            isAddEdit = 1;
+        }
+
+        private void GridMain_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            isAddEdit = 1;
         }
     }
 }

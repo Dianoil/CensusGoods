@@ -23,7 +23,6 @@
           <Property Name="registrNum" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="discount" Type="nvarchar" MaxLength="10" />
           <Property Name="city" Type="int" Nullable="false" />
-          <Property Name="contacts" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Container">
           <Key>
@@ -46,6 +45,14 @@
           <Property Name="CargoWeight" Type="nvarchar" MaxLength="20" />
           <Property Name="dateStart" Type="datetime" Nullable="false" />
           <Property Name="available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoUserCompany">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="idUser" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -116,13 +123,27 @@
 предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_DirComp" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Vm_DirComp">
           <Key>
-            <PropertyRef Name="Название компании" />
+            <PropertyRef Name="Директор компании" />
+            <PropertyRef Name="Номер телефона компании" />
           </Key>
-          <Property Name="Директор компании" Type="nvarchar" MaxLength="100" />
-          <Property Name="Название компании" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Номер телефона компании" Type="nvarchar" MaxLength="28" />
+          <Property Name="Директор компании" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Название компании" Type="nvarchar" MaxLength="100" />
+          <Property Name="Номер телефона компании" Type="nvarchar" MaxLength="28" Nullable="false" />
           <Property Name="Скидка компании" Type="nvarchar" MaxLength="10" />
           <Property Name="Тариф компании" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_User" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Vm_User">
+          <Key>
+            <PropertyRef Name="ФИО Работника" />
+            <PropertyRef Name="Номер телефона работника" />
+            <PropertyRef Name="Почта работника" />
+          </Key>
+          <Property Name="ФИО Работника" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Номер телефона работника" Type="nvarchar" MaxLength="28" Nullable="false" />
+          <Property Name="Почта работника" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Компания" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK__Company__contact__2B3F6F97">
           <End Role="City" Type="Self.City" Multiplicity="1" />
@@ -133,18 +154,6 @@
             </Principal>
             <Dependent Role="Company">
               <PropertyRef Name="city" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Company__contact__2C3393D0">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Company" Type="Self.Company" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Company">
-              <PropertyRef Name="contacts" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,6 +241,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InfoUserCompany_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="InfoUserCompany" Type="Self.InfoUserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InfoUserCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoUserCompany_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="InfoUserCompany" Type="Self.InfoUserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InfoUserCompany">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -268,6 +301,7 @@
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Container" EntityType="Self.Container" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InfoContainer" EntityType="Self.InfoContainer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoUserCompany" EntityType="Self.InfoUserCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -284,12 +318,16 @@
     [Vm_DirComp].[Тариф компании] AS [Тариф компании]
     FROM [dbo].[Vm_DirComp] AS [Vm_DirComp]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Vm_User" EntityType="Self.Vm_User" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vm_User].[ФИО Работника] AS [ФИО Работника], 
+    [Vm_User].[Номер телефона работника] AS [Номер телефона работника], 
+    [Vm_User].[Почта работника] AS [Почта работника], 
+    [Vm_User].[Компания] AS [Компания]
+    FROM [dbo].[Vm_User] AS [Vm_User]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Company__contact__2B3F6F97" Association="Self.FK__Company__contact__2B3F6F97">
             <End Role="City" EntitySet="City" />
-            <End Role="Company" EntitySet="Company" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Company__contact__2C3393D0" Association="Self.FK__Company__contact__2C3393D0">
-            <End Role="User" EntitySet="User" />
             <End Role="Company" EntitySet="Company" />
           </AssociationSet>
           <AssociationSet Name="FK__Container__idSec__34C8D9D1" Association="Self.FK__Container__idSec__34C8D9D1">
@@ -320,6 +358,14 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_InfoUserCompany_Company" Association="Self.FK_InfoUserCompany_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="InfoUserCompany" EntitySet="InfoUserCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoUserCompany_User" Association="Self.FK_InfoUserCompany_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="InfoUserCompany" EntitySet="InfoUserCompany" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -344,10 +390,9 @@
           <Property Name="registrNum" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="discount" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="city" Type="Int32" Nullable="false" />
-          <Property Name="contacts" Type="Int32" Nullable="false" />
           <NavigationProperty Name="City1" Relationship="Self.FK__Company__contact__2B3F6F97" FromRole="Company" ToRole="City" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Company__contact__2C3393D0" FromRole="Company" ToRole="User" />
           <NavigationProperty Name="Receipt" Relationship="Self.FK__Receipt__idCompa__412EB0B6" FromRole="Company" ToRole="Receipt" />
+          <NavigationProperty Name="InfoUserCompany" Relationship="Self.FK_InfoUserCompany_Company" FromRole="Company" ToRole="InfoUserCompany" />
         </EntityType>
         <EntityType Name="Container">
           <Key>
@@ -375,6 +420,16 @@
           <Property Name="available" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Container" Relationship="Self.FK__InfoConta__idCon__3A81B327" FromRole="InfoContainer" ToRole="Container" />
           <NavigationProperty Name="Product" Relationship="Self.FK__InfoConta__idPro__3B75D760" FromRole="InfoContainer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="InfoUserCompany">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCompany" Type="Int32" Nullable="false" />
+          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_InfoUserCompany_Company" FromRole="InfoUserCompany" ToRole="Company" />
+          <NavigationProperty Name="User" Relationship="Self.FK_InfoUserCompany_User" FromRole="InfoUserCompany" ToRole="User" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -447,8 +502,30 @@
           <Property Name="numberContactFace" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="emailContactFace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.FK__Company__contact__2C3393D0" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="InfoUserCompany" Relationship="Self.FK_InfoUserCompany_User" FromRole="User" ToRole="InfoUserCompany" />
           <NavigationProperty Name="Role" Relationship="Self.FK__User__idRole__286302EC" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Vm_DirComp">
+          <Key>
+            <PropertyRef Name="Директор_компании" />
+            <PropertyRef Name="Номер_телефона_компании" />
+          </Key>
+          <Property Name="Директор_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Название_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_компании" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Скидка_компании" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Тариф_компании" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vm_User">
+          <Key>
+            <PropertyRef Name="ФИО_Работника" />
+            <PropertyRef Name="Номер_телефона_работника" />
+            <PropertyRef Name="Почта_работника" />
+          </Key>
+          <Property Name="ФИО_Работника" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Номер_телефона_работника" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Почта_работника" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Компания" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Company__contact__2B3F6F97">
           <End Role="City" Type="Self.City" Multiplicity="1" />
@@ -462,18 +539,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Company__contact__2C3393D0">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Company" Type="Self.Company" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Company">
-              <PropertyRef Name="contacts" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Receipt__idCompa__412EB0B6">
           <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
@@ -482,6 +547,18 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Receipt">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoUserCompany_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="InfoUserCompany" Type="Self.InfoUserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InfoUserCompany">
               <PropertyRef Name="idCompany" />
             </Dependent>
           </ReferentialConstraint>
@@ -534,6 +611,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InfoUserCompany_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="InfoUserCompany" Type="Self.InfoUserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InfoUserCompany">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Receipt__idTarif__4222D4EF">
           <End Role="Tariff" Type="Self.Tariff" Multiplicity="1" />
           <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
@@ -558,11 +647,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CensusGoodsEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CensusGoodsEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Company" EntityType="Self.Company" />
           <EntitySet Name="Container" EntityType="Self.Container" />
           <EntitySet Name="InfoContainer" EntityType="Self.InfoContainer" />
+          <EntitySet Name="InfoUserCompany" EntityType="Self.InfoUserCompany" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Receipt" EntityType="Self.Receipt" />
           <EntitySet Name="Role" EntityType="Self.Role" />
@@ -570,17 +660,19 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tariff" EntityType="Self.Tariff" />
           <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Vm_DirComp" EntityType="Self.Vm_DirComp" />
+          <EntitySet Name="Vm_User" EntityType="Self.Vm_User" />
           <AssociationSet Name="FK__Company__contact__2B3F6F97" Association="Self.FK__Company__contact__2B3F6F97">
             <End Role="City" EntitySet="City" />
-            <End Role="Company" EntitySet="Company" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Company__contact__2C3393D0" Association="Self.FK__Company__contact__2C3393D0">
-            <End Role="User" EntitySet="User" />
             <End Role="Company" EntitySet="Company" />
           </AssociationSet>
           <AssociationSet Name="FK__Receipt__idCompa__412EB0B6" Association="Self.FK__Receipt__idCompa__412EB0B6">
             <End Role="Company" EntitySet="Company" />
             <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoUserCompany_Company" Association="Self.FK_InfoUserCompany_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="InfoUserCompany" EntitySet="InfoUserCompany" />
           </AssociationSet>
           <AssociationSet Name="FK__Container__idSec__34C8D9D1" Association="Self.FK__Container__idSec__34C8D9D1">
             <End Role="Sector" EntitySet="Sector" />
@@ -597,6 +689,10 @@
           <AssociationSet Name="FK__InfoConta__idPro__3B75D760" Association="Self.FK__InfoConta__idPro__3B75D760">
             <End Role="Product" EntitySet="Product" />
             <End Role="InfoContainer" EntitySet="InfoContainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoUserCompany_User" Association="Self.FK_InfoUserCompany_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="InfoUserCompany" EntitySet="InfoUserCompany" />
           </AssociationSet>
           <AssociationSet Name="FK__Receipt__idTarif__4222D4EF" Association="Self.FK__Receipt__idTarif__4222D4EF">
             <End Role="Tariff" EntitySet="Tariff" />
@@ -636,7 +732,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Vm_DirComp" EntityType="CensusGoodsModel.Vm_DirComp" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -649,22 +744,12 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Vm_DirComp">
-          <Key>
-            <PropertyRef Name="Название_компании" />
-          </Key>
-          <Property Name="Директор_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Название_компании" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Номер_телефона_компании" Type="String" MaxLength="28" FixedLength="false" Unicode="true" />
-          <Property Name="Скидка_компании" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Тариф_компании" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CensusGoodsModelContainer" CdmEntityContainer="CensusGoodsEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CensusGoodsModelContainer" CdmEntityContainer="CensusGoodsEntities2">
           <EntitySetMapping Name="City">
             <EntityTypeMapping TypeName="CensusGoodsModel.City">
               <MappingFragment StoreEntitySet="City">
@@ -683,7 +768,6 @@
                 <ScalarProperty Name="registrNum" ColumnName="registrNum" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
                 <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="contacts" ColumnName="contacts" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -708,6 +792,15 @@
                 <ScalarProperty Name="CargoWeight" ColumnName="CargoWeight" />
                 <ScalarProperty Name="dateStart" ColumnName="dateStart" />
                 <ScalarProperty Name="available" ColumnName="available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoUserCompany">
+            <EntityTypeMapping TypeName="CensusGoodsModel.InfoUserCompany">
+              <MappingFragment StoreEntitySet="InfoUserCompany">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -783,6 +876,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Vm_DirComp">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_DirComp">
+              <MappingFragment StoreEntitySet="Vm_DirComp">
+                <ScalarProperty Name="Директор_компании" ColumnName="Директор компании" />
+                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
+                <ScalarProperty Name="Номер_телефона_компании" ColumnName="Номер телефона компании" />
+                <ScalarProperty Name="Скидка_компании" ColumnName="Скидка компании" />
+                <ScalarProperty Name="Тариф_компании" ColumnName="Тариф компании" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vm_User">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_User">
+              <MappingFragment StoreEntitySet="Vm_User">
+                <ScalarProperty Name="Компания" ColumnName="Компания" />
+                <ScalarProperty Name="ФИО_Работника" ColumnName="ФИО Работника" />
+                <ScalarProperty Name="Номер_телефона_работника" ColumnName="Номер телефона работника" />
+                <ScalarProperty Name="Почта_работника" ColumnName="Почта работника" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище CensusGoodsModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище CensusGoodsModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище CensusGoodsModel.sp_dropdiagram" />
@@ -807,17 +921,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CensusGoodsModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CensusGoodsModel.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Vm_DirComp">
-            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_DirComp">
-              <MappingFragment StoreEntitySet="Vm_DirComp">
-                <ScalarProperty Name="Тариф_компании" ColumnName="Тариф компании" />
-                <ScalarProperty Name="Скидка_компании" ColumnName="Скидка компании" />
-                <ScalarProperty Name="Номер_телефона_компании" ColumnName="Номер телефона компании" />
-                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
-                <ScalarProperty Name="Директор_компании" ColumnName="Директор компании" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
