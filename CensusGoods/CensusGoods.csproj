@@ -75,6 +75,7 @@
     <Compile Include="Class\DirectCompanyHelper.cs" />
     <Compile Include="Class\DirectGoogsHelper.cs" />
     <Compile Include="Class\Enti.cs" />
+    <Compile Include="Class\SectorHelper.cs" />
     <Compile Include="Class\ValidationClass.cs" />
     <Compile Include="EF\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>

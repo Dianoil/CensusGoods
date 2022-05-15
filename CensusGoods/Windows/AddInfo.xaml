@@ -44,6 +44,7 @@
                 x:Name="back"
                 Width="25"
                 Height="25"
+                Margin="10"
                 Style="{StaticResource ButtonAutor}"
                 Background="{x:Null}"
                 VerticalContentAlignment="Center"
@@ -431,15 +432,19 @@
         <StackPanel Grid.Row="1"
                     Margin="10"
                     x:Name="AddProductForContainer"
-                    Visibility="Hidden">
+                    Visibility="Visible">
             <ComboBox 
                  Text="Номер контейнера"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
+                SelectedIndex="0"
+                SelectionChanged="NumContainerCBox_SelectionChanged"
                  x:Name="NumContainerCBox"
                  Margin="10"/>
             <ComboBox Text="Название продукта"
+                      SelectedIndex="0"
                  Margin="10"
+                      SelectionChanged="NameProductCBox_SelectionChanged"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                  x:Name="NameProductCBox"/>
@@ -470,7 +475,8 @@
                         Margin="10"
                         Width="200"
                         x:Name="DateStart"
-                        HorizontalContentAlignment="Center"/>
+                        HorizontalContentAlignment="Center"
+                        Foreground="Gray"/>
             <Grid Margin="0 230 0 0">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>

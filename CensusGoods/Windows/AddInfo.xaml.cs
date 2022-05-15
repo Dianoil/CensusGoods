@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CensusGoods.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static CensusGoods.Class.Enti;
 using static CensusGoods.Class.ValidationClass;
+using static CensusGoods.Class.SeectorHelper;
 namespace CensusGoods.Windows
 {
     /// <summary>
@@ -23,6 +25,14 @@ namespace CensusGoods.Windows
         public AddInfo()
         {
             InitializeComponent();
+
+            var materialTypeList = GetContainers();
+            materialTypeList.Insert(0, new Container { status = true });
+            NumContainerCBox.ItemsSource = materialTypeList;
+
+            var NameProductTypeList = GetProducts();
+            NameProductTypeList.Insert(0, new Product {  name = "Все" });
+            NameProductCBox.ItemsSource = NameProductTypeList;
 
         }
 
@@ -402,6 +412,22 @@ namespace CensusGoods.Windows
 
         #region Функционал
 
+        private void NumContainerCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (((Container)NumContainerCBox.SelectedItem).status != true)
+            {
+                GetContainers().ToList();
+            }
+        }
+
+        private void NameProductCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (((Product)NameProductCBox.SelectedItem).name != "Все")
+            {
+                GetProducts().ToList();
+            }
+        }
+
         private void undo_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите выйти из приложения?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -745,13 +771,19 @@ loginTBox.Text.ToString()).Select(j => j.emailContactFace)
         private void SaveInfoContainer_Click(object sender, RoutedEventArgs e)
         {
             #region Инфоконтенер
-            if (NumContainerCBox.SelectedValuePath == "" ||
-                NameProductCBox.SelectedValuePath == "" ||
+
+            if (NumContainerCBox.SelectedIndex == 0 ||
+                NameProductCBox.SelectedIndex == 0 ||
             QuantityProductTBox.Text == ""
             || BruttoTBox.Text == ""
             || Convert.ToString(DateStart.DataContext) == "")
             {
                 MessageBox.Show("Не все поля заполнены!");
+            }
+            else if (ValidateDate(DateStart.SelectedDate) == false)
+            {
+                MessageBox.Show("Неверная дата, проверьте сведения",
+                    "Добавление информации о контейнере", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -760,11 +792,16 @@ loginTBox.Text.ToString()).Select(j => j.emailContactFace)
                  "Добавить информацию", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    //CensGoodsEnt.InfoContainer.Add(new EF.InfoContainer()
-                    //{
-                    //    //Тут блин айдишники, походу джоины прописывать надо будет
-                    //});
-                    //CensGoodsEnt.SaveChanges();
+                    CensGoodsEnt.InfoContainer.Add(new EF.InfoContainer()
+                    {
+                        idContainer = NumContainerCBox.SelectedIndex,
+                        idProduct = NameProductCBox.SelectedIndex,
+                        QuantityProduct = QuantityProductTBox.Text,
+                        CargoWeight = BruttoTBox.Text,
+                        dateStart = DateStart.SelectedDate.Value,
+                        available = false
+                    }) ;
+                    CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();
                     menu.IsEnabled = true;
                     this.Close();

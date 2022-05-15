@@ -141,22 +141,22 @@ namespace CensusGoods.Class
             }
             return true;
         }
-        //public static bool ValidateBirth(DateTime birth)
-        //{
-        //    try
-        //    {
-        //        DateTime b = birth;
-        //        while (b <= DateTime.Now)
-        //        {
-        //            return true;
-        //        }
-        //        return false;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+        public static bool ValidateDate(DateTime? birth)
+        {
+            try
+            {
+                DateTime? b = birth;
+                while (b <= DateTime.Now)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }
