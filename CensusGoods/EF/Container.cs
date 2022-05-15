@@ -18,7 +18,6 @@ namespace CensusGoods.EF
         public Container()
         {
             this.InfoContainer = new HashSet<InfoContainer>();
-            this.Receipt = new HashSet<Receipt>();
         }
     
         public int id { get; set; }
@@ -26,11 +25,10 @@ namespace CensusGoods.EF
         public string weight { get; set; }
         public string height { get; set; }
         public bool status { get; set; }
+        public string name { get; set; }
     
         public virtual Sector Sector { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InfoContainer> InfoContainer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Receipt> Receipt { get; set; }
     }
 }

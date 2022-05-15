@@ -12,7 +12,7 @@ namespace CensusGoods.Class
         public static bool ValidateFIO(string name)
         {
             int s = 0;
-            while (s < name.Length)
+            while (s < name.Length && ( name != "ФИО Руководителя склада" && name != "ФИО Руководителя компании" && name != "ФИО Работника"))
             {
                 if (name[s] >= 'А' && name[s] <= 'Я' ||
                     name[s] >= 'а' && name[s] <= 'я' ||
@@ -29,7 +29,7 @@ namespace CensusGoods.Class
         public static bool ValidatePassw(string passw)
         {
             int s = 7;
-            while (s < passw.Length)
+            while (s < passw.Length && passw != "Пароль")
             {
                 if (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я' ||
                     (
@@ -46,7 +46,7 @@ namespace CensusGoods.Class
         public static bool ValidateLogin(string login)
         {
             int s = 7;
-            while (s < login.Length)
+            while (s < login.Length && (login != "Логин" && login != "Название тарифа"))
             {
                 if (login[s] >= 'А' && login[s] <= 'Я' || login[s] >= 'а' && login[s] <= 'я' ||
                     (
@@ -64,7 +64,7 @@ namespace CensusGoods.Class
         public static bool ValidateCompany(string company)
         {
             int s = 0;
-            while (s < company.Length)
+            while (s < company.Length && company != "Название компании")
             {
                 if (company[s] >= 'А' && company[s] <= 'Я' ||
                     company[s] >= 'а' && company[s] <= 'я' ||
@@ -118,7 +118,7 @@ namespace CensusGoods.Class
         public static bool ValidateINN(string inn)
         {
             int s = 11;
-            while (s == inn.Length)
+            while (s == inn.Length && inn != "ИНН")
             {
                 if (inn[s] >= '0' && inn[s] <= '9')              
                 {
@@ -131,9 +131,22 @@ namespace CensusGoods.Class
         public static bool ValidateOGRN(string ogrn)
         {
             int s = 12;
-            while (s == ogrn.Length)
+            while (s == ogrn.Length && ogrn != "ОГРН")
             {
                 if (ogrn[s] >= '0' && ogrn[s] <= '9')
+                {
+                    s++;
+                }
+                else return false;
+            }
+            return true;
+        }
+        public static bool ValidateDiscount(string disk)
+        {
+            int s = 3;
+            while (s == disk.Length && disk != "Персональная скидка")
+            {
+                if (disk[s] >= '0' && disk[s] <= '9')
                 {
                     s++;
                 }

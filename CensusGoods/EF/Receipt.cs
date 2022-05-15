@@ -21,7 +21,7 @@ namespace CensusGoods.EF
         public bool delay { get; set; }
     
         public virtual Company Company { get; set; }
-        public virtual Container Container { get; set; }
+        public virtual InfoContainer InfoContainer1 { get; set; }
         public virtual Tariff Tariff { get; set; }
     }
 }

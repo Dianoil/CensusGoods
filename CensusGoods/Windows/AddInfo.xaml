@@ -44,7 +44,7 @@
                 x:Name="back"
                 Width="25"
                 Height="25"
-                Margin="10"
+                Margin="0 10 0 0"
                 Style="{StaticResource ButtonAutor}"
                 Background="{x:Null}"
                 VerticalContentAlignment="Center"
@@ -80,7 +80,6 @@
                  BorderThickness="1"
                  BorderBrush="Gray"
                  Foreground="Gray"
-
                  HorizontalContentAlignment="Center"
                  x:Name="loginTBox"
                  GotFocus="loginTBox_GotFocus"
@@ -102,20 +101,19 @@
                                 x:Name="NumberMainGoods"
                                 GotFocus="NumberMainGoods_GotFocus"
                                 LostFocus="NumberMainGoods_LostFocus"
-                 FontSize="22"                 
-                 BorderThickness="1"
-                 BorderBrush="Gray"
-                 Foreground="Gray"
-                 HorizontalContentAlignment="Center"
-                 Margin="10"
-                 Style="{StaticResource TextBoxMenu}"/>
+                                FontSize="22"                 
+                                BorderThickness="1"
+                                BorderBrush="Gray"
+                                Foreground="Gray"
+                                HorizontalContentAlignment="Center"
+                                Margin="10"
+                                Style="{StaticResource TextBoxMenu}"/>
             <TextBox 
                  Text="Почта Руководителя склада"
                  FontSize="22"                 
                  BorderThickness="1"
                  BorderBrush="Gray"
                  Foreground="Gray"
-
                  HorizontalContentAlignment="Center"
                  x:Name="EmailMainGoods"
                  GotFocus="EmailMainGoods_GotFocus"
@@ -130,7 +128,7 @@
                      FontSize="22"
                      x:Name="SaveAddDirectory"
                      Width="25"
-                     Margin="10"
+                     Margin="0 10 0 0"
                      Height="25"
                      HorizontalContentAlignment="Center"
                      HorizontalAlignment="Center"
@@ -141,7 +139,6 @@
                      Style="{StaticResource ButtonAutor}">
                     <Image Source="/Image/arrow.png"/>
                 </Button>
-
             </Grid>
         </StackPanel>
         
@@ -213,7 +210,7 @@
                 <Button 
                     FontSize="22"
                     x:Name="SaveAddCompany"
-                    Margin="10"
+                    Margin="0 10 0 0"
                     Width="25"
                     Height="25"
                     HorizontalContentAlignment="Center"
@@ -299,7 +296,7 @@
                       FontSize="22"
                       x:Name="SaveAddEmployee"
                       Width="25" 
-                      Margin="10"
+                      Margin="0 10 0 0"
                       Height="25"
                       HorizontalContentAlignment="Center"
                       HorizontalAlignment="Center"
@@ -348,7 +345,7 @@
                     FontSize="22"
                     x:Name="SaveTariff"
                     Width="25"
-                    Margin="10"
+                    Margin="0 10 0 0"
                     Height="25"
                     HorizontalContentAlignment="Center"
                     HorizontalAlignment="Center"
@@ -411,7 +408,7 @@
                     FontSize="22"
                     x:Name="SaveProduct"
                     Width="25"
-                    Margin="10"
+                    Margin="0 10 0 0"
                     Height="25"
                     HorizontalContentAlignment="Center"
                     HorizontalAlignment="Center"
@@ -432,7 +429,7 @@
         <StackPanel Grid.Row="1"
                     Margin="10"
                     x:Name="AddProductForContainer"
-                    Visibility="Visible">
+                    Visibility="Hidden">
             <ComboBox 
                  Text="Номер контейнера"
                  FontSize="22"
@@ -484,7 +481,7 @@
                     FontSize="22"
                     x:Name="SaveInfoContainer"
                     Width="25"
-                    Margin="10"
+                    Margin="0 10 0 0"
                     Height="25"
                     HorizontalContentAlignment="Center"
                     HorizontalAlignment="Center"
@@ -577,7 +574,7 @@
                       FontSize="22"
                       x:Name="SaveAddCompanyInfo"
                       Width="25" 
-                      Margin="10"
+                      Margin="0 10 0 0"
                       Height="25"
                       HorizontalContentAlignment="Center"
                       HorizontalAlignment="Center"
@@ -590,6 +587,5 @@
                 </Button>
             </Grid>
         </StackPanel>
-
     </Grid>
 </Window>

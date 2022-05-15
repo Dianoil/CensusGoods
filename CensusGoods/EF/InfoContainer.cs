@@ -14,6 +14,12 @@ namespace CensusGoods.EF
     
     public partial class InfoContainer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public InfoContainer()
+        {
+            this.Receipt = new HashSet<Receipt>();
+        }
+    
         public int id { get; set; }
         public int idContainer { get; set; }
         public int idProduct { get; set; }
@@ -21,8 +27,11 @@ namespace CensusGoods.EF
         public string CargoWeight { get; set; }
         public System.DateTime dateStart { get; set; }
         public bool available { get; set; }
+        public string title { get; set; }
     
         public virtual Container Container { get; set; }
         public virtual Product Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt> Receipt { get; set; }
     }
 }

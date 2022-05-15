@@ -98,7 +98,7 @@
                 Background="{x:Null}"
                 x:Name="lk"
                 Click="Lk_Click"
-                Margin="10"
+                Margin="5"
                 Width="35"
                 Height="35"
                 BorderBrush="{x:Null}">
@@ -118,7 +118,7 @@
                 Background="{x:Null}"
                 x:Name="tariffAdd"
                 Click="tariffAdd_Click"
-                Margin="10"
+                Margin="5"
                 BorderBrush="{x:Null}">
                     <Image  Source="/Image/tariff.png"/>
                     <Button.ToolTip>
@@ -129,7 +129,22 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="companyadd"
+                Click="companyadd_Click_1"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/supply.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Добавление компании"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
             
             <!--Функции директора склада-->
