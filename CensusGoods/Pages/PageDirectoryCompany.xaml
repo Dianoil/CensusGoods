@@ -85,15 +85,17 @@
                     <TextBlock Text="Список"
                                VerticalAlignment="Center"/>
                 </GroupBox.Header>
+
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
-                          CanUserAddRows="True"
+                          IsReadOnly="True"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
-                          SelectionUnit="FullRow"
+                          SelectionUnit="Cell"
                           Focusable="True"
-                          RowDetailsVisibilityMode="VisibleWhenSelected">
+                          RowDetailsVisibilityMode="VisibleWhenSelected"
+                          ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.CanContentScroll="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="NameDirectory"
                                             Header="ФИО Работника"
@@ -112,7 +114,6 @@
                                             Binding="{Binding Path=Компания,
                             Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     </DataGrid.Columns>
-
                 </DataGrid>
             </GroupBox>
         </StackPanel>

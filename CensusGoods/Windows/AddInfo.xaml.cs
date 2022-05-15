@@ -409,6 +409,66 @@ namespace CensusGoods.Windows
                 Application.Current.Shutdown();
             }
         }
+        private void SaveAddCompanyInfo_Click(object sender, RoutedEventArgs e)
+        {
+            string logBD = CensGoodsEnt.User.Where(i => i.emailContactFace ==
+loginTBox.Text.ToString()).Select(j => j.emailContactFace)
+.FirstOrDefault();
+
+
+            #region Добавление информации о компании
+            if (NameCompany.Text == "" || inn.Text == "" ||
+            ogrn.Text == "" || regNumber.Text == ""
+            || personDiscount.Text == "" || cityCBox.TabIndex == 0)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+            }
+            else if (logBD != null)
+            {
+                MessageBox.Show("Почта уже используется");
+            }
+            else if (ValidatePassw(PasswTBox.Text) == false)
+            {
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else if (ValidateEmail(EmailMainGoods.Text) == false)
+            {
+                MessageBox.Show("Неверная почта, проверьте написание",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+            else if (ValidateLogin(loginTBox.Text) == false)
+            {
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show(
+                 NameMainGoods.Text + " " +
+                 "Логин:  " + loginTBox.Text + "\n" +
+                 "Пароль:  " + PasswTBox.Text + "\n", "Создать пользователя:", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    CensGoodsEnt.User.Add(new EF.User()
+                    {
+                        login = loginTBox.Text.ToString(),
+                        password = PasswTBox.Text.ToString(),
+                        fioContastFace = NameMainGoods.Text.ToString(),
+                        numberContactFace = NumberMainGoods.Text.ToString(),
+                        emailContactFace = EmailMainGoods.Text.ToString(),
+                        idRole = 3
+
+                    });
+                    CensGoodsEnt.SaveChanges();
+                    Menu menu = new Menu();
+                    menu.IsEnabled = true;
+                    this.Close();
+                }
+            }
+            #endregion
+
+        }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
@@ -714,5 +774,93 @@ namespace CensusGoods.Windows
 
         }
         #endregion
+
+        #region Добавление компании
+        private void NameCompany_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (NameCompany.Text == "Название компании")
+            {
+                NameCompany.Text = "";
+            }
+
+        }
+
+        private void NameCompany_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (NameCompany.Text == "")
+            {
+                NameCompany.Text = "Название компании";
+            }
+
+        }
+
+        private void inn_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (inn.Text == "ИНН")
+            {
+                inn.Text = "";
+            }
+        }
+
+        private void inn_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (inn.Text == "")
+            {
+                inn.Text = "ИНН";
+            }
+        }
+
+        private void ogrn_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (ogrn.Text == "ОГРН")
+            {
+                ogrn.Text = "";
+            }
+
+        }
+
+        private void ogrn_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ogrn.Text == "")
+            {
+                ogrn.Text = "ОГРН";
+            }
+
+        }
+
+        private void regNumber_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (regNumber.Text == "Регистрационный номер")
+            {
+                regNumber.Text = "";
+            }
+        }
+
+        private void regNumber_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (regNumber.Text == "")
+            {
+                regNumber.Text = "Регистрационный номер";
+            }
+        }
+
+        private void personDiscount_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (personDiscount.Text == "Персональная скидка")
+            {
+                personDiscount.Text = "";
+            }
+        }
+
+        private void personDiscount_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (personDiscount.Text == "")
+            {
+                personDiscount.Text = "Персональная скидка";
+            }
+        }
+
+        #endregion
+
     }
 }

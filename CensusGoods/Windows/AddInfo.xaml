@@ -492,5 +492,98 @@
 
             </Grid>
         </StackPanel>
+
+        <!--Добавление информации о компании-->
+        <StackPanel Grid.Row="1"
+                    Margin="10"
+                    x:Name="addInfoCompany"
+                    Visibility="Hidden">
+            <TextBox 
+                 Text="Название компании"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+                 HorizontalContentAlignment="Center"
+                 x:Name="NameCompany"
+                 GotFocus="NameCompany_GotFocus"
+                 LostFocus="NameCompany_LostFocus"
+                 Margin="10"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox Text="ИНН"
+                 Margin="10"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+                 HorizontalContentAlignment="Center"
+                 x:Name="inn"
+                 GotFocus="inn_GotFocus"
+                 LostFocus="inn_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox
+                 Text="ОГРН"
+                 Margin="10"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+                 FontSize="22"
+                 HorizontalContentAlignment="Center"
+                 x:Name="ogrn"
+                 GotFocus="ogrn_GotFocus"
+                 LostFocus="ogrn_LostFocus"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox 
+                 Text="Регистрационный номер"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+                 HorizontalContentAlignment="Center"
+                 x:Name="regNumber"
+                 GotFocus="regNumber_GotFocus"
+                 LostFocus="regNumber_LostFocus"
+                 Margin="10"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <TextBox 
+                 Text="Персональная скидка"
+                 FontSize="22"                  
+                 BorderThickness="1"
+                 BorderBrush="Gray"
+                 Foreground="Gray"
+                 HorizontalContentAlignment="Center"
+                 x:Name="personDiscount"
+                 GotFocus="personDiscount_GotFocus"
+                 LostFocus="personDiscount_LostFocus"
+                 Margin="10"
+                 Style="{StaticResource TextBoxMenu}"/>
+            <ComboBox 
+                 Text="Город"
+                 FontSize="22"
+                 HorizontalContentAlignment="Center"
+                 x:Name="cityCBox"
+                 Margin="10"/>
+
+            <Grid Margin="0 210 0 0">
+                <Image Source="/Image/linelogin.png"
+                         VerticalAlignment="Top"/>
+                <Button 
+                      FontSize="22"
+                      x:Name="SaveAddCompanyInfo"
+                      Width="25" 
+                      Margin="10"
+                      Height="25"
+                      HorizontalContentAlignment="Center"
+                      HorizontalAlignment="Center"
+                      VerticalContentAlignment="Center"
+                      Click="SaveAddCompanyInfo_Click"
+                      BorderBrush="{x:Null}"
+                      Background="{x:Null}"
+                      Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+
     </Grid>
 </Window>

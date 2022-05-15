@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using static CensusGoods.Class.Enti;
+using static CensusGoods.Class.DataUser;
 namespace CensusGoods.Class
 {
     class DirectCompanyHelper
@@ -16,7 +17,7 @@ namespace CensusGoods.Class
             List<EF.Vm_User> result;
             try
             {
-                result = CensGoodsEnt.Vm_User.ToList();
+                result = (User.Companys, CensGoodsEnt.Vm_User).Vm_User.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {

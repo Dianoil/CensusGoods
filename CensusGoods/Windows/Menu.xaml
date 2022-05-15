@@ -8,8 +8,7 @@
         Title="Menu" Height="640" Width="1024"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        MinHeight="640"
-        MinWidth="1024"
+        ResizeMode="NoResize"
         Background="#E3E3E3"
         Icon="/Image/logo2.png"
         >
@@ -178,7 +177,6 @@
             <StackPanel x:Name="FunctionMainCompany"
                         Visibility="Hidden">
                 <Button
-                        Visibility="Hidden"
                 Width="35"
                 Height="35"
                 Background="{x:Null}"

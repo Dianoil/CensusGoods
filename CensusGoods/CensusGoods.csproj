@@ -82,6 +82,7 @@
     <Compile Include="EF\Company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\CompanyExten.cs" />
     <Compile Include="EF\Container.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
