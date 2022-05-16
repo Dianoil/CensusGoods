@@ -26,6 +26,7 @@ namespace CensusGoods.Wind
         {
             InitializeComponent();
             useracc.Content = $" {User.login}";
+            FrameMenu.Content = "Если возникают какие-либо вопросы обратитесь в тех. поддержку";
         }
         //public enum pageDemo
         //{

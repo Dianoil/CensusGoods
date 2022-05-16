@@ -34,7 +34,9 @@
             Margin=" 10 15 10 10"
             Background="White"
             x:Name="FrameMenu"
-            NavigationUIVisibility="Hidden"/>
+            NavigationUIVisibility="Hidden"
+            >
+        </Frame>
         <Button 
                 Content="Тут название акка"
                 Background="{x:Null}"
