@@ -432,7 +432,7 @@
         <StackPanel Grid.Row="1"
                     Margin="10"
                     x:Name="AddProductForContainer"
-                    Visibility="Visible">
+                    Visibility="Hidden">
             <ComboBox 
                  Text="Номер контейнера"
                  FontSize="22"
