@@ -26,6 +26,7 @@ namespace CensusGoods.Wind
         {
             InitializeComponent();
             useracc.Content = $" {User.login}";
+            FrameMenu.Content = "Если возникают какие-либо вопросы обратитесь в тех. поддержку";
         }
         //public enum pageDemo
         //{
@@ -84,6 +85,15 @@ namespace CensusGoods.Wind
             Windows.AddInfo registrat = new Windows.AddInfo();
             registrat.AddTariff.Visibility = Visibility.Visible;
             registrat.ShowDialog();
+        }
+        private void companyadd_Click_1(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.IsEnabled = false;
+            Windows.AddInfo registrat = new Windows.AddInfo();
+            registrat.addInfoCompany.Visibility = Visibility.Visible;
+            registrat.ShowDialog();
+
         }
 
         #endregion
@@ -153,5 +163,6 @@ namespace CensusGoods.Wind
             registrat.ShowDialog();
         }
         #endregion
+
     }
 }

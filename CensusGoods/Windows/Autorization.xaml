@@ -97,7 +97,7 @@
                  BorderBrush="{x:Null}"
                  
                  />
-        <Label Content="Введите логин"
+        <Label Content="Логин"
                Foreground="#C4C4C4"
                Background="{x:Null}"
                Grid.Row="2"
@@ -105,8 +105,8 @@
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                FontSize="22"
+               Margin="-5 40 0 0"
                VerticalContentAlignment="Top"
-               Height="39" Width="158" 
                
                />
         <Image Source="/Image/linelogin.png"
@@ -127,14 +127,14 @@
                 x:Name="OutLogintxt"
                 Click="OutLogintxt_Click"
                 Style="{StaticResource ButtonAutor}"/>
-            <Label Content="Введите пароль"
+            <Label Content="Пароль"
                Foreground="#C4C4C4"
                Background="{x:Null}"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                FontSize="22"
                VerticalContentAlignment="Top"
-               Margin="0,25,5,25"
+               Margin="-5,25,5,25"
                />
             <PasswordBox
                  Visibility="Visible"

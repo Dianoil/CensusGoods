@@ -15,10 +15,10 @@ namespace CensusGoods.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class CensusGoodsEntities2 : DbContext
+    public partial class CensusGoodsEntities3 : DbContext
     {
-        public CensusGoodsEntities2()
-            : base("name=CensusGoodsEntities2")
+        public CensusGoodsEntities3()
+            : base("name=CensusGoodsEntities3")
         {
         }
     

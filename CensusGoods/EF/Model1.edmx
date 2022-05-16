@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище CensusGoodsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище CensusGoodsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="id" />
@@ -33,6 +33,7 @@
           <Property Name="weight" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="height" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="status" Type="bit" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="InfoContainer">
           <Key>
@@ -45,6 +46,7 @@
           <Property Name="CargoWeight" Type="nvarchar" MaxLength="20" />
           <Property Name="dateStart" Type="datetime" Nullable="false" />
           <Property Name="available" Type="bit" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="InfoUserCompany">
           <Key>
@@ -85,7 +87,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cellSector" Type="int" Nullable="false" />
+          <Property Name="cellSector" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="nameSector" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -217,18 +219,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receipt__infoCon__403A8C7D">
-          <End Role="Container" Type="Self.Container" Multiplicity="1" />
-          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Container">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Receipt">
-              <PropertyRef Name="infoContainer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__User__idRole__286302EC">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -262,6 +252,18 @@
             </Principal>
             <Dependent Role="InfoUserCompany">
               <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_InfoContainer">
+          <End Role="InfoContainer" Type="Self.InfoContainer" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoContainer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="infoContainer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -350,10 +352,6 @@
             <End Role="Tariff" EntitySet="Tariff" />
             <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receipt__infoCon__403A8C7D" Association="Self.FK__Receipt__infoCon__403A8C7D">
-            <End Role="Container" EntitySet="Container" />
-            <End Role="Receipt" EntitySet="Receipt" />
-          </AssociationSet>
           <AssociationSet Name="FK__User__idRole__286302EC" Association="Self.FK__User__idRole__286302EC">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
@@ -366,8 +364,13 @@
             <End Role="User" EntitySet="User" />
             <End Role="InfoUserCompany" EntitySet="InfoUserCompany" />
           </AssociationSet>
+          <AssociationSet Name="FK_Receipt_InfoContainer" Association="Self.FK_Receipt_InfoContainer">
+            <End Role="InfoContainer" EntitySet="InfoContainer" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CensusGoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -403,9 +406,9 @@
           <Property Name="weight" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="height" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sector" Relationship="Self.FK__Container__idSec__34C8D9D1" FromRole="Container" ToRole="Sector" />
           <NavigationProperty Name="InfoContainer" Relationship="Self.FK__InfoConta__idCon__3A81B327" FromRole="Container" ToRole="InfoContainer" />
-          <NavigationProperty Name="Receipt" Relationship="Self.FK__Receipt__infoCon__403A8C7D" FromRole="Container" ToRole="Receipt" />
         </EntityType>
         <EntityType Name="InfoContainer">
           <Key>
@@ -418,8 +421,10 @@
           <Property Name="CargoWeight" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="available" Type="Boolean" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Container" Relationship="Self.FK__InfoConta__idCon__3A81B327" FromRole="InfoContainer" ToRole="Container" />
           <NavigationProperty Name="Product" Relationship="Self.FK__InfoConta__idPro__3B75D760" FromRole="InfoContainer" ToRole="Product" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_Receipt_InfoContainer" FromRole="InfoContainer" ToRole="Receipt" />
         </EntityType>
         <EntityType Name="InfoUserCompany">
           <Key>
@@ -451,7 +456,7 @@
           <Property Name="idTariff" Type="Int32" Nullable="false" />
           <Property Name="delay" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="Self.FK__Receipt__idCompa__412EB0B6" FromRole="Receipt" ToRole="Company" />
-          <NavigationProperty Name="Container" Relationship="Self.FK__Receipt__infoCon__403A8C7D" FromRole="Receipt" ToRole="Container" />
+          <NavigationProperty Name="InfoContainer1" Relationship="Self.FK_Receipt_InfoContainer" FromRole="Receipt" ToRole="InfoContainer" />
           <NavigationProperty Name="Tariff" Relationship="Self.FK__Receipt__idTarif__4222D4EF" FromRole="Receipt" ToRole="Tariff" />
         </EntityType>
         <EntityType Name="Role">
@@ -467,7 +472,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cellSector" Type="Int32" Nullable="false" />
+          <Property Name="cellSector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="nameSector" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Container" Relationship="Self.FK__Container__idSec__34C8D9D1" FromRole="Sector" ToRole="Container" />
         </EntityType>
@@ -587,18 +592,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Receipt__infoCon__403A8C7D">
-          <End Role="Container" Type="Self.Container" Multiplicity="1" />
-          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Container">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Receipt">
-              <PropertyRef Name="infoContainer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__InfoConta__idPro__3B75D760">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="InfoContainer" Type="Self.InfoContainer" Multiplicity="*" />
@@ -608,6 +601,18 @@
             </Principal>
             <Dependent Role="InfoContainer">
               <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_InfoContainer">
+          <End Role="InfoContainer" Type="Self.InfoContainer" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoContainer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="infoContainer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -647,7 +652,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CensusGoodsEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CensusGoodsEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Company" EntityType="Self.Company" />
           <EntitySet Name="Container" EntityType="Self.Container" />
@@ -682,13 +687,13 @@
             <End Role="Container" EntitySet="Container" />
             <End Role="InfoContainer" EntitySet="InfoContainer" />
           </AssociationSet>
-          <AssociationSet Name="FK__Receipt__infoCon__403A8C7D" Association="Self.FK__Receipt__infoCon__403A8C7D">
-            <End Role="Container" EntitySet="Container" />
-            <End Role="Receipt" EntitySet="Receipt" />
-          </AssociationSet>
           <AssociationSet Name="FK__InfoConta__idPro__3B75D760" Association="Self.FK__InfoConta__idPro__3B75D760">
             <End Role="Product" EntitySet="Product" />
             <End Role="InfoContainer" EntitySet="InfoContainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_InfoContainer" Association="Self.FK_Receipt_InfoContainer">
+            <End Role="InfoContainer" EntitySet="InfoContainer" />
+            <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
           <AssociationSet Name="FK_InfoUserCompany_User" Association="Self.FK_InfoUserCompany_User">
             <End Role="User" EntitySet="User" />
@@ -749,7 +754,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CensusGoodsModelContainer" CdmEntityContainer="CensusGoodsEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CensusGoodsModelContainer" CdmEntityContainer="CensusGoodsEntities3">
           <EntitySetMapping Name="City">
             <EntityTypeMapping TypeName="CensusGoodsModel.City">
               <MappingFragment StoreEntitySet="City">
@@ -779,6 +784,7 @@
                 <ScalarProperty Name="weight" ColumnName="weight" />
                 <ScalarProperty Name="height" ColumnName="height" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -792,6 +798,7 @@
                 <ScalarProperty Name="CargoWeight" ColumnName="CargoWeight" />
                 <ScalarProperty Name="dateStart" ColumnName="dateStart" />
                 <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="title" ColumnName="title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -890,10 +897,10 @@
           <EntitySetMapping Name="Vm_User">
             <EntityTypeMapping TypeName="CensusGoodsModel.Vm_User">
               <MappingFragment StoreEntitySet="Vm_User">
-                <ScalarProperty Name="Компания" ColumnName="Компания" />
                 <ScalarProperty Name="ФИО_Работника" ColumnName="ФИО Работника" />
                 <ScalarProperty Name="Номер_телефона_работника" ColumnName="Номер телефона работника" />
                 <ScalarProperty Name="Почта_работника" ColumnName="Почта работника" />
+                <ScalarProperty Name="Компания" ColumnName="Компания" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

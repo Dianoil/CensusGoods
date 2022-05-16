@@ -21,7 +21,7 @@ namespace CensusGoods.EF
         }
     
         public int id { get; set; }
-        public int cellSector { get; set; }
+        public string cellSector { get; set; }
         public string nameSector { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
