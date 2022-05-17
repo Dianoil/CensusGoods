@@ -40,7 +40,10 @@ namespace CensusGoods.EF
         public virtual DbSet<Tariff> Tariff { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Vm_DirComp> Vm_DirComp { get; set; }
+        public virtual DbSet<Vm_DirGoods> Vm_DirGoods { get; set; }
+        public virtual DbSet<Vm_InfoContainer> Vm_InfoContainer { get; set; }
         public virtual DbSet<Vm_User> Vm_User { get; set; }
+        public virtual DbSet<Vm_TotalReceipt> Vm_TotalReceipt { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

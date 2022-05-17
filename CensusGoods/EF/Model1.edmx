@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CensusGoodsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CensusGoodsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="id" />
@@ -132,7 +132,42 @@
           <Property Name="Название компании" Type="nvarchar" MaxLength="100" />
           <Property Name="Номер телефона компании" Type="nvarchar" MaxLength="28" Nullable="false" />
           <Property Name="Скидка компании" Type="nvarchar" MaxLength="10" />
-          <Property Name="Тариф компании" Type="int" />
+          <Property Name="Тариф компании" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_DirGoods" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Vm_DirGoods">
+          <Key>
+            <PropertyRef Name="Директор склада" />
+            <PropertyRef Name="Номер телефона компании" />
+            <PropertyRef Name="Почта директора" />
+          </Key>
+          <Property Name="Директор склада" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Название компании" Type="nvarchar" MaxLength="100" />
+          <Property Name="Номер телефона компании" Type="nvarchar" MaxLength="28" Nullable="false" />
+          <Property Name="Почта директора" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_InfoContainer" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Vm_InfoContainer">
+          <Key>
+            <PropertyRef Name="Доступность" />
+          </Key>
+          <Property Name="Название контейнера" Type="nvarchar" MaxLength="50" />
+          <Property Name="Название продукта" Type="nvarchar" MaxLength="50" />
+          <Property Name="Доступность" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_TotalReceipt" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Vm_TotalReceipt">
+          <Key>
+            <PropertyRef Name="Тариф" />
+          </Key>
+          <Property Name="Название контейнера" Type="nvarchar" MaxLength="50" />
+          <Property Name="Название компании" Type="nvarchar" MaxLength="100" />
+          <Property Name="Тариф" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Скидка компании" Type="nvarchar" MaxLength="10" />
+          <Property Name="Задолжность" Type="bit" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CensusGoods.dbo.Vm_User" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -320,6 +355,30 @@
     [Vm_DirComp].[Тариф компании] AS [Тариф компании]
     FROM [dbo].[Vm_DirComp] AS [Vm_DirComp]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Vm_DirGoods" EntityType="Self.Vm_DirGoods" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vm_DirGoods].[Директор склада] AS [Директор склада], 
+    [Vm_DirGoods].[Название компании] AS [Название компании], 
+    [Vm_DirGoods].[Номер телефона компании] AS [Номер телефона компании], 
+    [Vm_DirGoods].[Почта директора] AS [Почта директора]
+    FROM [dbo].[Vm_DirGoods] AS [Vm_DirGoods]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vm_InfoContainer" EntityType="Self.Vm_InfoContainer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vm_InfoContainer].[Название контейнера] AS [Название контейнера], 
+    [Vm_InfoContainer].[Название продукта] AS [Название продукта], 
+    [Vm_InfoContainer].[Доступность] AS [Доступность]
+    FROM [dbo].[Vm_InfoContainer] AS [Vm_InfoContainer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vm_TotalReceipt" EntityType="Self.Vm_TotalReceipt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vm_TotalReceipt].[Название контейнера] AS [Название контейнера], 
+    [Vm_TotalReceipt].[Название компании] AS [Название компании], 
+    [Vm_TotalReceipt].[Тариф] AS [Тариф], 
+    [Vm_TotalReceipt].[Скидка компании] AS [Скидка компании], 
+    [Vm_TotalReceipt].[Задолжность] AS [Задолжность]
+    FROM [dbo].[Vm_TotalReceipt] AS [Vm_TotalReceipt]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Vm_User" EntityType="Self.Vm_User" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Vm_User].[ФИО Работника] AS [ФИО Работника], 
@@ -369,8 +428,7 @@
             <End Role="Receipt" EntitySet="Receipt" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CensusGoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -510,28 +568,6 @@
           <NavigationProperty Name="InfoUserCompany" Relationship="Self.FK_InfoUserCompany_User" FromRole="User" ToRole="InfoUserCompany" />
           <NavigationProperty Name="Role" Relationship="Self.FK__User__idRole__286302EC" FromRole="User" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Vm_DirComp">
-          <Key>
-            <PropertyRef Name="Директор_компании" />
-            <PropertyRef Name="Номер_телефона_компании" />
-          </Key>
-          <Property Name="Директор_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Название_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Номер_телефона_компании" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Скидка_компании" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Тариф_компании" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Vm_User">
-          <Key>
-            <PropertyRef Name="ФИО_Работника" />
-            <PropertyRef Name="Номер_телефона_работника" />
-            <PropertyRef Name="Почта_работника" />
-          </Key>
-          <Property Name="ФИО_Работника" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Номер_телефона_работника" Type="String" MaxLength="28" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Почта_работника" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Компания" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK__Company__contact__2B3F6F97">
           <End Role="City" Type="Self.City" Multiplicity="1" />
           <End Role="Company" Type="Self.Company" Multiplicity="*" />
@@ -665,8 +701,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tariff" EntityType="Self.Tariff" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="Vm_DirComp" EntityType="Self.Vm_DirComp" />
-          <EntitySet Name="Vm_User" EntityType="Self.Vm_User" />
           <AssociationSet Name="FK__Company__contact__2B3F6F97" Association="Self.FK__Company__contact__2B3F6F97">
             <End Role="City" EntitySet="City" />
             <End Role="Company" EntitySet="Company" />
@@ -737,6 +771,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Vm_DirComp" EntityType="CensusGoodsModel.Vm_DirComp" />
+          <EntitySet Name="Vm_DirGoods" EntityType="CensusGoodsModel.Vm_DirGoods" />
+          <EntitySet Name="Vm_InfoContainer" EntityType="CensusGoodsModel.Vm_InfoContainer" />
+          <EntitySet Name="Vm_User" EntityType="CensusGoodsModel.Vm_User" />
+          <EntitySet Name="Vm_TotalReceipt" EntityType="CensusGoodsModel.Vm_TotalReceipt" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -749,6 +788,57 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Vm_DirComp">
+          <Key>
+            <PropertyRef Name="Директор_компании" />
+            <PropertyRef Name="Номер_телефона_компании" />
+          </Key>
+          <Property Name="Директор_компании" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Название_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_компании" Type="String" Nullable="false" MaxLength="28" FixedLength="false" Unicode="true" />
+          <Property Name="Скидка_компании" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Тариф_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vm_DirGoods">
+          <Key>
+            <PropertyRef Name="Директор_склада" />
+            <PropertyRef Name="Номер_телефона_компании" />
+            <PropertyRef Name="Почта_директора" />
+          </Key>
+          <Property Name="Директор_склада" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Название_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_компании" Type="String" Nullable="false" MaxLength="28" FixedLength="false" Unicode="true" />
+          <Property Name="Почта_директора" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vm_InfoContainer">
+          <Key>
+            <PropertyRef Name="Доступность" />
+          </Key>
+          <Property Name="Название_контейнера" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Название_продукта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Доступность" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vm_User">
+          <Key>
+            <PropertyRef Name="ФИО_Работника" />
+            <PropertyRef Name="Номер_телефона_работника" />
+            <PropertyRef Name="Почта_работника" />
+          </Key>
+          <Property Name="ФИО_Работника" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_работника" Type="String" Nullable="false" MaxLength="28" FixedLength="false" Unicode="true" />
+          <Property Name="Почта_работника" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Компания" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vm_TotalReceipt">
+          <Key>
+            <PropertyRef Name="Тариф" />
+          </Key>
+          <Property Name="Название_контейнера" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Название_компании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Тариф" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Скидка_компании" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Задолжность" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -883,27 +973,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vm_DirComp">
-            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_DirComp">
-              <MappingFragment StoreEntitySet="Vm_DirComp">
-                <ScalarProperty Name="Директор_компании" ColumnName="Директор компании" />
-                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
-                <ScalarProperty Name="Номер_телефона_компании" ColumnName="Номер телефона компании" />
-                <ScalarProperty Name="Скидка_компании" ColumnName="Скидка компании" />
-                <ScalarProperty Name="Тариф_компании" ColumnName="Тариф компании" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Vm_User">
-            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_User">
-              <MappingFragment StoreEntitySet="Vm_User">
-                <ScalarProperty Name="ФИО_Работника" ColumnName="ФИО Работника" />
-                <ScalarProperty Name="Номер_телефона_работника" ColumnName="Номер телефона работника" />
-                <ScalarProperty Name="Почта_работника" ColumnName="Почта работника" />
-                <ScalarProperty Name="Компания" ColumnName="Компания" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище CensusGoodsModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище CensusGoodsModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище CensusGoodsModel.sp_dropdiagram" />
@@ -928,6 +997,57 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CensusGoodsModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CensusGoodsModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Vm_DirComp">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_DirComp">
+              <MappingFragment StoreEntitySet="Vm_DirComp">
+                <ScalarProperty Name="Тариф_компании" ColumnName="Тариф компании" />
+                <ScalarProperty Name="Скидка_компании" ColumnName="Скидка компании" />
+                <ScalarProperty Name="Номер_телефона_компании" ColumnName="Номер телефона компании" />
+                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
+                <ScalarProperty Name="Директор_компании" ColumnName="Директор компании" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vm_DirGoods">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_DirGoods">
+              <MappingFragment StoreEntitySet="Vm_DirGoods">
+                <ScalarProperty Name="Почта_директора" ColumnName="Почта директора" />
+                <ScalarProperty Name="Номер_телефона_компании" ColumnName="Номер телефона компании" />
+                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
+                <ScalarProperty Name="Директор_склада" ColumnName="Директор склада" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vm_InfoContainer">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_InfoContainer">
+              <MappingFragment StoreEntitySet="Vm_InfoContainer">
+                <ScalarProperty Name="Доступность" ColumnName="Доступность" />
+                <ScalarProperty Name="Название_продукта" ColumnName="Название продукта" />
+                <ScalarProperty Name="Название_контейнера" ColumnName="Название контейнера" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vm_User">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_User">
+              <MappingFragment StoreEntitySet="Vm_User">
+                <ScalarProperty Name="Компания" ColumnName="Компания" />
+                <ScalarProperty Name="Почта_работника" ColumnName="Почта работника" />
+                <ScalarProperty Name="Номер_телефона_работника" ColumnName="Номер телефона работника" />
+                <ScalarProperty Name="ФИО_Работника" ColumnName="ФИО Работника" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vm_TotalReceipt">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Vm_TotalReceipt">
+              <MappingFragment StoreEntitySet="Vm_TotalReceipt">
+                <ScalarProperty Name="Задолжность" ColumnName="Задолжность" />
+                <ScalarProperty Name="Скидка_компании" ColumnName="Скидка компании" />
+                <ScalarProperty Name="Тариф" ColumnName="Тариф" />
+                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
+                <ScalarProperty Name="Название_контейнера" ColumnName="Название контейнера" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

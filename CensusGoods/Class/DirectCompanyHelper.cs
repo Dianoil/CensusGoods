@@ -10,8 +10,6 @@ namespace CensusGoods.Class
 {
     class DirectCompanyHelper
     {
-        private EF.Vm_User editdirComp;
-
         public List<EF.Vm_User> GetVm_DirUser()
         {
             List<EF.Vm_User> result;
@@ -32,5 +30,44 @@ MessageBoxButton.OKCancel, MessageBoxImage.Error);
             return result;
         }
 
+        public List<EF.Vm_InfoContainer> GetVm_InfoContainers()
+        {
+            List<EF.Vm_InfoContainer> result;
+            try
+            {
+                result = (CensGoodsEnt.Vm_InfoContainer).ToList();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
+MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                result = new List<EF.Vm_InfoContainer>();
+            }
+            catch (Exception ex)
+            {
+                result = new List<EF.Vm_InfoContainer>();
+            }
+            return result;
+        }
+
+        public List<EF.Vm_DirGoods> GetVm_DirGoods()
+        {
+            List<EF.Vm_DirGoods> result;
+            try
+            {
+                result = (CensGoodsEnt.Vm_DirGoods).ToList();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
+MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                result = new List<EF.Vm_DirGoods>();
+            }
+            catch (Exception ex)
+            {
+                result = new List<EF.Vm_DirGoods>();
+            }
+            return result;
+        }
     }
 }

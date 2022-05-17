@@ -44,7 +44,7 @@
                 x:Name="back"
                 Width="25"
                 Height="25"
-                Margin="0 10 0 0"
+                Margin="0 0 10 0"
                 Style="{StaticResource ButtonAutor}"
                 Background="{x:Null}"
                 VerticalContentAlignment="Center"
@@ -182,7 +182,8 @@
                  GotFocus="PasswTBox_GotFocus"
                  LostFocus="PasswTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <xctk:MaskedTextBox Mask="+7 (900) 000-00-00"               BorderThickness="1"
+            <xctk:MaskedTextBox Mask="+7 (900) 000-00-00"               
+                                BorderThickness="1"
                  BorderBrush="Gray"
                  Foreground="Gray"
                  FontSize="22"
@@ -193,7 +194,8 @@
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
             <TextBox 
-                 Text="Почта Руководителя компании"                  BorderThickness="1"
+                 Text="Почта Руководителя компании"                  
+                BorderThickness="1"
                  BorderBrush="Gray"
                  Foreground="Gray"
                  FontSize="22"
@@ -431,18 +433,18 @@
                     x:Name="AddProductForContainer"
                     Visibility="Hidden">
             <ComboBox 
-                 Text="Номер контейнера"
+                 Text="Название контейнера"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
                 SelectedIndex="0"
-                SelectionChanged="NumContainerCBox_SelectionChanged"
                  x:Name="NumContainerCBox"
+                DisplayMemberPath="name"
                  Margin="10"/>
             <ComboBox Text="Название продукта"
                       SelectedIndex="0"
                  Margin="10"
-                      SelectionChanged="NameProductCBox_SelectionChanged"
                  FontSize="22"
+                      DisplayMemberPath="name"
                  HorizontalContentAlignment="Center"
                  x:Name="NameProductCBox"/>
             <TextBox 
@@ -564,6 +566,8 @@
                  Text="Город"
                  FontSize="22"
                  HorizontalContentAlignment="Center"
+                SelectedIndex="0"
+                 DisplayMemberPath="name"
                  x:Name="cityCBox"
                  Margin="10"/>
 

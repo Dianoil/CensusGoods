@@ -22,19 +22,14 @@ namespace CensusGoods.Windows
     /// </summary>
     public partial class AddInfo : Window
     {
+        private Class.CBoxHelper boxHelper =
+            new Class.CBoxHelper();
         public AddInfo()
         {
             InitializeComponent();
-
-            var materialTypeList = GetContainers(); //решить с cbox
-            materialTypeList.Insert(0, new Container { status = true });
-            NumContainerCBox.ItemsSource = materialTypeList;
-
-            var NameProductTypeList = GetProducts();
-            NameProductTypeList.Insert(0, new Product {  name = "Все" });
-            NameProductCBox.ItemsSource = NameProductTypeList;
-
+            LoadFilter();
         }
+        #region focus
 
         #region verify
         private void loginTBox_GotFocus(object sender, RoutedEventArgs e)
@@ -492,8 +487,31 @@ namespace CensusGoods.Windows
 
         #endregion
 
+        #endregion
 
         #region Функционал
+
+        private void LoadFilter()
+        {
+            cityCBox.ItemsSource = boxHelper.GetCities("Все города");
+            cityCBox.SelectedIndex = 0;
+            NameProductCBox.ItemsSource = boxHelper.GetProducts("Все продукты");
+            NameProductCBox.SelectedIndex = 0;
+            NumContainerCBox.ItemsSource = boxHelper.GetContainers("Все типы");
+            NumContainerCBox.SelectedIndex = 0;
+
+        }
+
+        private void LoadFilter(int i)
+        {
+            cityCBox.ItemsSource = boxHelper.GetCities("Все города");
+            cityCBox.SelectedIndex = i;
+            NameProductCBox.ItemsSource = boxHelper.GetProducts("Все продукты");
+            NameProductCBox.SelectedIndex = i;
+            NumContainerCBox.ItemsSource = boxHelper.GetContainers("Все типы");
+            NumContainerCBox.SelectedIndex = i;
+
+        }
         private void undo_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите выйти из приложения?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -502,21 +520,6 @@ namespace CensusGoods.Windows
             }
         }
 
-        private void NumContainerCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (((Container)NumContainerCBox.SelectedItem).status != true)
-            {
-                GetContainers().ToList(); //решить с cbox
-            }
-        }
-
-        private void NameProductCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (((Product)NameProductCBox.SelectedItem).name != "Все")
-            {
-                GetProducts().ToList(); //решить с cbox
-            }
-        }
 
         private void SaveAddCompanyInfo_Click(object sender, RoutedEventArgs e)
         {
@@ -528,7 +531,8 @@ namespace CensusGoods.Windows
             #region Добавление информации о компании
             if (NameCompany.Text == "" || inn.Text == "" ||
             ogrn.Text == "" || regNumber.Text == ""
-            || personDiscount.Text == "" || cityCBox.TabIndex == 0) //решить с cbox
+            || personDiscount.Text == "" ||
+             cityCBox.SelectedItem == "Все города")
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -540,17 +544,17 @@ namespace CensusGoods.Windows
             else if (ValidateINN(inn.Text) == false)
             {
                 MessageBox.Show("Неверный формат инн, проверьте написание",
-                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateOGRN(ogrn.Text) == false)
             {
                 MessageBox.Show("Неверный формат огрн, проверьте написание)",
-                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateOGRN(regNumber.Text) == false)
             {
                 MessageBox.Show("Неверный формат регистрационного номера, проверьте написание)",
-                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateDiscount(personDiscount.Text) == false)
             {
@@ -570,8 +574,7 @@ namespace CensusGoods.Windows
                         ogrn = ogrn.Text.ToString(),
                         registrNum = regNumber.Text.ToString(),
                         discount = personDiscount.Text.ToString(),
-                        city = 3 //вывод из cbox
-
+                        city = cityCBox.SelectedIndex
                     });
                     CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();
@@ -753,12 +756,12 @@ namespace CensusGoods.Windows
             else if (ValidateEmail(EmailEmployee.Text) == false)
             {
                 MessageBox.Show("Неверная почта, проверьте написание",
-                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); 
             }
             else if (ValidateLogin(loginTBox2.Text) == false)
             {
                 MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
-                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
             else
@@ -878,14 +881,14 @@ namespace CensusGoods.Windows
         {
             #region Инфоконтенер
 
-            if (NumContainerCBox.SelectedIndex == 0 || //опять cbox
-                NameProductCBox.SelectedIndex == 0 ||
-            QuantityProductTBox.Text == ""
+            if (NumContainerCBox.SelectedItem == "Все типы" ||
+                NameProductCBox.SelectedItem == "Все продукты" ||
+                QuantityProductTBox.Text == ""
             || BruttoTBox.Text == ""
-            || Convert.ToString(DateStart.DataContext) == "")
-            {
-                MessageBox.Show("Не все поля заполнены!");
-            }
+            || DateStart.Text == "")
+                 {
+                      MessageBox.Show("Не все поля заполнены!");
+                  }
             else if (ValidateDate(DateStart.SelectedDate) == false)
             {
                 MessageBox.Show("Неверная дата, проверьте сведения",
@@ -916,8 +919,8 @@ namespace CensusGoods.Windows
             #endregion
 
         }
-        #endregion
 
+        #endregion
 
     }
 }

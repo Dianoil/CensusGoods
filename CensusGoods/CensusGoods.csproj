@@ -71,6 +71,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\CBoxHelper.cs" />
     <Compile Include="Class\DataUser.cs" />
     <Compile Include="Class\DirectCompanyHelper.cs" />
     <Compile Include="Class\DirectGoogsHelper.cs" />
@@ -138,6 +139,15 @@
     <Compile Include="EF\Vm_DirComp.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Vm_DirGoods.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Vm_InfoContainer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Vm_TotalReceipt.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Vm_User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -146,6 +156,15 @@
     </Compile>
     <Compile Include="Pages\PageDirectoryGoods.xaml.cs">
       <DependentUpon>PageDirectoryGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageInfoContainer.xaml.cs">
+      <DependentUpon>PageInfoContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageReceipt.xaml.cs">
+      <DependentUpon>PageReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageWatchDirectoryGoods.xaml.cs">
+      <DependentUpon>PageWatchDirectoryGoods.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddInfo.xaml.cs">
       <DependentUpon>AddInfo.xaml</DependentUpon>
@@ -200,6 +219,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageDirectoryGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageInfoContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageWatchDirectoryGoods.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,5 +30,25 @@ MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
             return result;
         }
+        public List<EF.Vm_TotalReceipt> GetVm_TotalReceipts()
+        {
+            List<EF.Vm_TotalReceipt> result;
+            try
+            {
+                result = CensGoodsEnt.Vm_TotalReceipt.ToList();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
+MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                result = new List<EF.Vm_TotalReceipt>();
+            }
+            catch (Exception ex)
+            {
+                result = new List<EF.Vm_TotalReceipt>();
+            }
+            return result;
+        }
+
     }
 }

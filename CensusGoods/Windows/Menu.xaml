@@ -96,15 +96,32 @@
             <!--Функции админа-->
             <StackPanel x:Name="FunctionAdmin"
                         Visibility="Hidden">
+                <Button
+                        Background="{x:Null}"
+                        x:Name="WatchDirectoryGoods"
+                        Click="WatchDirectoryGoods_Click"
+                        Margin="5"
+                        Width="35"
+                        Height="35"
+                        BorderBrush="{x:Null}">
+                    <Image Source="/Image/client.PNG"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Просмотр директоров склада"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
                 <Button 
-                Background="{x:Null}"
-                x:Name="lk"
-                Click="Lk_Click"
-                Margin="5"
-                Width="35"
-                Height="35"
-                BorderBrush="{x:Null}">
-                    <Image  Source="/Image/client.png"
+                    Background="{x:Null}"
+                    x:Name="lk"
+                    Click="Lk_Click"
+                    Margin="5"
+                    Width="35"
+                    Height="35"
+                    BorderBrush="{x:Null}">
+                    <Image  Source="/Image/employers.png"
                     />
                     <Button.ToolTip>
                         <ToolTip VerticalContentAlignment="Center"
@@ -115,13 +132,13 @@
                     </Button.ToolTip>
                 </Button>
                 <Button
-                Width="35"
-                Height="35"
-                Background="{x:Null}"
-                x:Name="tariffAdd"
-                Click="tariffAdd_Click"
-                Margin="5"
-                BorderBrush="{x:Null}">
+                    Width="35"
+                    Height="35"
+                    Background="{x:Null}"
+                    x:Name="tariffAdd"
+                    Click="tariffAdd_Click"
+                    Margin="5"
+                    BorderBrush="{x:Null}">
                     <Image  Source="/Image/tariff.png"/>
                     <Button.ToolTip>
                         <ToolTip VerticalContentAlignment="Center"
@@ -152,6 +169,24 @@
             <!--Функции директора склада-->
             <StackPanel x:Name="FunctionMainGoods"
                         Visibility="Hidden">
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="watchCompanyInfo"
+                Click="watchCompanyInfo_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/tariff.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Тарифы"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
                 <Button 
                 Background="{x:Null}"
                 x:Name="companyAdd"
@@ -170,24 +205,25 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                
-                <Button
+                <Button 
+                Background="{x:Null}"
+                x:Name="AddGirectoryCompany"
+                Click="AddGirectoryCompany_Click"
+                Margin="10"
                 Width="35"
                 Height="35"
-                Background="{x:Null}"
-                x:Name="watchCompanyInfo"
-                Click="watchCompanyInfo_Click"
-                Margin="10"
                 BorderBrush="{x:Null}">
-                    <Image  Source="/Image/tariff.png"/>
+                    <Image  Source="/Image/client.png"
+                    />
                     <Button.ToolTip>
                         <ToolTip VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                              HorizontalAlignment="Right">
-                            <Label Content="Тарифы"/>
+                            <Label Content="Добавить директора компании"/>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+
             </StackPanel>
 
             <!--Функции директора компании-->
@@ -287,6 +323,24 @@
                 Width="35"
                 Height="35"
                 Background="{x:Null}"
+                x:Name="WatchInfoContainer"
+                Click="WatchInfoContainer_Click"
+                Margin="10"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/monitoring.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Просмотр информации о контейнере"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+                <Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
                 x:Name="AddInfoContainer"
                 Click="AddInfoContainer_Click"
                 Margin="10"
@@ -300,9 +354,8 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+
             </StackPanel>
-
-
         </Grid>
     </Grid>
 </Window>

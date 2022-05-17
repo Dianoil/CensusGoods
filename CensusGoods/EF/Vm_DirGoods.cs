@@ -12,12 +12,11 @@ namespace CensusGoods.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Vm_DirComp
+    public partial class Vm_DirGoods
     {
-        public string Директор_компании { get; set; }
+        public string Директор_склада { get; set; }
         public string Название_компании { get; set; }
         public string Номер_телефона_компании { get; set; }
-        public string Скидка_компании { get; set; }
-        public string Тариф_компании { get; set; }
+        public string Почта_директора { get; set; }
     }
 }

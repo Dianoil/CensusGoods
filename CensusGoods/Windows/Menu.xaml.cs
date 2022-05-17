@@ -26,25 +26,24 @@ namespace CensusGoods.Wind
         {
             InitializeComponent();
             useracc.Content = $" {User.login}";
-            FrameMenu.Content = "Если возникают какие-либо вопросы обратитесь в тех. поддержку";
+
+            if (Class.DataUser.User.idRole == 4)
+            {
+                FrameMenu.Navigate(new PageWatchDirectoryGoods());
+            }
+            else if (Class.DataUser.User.idRole == 3)
+            {
+                FrameMenu.Navigate(new PageDirectoryGoods());
+            }
+            else if (Class.DataUser.User.idRole == 2)
+            {
+                FrameMenu.Navigate(new PageReceipt());
+            }
+            else if (Class.DataUser.User.idRole == 1)
+            {
+                FrameMenu.Navigate(new PageInfoContainer());
+            }
         }
-        //public enum pageDemo
-        //{
-        //    PageDirectoryGoods = 3,
-        //    PageDirectoryCompany = 2
-        //}
-        //public void OpenPageDemo(pageDemo page)
-        //{
-        //    switch (page)
-        //    {
-        //        case pageDemo.PageDirectoryGoods:
-        //            FrameMenu.Navigate(new PageDirectoryGoods(this));
-        //            break;
-        //        case pageDemo.PageDirectoryCompany:
-        //            FrameMenu.Navigate(new PageDirectoryCompany(this));
-        //            break;
-        //    }
-        //}
         private void useracc_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
@@ -69,6 +68,10 @@ namespace CensusGoods.Wind
         }
 
         #region Admin
+        private void WatchDirectoryGoods_Click(object sender, RoutedEventArgs e)
+        {
+            FrameMenu.Navigate(new Pages.PageWatchDirectoryGoods());
+        }
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
             Menu menu = new Menu();
@@ -86,6 +89,11 @@ namespace CensusGoods.Wind
             registrat.AddTariff.Visibility = Visibility.Visible;
             registrat.ShowDialog();
         }
+
+        #endregion
+
+
+        #region DirectGoods
         private void companyadd_Click_1(object sender, RoutedEventArgs e)
         {
             Menu menu = new Menu();
@@ -96,9 +104,7 @@ namespace CensusGoods.Wind
 
         }
 
-        #endregion
 
-        #region DirectGoods
         private void companyAdd_Click(object sender, RoutedEventArgs e)
         {
             Menu menu = new Menu();
@@ -119,6 +125,7 @@ namespace CensusGoods.Wind
         #region DirectoryCompany
         private void watchReceipt_Click(object sender, RoutedEventArgs e)
         {
+            FrameMenu.Navigate(new Pages.PageReceipt());
 
         }
 
@@ -129,6 +136,7 @@ namespace CensusGoods.Wind
 
         private void monitoringContainer_Click(object sender, RoutedEventArgs e)
         {
+            FrameMenu.Navigate(new Pages.PageInfoContainer());
 
         }
 
@@ -164,5 +172,20 @@ namespace CensusGoods.Wind
         }
         #endregion
 
+
+        private void AddGirectoryCompany_Click(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.IsEnabled = false;
+            Windows.AddInfo registrat = new Windows.AddInfo();
+            registrat.AddDirectoryCompany.Visibility = Visibility.Visible;
+            registrat.ShowDialog();
+        }
+
+        private void WatchInfoContainer_Click(object sender, RoutedEventArgs e)
+        {
+            FrameMenu.Navigate(new Pages.PageInfoContainer());
+
+        }
     }
 }
