@@ -10,7 +10,7 @@ namespace CensusGoods.Class
     {
         public static EF.Company Company{ get; set; }
 
-        public static EF.User User{ get; set; }
+        public static EF.User User1{ get; set; }
 
         public static List<EF.Vm_DirComp> dirComps { get; set; }
 

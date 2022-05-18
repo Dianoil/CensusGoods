@@ -44,20 +44,6 @@
                                 Width="150"
                                 />
                         </StackPanel>
-                        <StackPanel
-                            x:Name="NumberCompanySP"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Left">
-                            <Label Content="Номер телефона"
-                                   Width="110"/>
-                            <xctk:MaskedTextBox
-                                Margin="21 0 0 0"
-                                x:Name="PhoneTBox"
-                                FontSize="18"
-                                Mask="+7 (000) 000-00-00"
-                                VerticalAlignment="Center" Width="150"
-                                />
-                        </StackPanel>
                     </StackPanel>
                     <StackPanel
                         Orientation="Horizontal"
@@ -89,7 +75,7 @@
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
                           IsReadOnly="False"
-                          CanUserAddRows="True"
+                          CanUserAddRows="False"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"

@@ -4,34 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f80078b22ad948a3bb4f410eb7e5b8f9" Name="Diagram1" ZoomLevel="67">
-        <EntityTypeShape EntityType="CensusGoodsModel.City" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Company" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Container" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.InfoContainer" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.InfoUserCompany" Width="1.5" PointX="12.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Product" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Receipt" Width="1.875" PointX="7.125" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Role" Width="1.5" PointX="7.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Sector" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Tariff" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CensusGoodsModel.User" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Company__contact__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idCompa__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK_InfoUserCompany_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Container__idSec__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idCon__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idPro__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK_Receipt_InfoContainer" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK_InfoUserCompany_User" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idTarif__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="CensusGoodsModel.FK__User__idRole__286302EC" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Vm_DirComp" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Vm_DirGoods" Width="1.5" PointX="10.375" PointY="10.75" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Vm_InfoContainer" Width="1.5" PointX="7.375" PointY="11.75" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Vm_User" Width="1.5" PointX="12.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CensusGoodsModel.Vm_TotalReceipt" Width="1.5" PointX="0.75" PointY="12.75" />
+      <Diagram DiagramId="72e81519e39d4d7d85462547f0d925cd" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="CensusGoodsModel.City" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Company" Width="1.5" PointX="5.25" PointY="9.25" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Container" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="CensusGoodsModel.InfoContainer" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="CensusGoodsModel.InfoUserCompany" Width="1.5" PointX="12.25" PointY="7.625" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Product" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Receipt" Width="1.5" PointX="7.5" PointY="1.25" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Role" Width="1.5" PointX="7.75" PointY="5.5" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Sector" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="CensusGoodsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Tariff" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="CensusGoodsModel.User" Width="1.5" PointX="10" PointY="5" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_DirComp" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_DirGoods" Width="2.625" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_User" Width="1.5" PointX="0.75" PointY="12.75" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Company__contact__2B3F6F97" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idCompa__412EB0B6" />
+        <AssociationConnector Association="CensusGoodsModel.FK_InfoUserCompany_Company" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Container__idSec__34C8D9D1" />
+        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idCon__3A81B327" />
+        <AssociationConnector Association="CensusGoodsModel.FK__InfoConta__idPro__3B75D760" />
+        <AssociationConnector Association="CensusGoodsModel.FK_Receipt_InfoContainer" />
+        <AssociationConnector Association="CensusGoodsModel.FK_InfoUserCompany_User" />
+        <AssociationConnector Association="CensusGoodsModel.FK__Receipt__idTarif__4222D4EF" />
+        <AssociationConnector Association="CensusGoodsModel.FK__User__idRole__286302EC" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_TotalReceipt" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Vm_InfoContainer" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

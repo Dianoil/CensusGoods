@@ -35,15 +35,16 @@ namespace CensusGoods.Wind
                     .FirstOrDefault();
                 if (user != null)
                 {
-                    Class.DataUser.User = user;
-                    if (Class.DataUser.User.idRole == 4)
+                    Class.DataUser.User1 = user;
+                    if (Class.DataUser.User1.idRole == 4)
                 	{
+
                         Menu menu = new Menu();
                         menu.FunctionAdmin.Visibility = Visibility.Visible;
                         this.Hide();
                         menu.ShowDialog();
                 	}
-                    else if (Class.DataUser.User.idRole == 3)
+                    else if (Class.DataUser.User1.idRole == 3)
                     {
                         Menu menu = new Menu();
                         menu.FunctionMainGoods.Visibility = Visibility.Visible;
@@ -51,14 +52,14 @@ namespace CensusGoods.Wind
                         menu.ShowDialog();
 
                     }
-                    else if (Class.DataUser.User.idRole == 2)
+                    else if (Class.DataUser.User1.idRole == 2)
                     {
                         Menu menu = new Menu();
                         menu.FunctionMainCompany.Visibility = Visibility.Visible;
                         this.Hide();
                         menu.ShowDialog();
                     }
-                    else if (Class.DataUser.User.idRole == 1)
+                    else if (Class.DataUser.User1.idRole == 1)
                     {
                         Menu menu = new Menu();
                         menu.FuntionEmployee.Visibility = Visibility.Visible;

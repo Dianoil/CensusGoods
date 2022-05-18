@@ -87,7 +87,7 @@
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
                           IsReadOnly="False"
-                          CanUserAddRows="True"
+                          CanUserAddRows="False"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"

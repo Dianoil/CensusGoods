@@ -20,12 +20,12 @@ namespace CensusGoods.Class
             }
             catch (System.Data.Entity.Core.EntityException)
             {
-                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
-MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MsgBoxHelper.ShowError("Ошибка подключения к базе");
                 result = new List<EF.Vm_DirComp>();
             }
             catch (Exception ex)
             {
+                MsgBoxHelper.ShowError(ex);
                 result = new List<EF.Vm_DirComp>();
             }
             return result;
@@ -33,18 +33,19 @@ MessageBoxButton.OKCancel, MessageBoxImage.Error);
         public List<EF.Vm_TotalReceipt> GetVm_TotalReceipts()
         {
             List<EF.Vm_TotalReceipt> result;
+
             try
             {
                 result = CensGoodsEnt.Vm_TotalReceipt.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {
-                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
-MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MsgBoxHelper.ShowError("Ошибка подключения к базе");
                 result = new List<EF.Vm_TotalReceipt>();
             }
             catch (Exception ex)
             {
+                MsgBoxHelper.ShowError(ex);
                 result = new List<EF.Vm_TotalReceipt>();
             }
             return result;

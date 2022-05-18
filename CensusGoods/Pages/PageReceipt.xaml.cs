@@ -63,7 +63,7 @@ namespace CensusGoods.Pages
             {
                 if (NameComp.Text is null)
                 {
-                    GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_контейнера == (string)NameCompanyTBox.Text).ToList();
+                    GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
                 }
                 else
                 {

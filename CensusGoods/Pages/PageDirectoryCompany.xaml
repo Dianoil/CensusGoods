@@ -88,7 +88,8 @@
 
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="True"
+                          IsReadOnly="False"
+                          MaxHeight="500"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="Cell"

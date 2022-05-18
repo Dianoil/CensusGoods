@@ -14,7 +14,7 @@ left join [Receipt] r on c.id = r.idCompany
 left join [Receipt] on c.id = r.idTariff
 left join Tariff t on t.id = r.idTariff
 
-where (m.fioContastFace = m.fioContastFace and m.idRole = 3)
+where (m.fioContastFace = m.fioContastFace and m.idRole = 2)
 
 group by m.fioContastFace, c.[name], m.numberContactFace, c.discount, t.[name]
 

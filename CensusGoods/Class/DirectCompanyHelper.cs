@@ -15,16 +15,16 @@ namespace CensusGoods.Class
             List<EF.Vm_User> result;
             try
             {
-                result = (User.Companys, CensGoodsEnt.Vm_User).Vm_User.ToList();
+                result = (User1.Companys, CensGoodsEnt.Vm_User).Vm_User.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {
-                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
-MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MsgBoxHelper.ShowError("Ошибка подключения к базе");
                 result = new List<EF.Vm_User>();
             }
             catch (Exception ex)
             {
+                MsgBoxHelper.ShowError(ex);
                 result = new List<EF.Vm_User>();
             }
             return result;
@@ -35,16 +35,16 @@ MessageBoxButton.OKCancel, MessageBoxImage.Error);
             List<EF.Vm_InfoContainer> result;
             try
             {
-                result = (CensGoodsEnt.Vm_InfoContainer).ToList();
+                result = (User1.Companys, CensGoodsEnt.Vm_InfoContainer).Vm_InfoContainer.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {
-                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
-MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MsgBoxHelper.ShowError("Ошибка подключения к базе");
                 result = new List<EF.Vm_InfoContainer>();
             }
             catch (Exception ex)
             {
+                MsgBoxHelper.ShowError(ex);
                 result = new List<EF.Vm_InfoContainer>();
             }
             return result;
@@ -59,12 +59,12 @@ MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
             catch (System.Data.Entity.Core.EntityException)
             {
-                MessageBox.Show("Ошибка подключени к базе", "Проблемы с подключением",
-MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MsgBoxHelper.ShowError("Ошибка подключения к базе");
                 result = new List<EF.Vm_DirGoods>();
             }
             catch (Exception ex)
             {
+                MsgBoxHelper.ShowError(ex);
                 result = new List<EF.Vm_DirGoods>();
             }
             return result;

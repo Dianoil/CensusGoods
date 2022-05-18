@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,34 +23,23 @@ namespace CensusGoods.Pages
     {
         int isAddEdit = 1;
         private Class.DirectGoogsHelper googsHelper = new Class.DirectGoogsHelper();
+
         public PageDirectoryGoods()
         {
             InitializeComponent();
             GridMain.ItemsSource = googsHelper.GetVm_DirComps();
+
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NameCompanyTBox.Text is null && PhoneTBox.Text is null)
-                return;
             if (NameCompanyTBox.Text is null)
-            {
-                if (PhoneTBox.Text != null)
-                {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirComps().Where(i => i.Номер_телефона_компании == (string)PhoneTBox.Text).ToList();
-                }
-            }
+                return;
             else if (NameCompanyTBox.Text != null)
             {
-                if (PhoneTBox.Text is null)
-                {
+                
                     GridMain.ItemsSource = googsHelper.GetVm_DirComps().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
-                }
-                else
-                {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirComps().Where(i => i.Название_компании == (string)NameCompanyTBox.Text && i.Номер_телефона_компании 
-                    == (string)PhoneTBox.Text).ToList();
-                }
+                
             }
         }
 

@@ -182,11 +182,10 @@
                         <ToolTip VerticalContentAlignment="Center"
                                HorizontalContentAlignment="Center"
                              HorizontalAlignment="Right">
-                            <Label Content="Тарифы"/>
+                            <Label Content="Просмотр информации по компаниям"/>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-
                 <Button 
                 Background="{x:Null}"
                 x:Name="companyAdd"

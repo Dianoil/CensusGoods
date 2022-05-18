@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace CensusGoods.Pages
             {
                 if (FIOTBox.Text is null)
                 {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirUser().Where(i => i.ФИО_Работника == (string)NameCompanyTBox.Text).ToList();
+                    GridMain.ItemsSource = googsHelper.GetVm_DirUser().Where(i => i.Компания == (string)NameCompanyTBox.Text).ToList();
                 }
                 else
                 {

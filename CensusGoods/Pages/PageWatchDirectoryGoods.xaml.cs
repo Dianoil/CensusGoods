@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,12 @@ namespace CensusGoods.Pages
     {
         int isAddEdit = 1;
         private Class.DirectCompanyHelper googsHelper = new Class.DirectCompanyHelper();
-
+        //ObservableCollection<EF.Vm_DirGoods> productList = new ObservableCollection<EF.Vm_DirGoods>();
         public PageWatchDirectoryGoods()
         {
             InitializeComponent();
             GridMain.ItemsSource = googsHelper.GetVm_DirGoods();
-
+            //productList = new ObservableCollection<EF.Vm_DirGoods>();
         }
 
         private void IsAddEdit(object sender, AddingNewItemEventArgs e)
@@ -44,35 +45,36 @@ namespace CensusGoods.Pages
         private void RebootButton_Click(object sender, RoutedEventArgs e)
         {
             NameCompanyTBox.Text = null;
-            PhoneTBox.Text = null;
             GridMain.ItemsSource = googsHelper.GetVm_DirGoods();
 
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NameCompanyTBox.Text is null && PhoneTBox.Text is null)
-                return;
             if (NameCompanyTBox.Text is null)
-            {
-                if (PhoneTBox.Text != null)
-                {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Номер_телефона_компании == (string)PhoneTBox.Text).ToList();
-                }
-            }
+                return;
             else if (NameCompanyTBox.Text != null)
             {
-                if (PhoneTBox.Text is null)
-                {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
-                }
-                else
-                {
-                    GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Название_компании == (string)NameCompanyTBox.Text && i.Номер_телефона_компании
-                    == (string)PhoneTBox.Text).ToList();
-                }
+                GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
             }
 
         }
+
+        //private void NameCompanyTBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    string txtOrig = NameCompanyTBox.Text;
+        //    string upper = txtOrig.ToUpper();
+        //    string lower = txtOrig.ToLower();
+
+        //    var empFiltered = from Emp in productList
+        //                      let ename = Emp.Название_компании
+        //                      where
+        //                       ename.StartsWith(lower)
+        //                       || ename.StartsWith(upper)
+        //                       || ename.Contains(txtOrig)
+        //                      select Emp;
+
+        //    GridMain.ItemsSource = empFiltered;
+        //}
     }
 }

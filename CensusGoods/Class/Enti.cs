@@ -7,7 +7,7 @@ namespace CensusGoods.Class
 {
     public static class Enti
     {
-        public static EF.CensusGoodsEntities3 CensGoodsEnt = new EF.CensusGoodsEntities3();
+        public static EF.CensusGoodsEntities5 CensGoodsEnt = new EF.CensusGoodsEntities5();
 
 
         public static void SaveChanges()

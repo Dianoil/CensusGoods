@@ -18,6 +18,6 @@ namespace CensusGoods.EF
         public string Название_компании { get; set; }
         public string Тариф { get; set; }
         public string Скидка_компании { get; set; }
-        public Nullable<bool> Задолжность { get; set; }
+        public bool Задолжность { get; set; }
     }
 }

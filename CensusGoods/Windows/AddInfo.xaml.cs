@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using static CensusGoods.Class.Enti;
 using static CensusGoods.Class.ValidationClass;
 using static CensusGoods.Class.SeectorHelper;
+using static CensusGoods.Class.DataUser;
 namespace CensusGoods.Windows
 {
     /// <summary>
@@ -771,8 +772,10 @@ namespace CensusGoods.Windows
                  "Логин:  " + loginTBox2.Text + "\n" +
                  "Пароль:  " + PasswTBox2.Text + "\n",
                  "Создать пользователя:", MessageBoxButton.YesNo);
+                int idAdUs;
+                int idAdCom;
                 if (result == MessageBoxResult.Yes)
-                {
+                {                    
                     CensGoodsEnt.User.Add(new EF.User()
                     {
                         login = loginTBox2.Text.ToString(),
@@ -780,7 +783,17 @@ namespace CensusGoods.Windows
                         fioContastFace = NameEmployee.Text.ToString(),
                         numberContactFace = NumberEmployee.Text.ToString(),
                         emailContactFace = EmailEmployee.Text.ToString(),
-                        idRole = 1
+                        idRole = 1,
+                        
+                    }) ;
+                    var addedUser = CensGoodsEnt.User.Where(x => x.login == loginTBox2.Text).FirstOrDefault();
+                    idAdUs = addedUser.id;
+                    var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => i.id == User1.id).FirstOrDefault();
+                    idAdCom = addedCompany.idCompany;
+                    CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
+                    {
+                        idCompany = idAdCom,
+                        idUser = idAdUs
                     });
                     CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();

@@ -25,21 +25,21 @@ namespace CensusGoods.Wind
         public Menu()
         {
             InitializeComponent();
-            useracc.Content = $" {User.login}";
+            useracc.Content = $" {User1.login}";
 
-            if (Class.DataUser.User.idRole == 4)
+            if (Class.DataUser.User1.idRole == 4)
             {
                 FrameMenu.Navigate(new PageWatchDirectoryGoods());
             }
-            else if (Class.DataUser.User.idRole == 3)
+            else if (Class.DataUser.User1.idRole == 3)
             {
                 FrameMenu.Navigate(new PageDirectoryGoods());
             }
-            else if (Class.DataUser.User.idRole == 2)
+            else if (Class.DataUser.User1.idRole == 2)
             {
                 FrameMenu.Navigate(new PageReceipt());
             }
-            else if (Class.DataUser.User.idRole == 1)
+            else if (Class.DataUser.User1.idRole == 1)
             {
                 FrameMenu.Navigate(new PageInfoContainer());
             }
@@ -110,7 +110,7 @@ namespace CensusGoods.Wind
             Menu menu = new Menu();
             menu.IsEnabled = false;
             Windows.AddInfo registrat = new Windows.AddInfo();
-            registrat.AddDirectoryCompany.Visibility = Visibility.Visible;
+            registrat.addInfoCompany.Visibility = Visibility.Visible;
             registrat.ShowDialog();
 
         }
