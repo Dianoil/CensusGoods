@@ -92,7 +92,6 @@ namespace CensusGoods.Wind
 
         #endregion
 
-
         #region DirectGoods
         private void companyadd_Click_1(object sender, RoutedEventArgs e)
         {
@@ -185,12 +184,6 @@ namespace CensusGoods.Wind
         private void WatchInfoContainer_Click(object sender, RoutedEventArgs e)
         {
             FrameMenu.Navigate(new Pages.PageInfoContainer());
-
-        }
-
-        private void AddInfoCompanyUser_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
