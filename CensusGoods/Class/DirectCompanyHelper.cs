@@ -12,10 +12,14 @@ namespace CensusGoods.Class
     {
         public List<EF.Vm_User> GetVm_DirUser()
         {
-            List<EF.Vm_User> result;
+            string idCompany;
+            var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => User1.id == i.idUser).FirstOrDefault();
+            idCompany = addedCompany.Company.name;
+            var infoComp = CensGoodsEnt.Vm_User.Where(s => s.Компания == idCompany);
+            List <EF.Vm_User> result;
             try
             {
-                result = (User1.Companys, CensGoodsEnt.Vm_User).Vm_User.ToList();
+                result = infoComp.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {
@@ -32,10 +36,15 @@ namespace CensusGoods.Class
 
         public List<EF.Vm_InfoContainer> GetVm_InfoContainers()
         {
+            string idCompany;
+            var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => User1.id == i.idUser).FirstOrDefault();
+            idCompany = addedCompany.Company.name;
+            var infoComp = CensGoodsEnt.Vm_InfoContainer.Where(s => s.Название_компании == idCompany);
+
             List<EF.Vm_InfoContainer> result;
             try
             {
-                result = (User1.Companys, CensGoodsEnt.Vm_InfoContainer).Vm_InfoContainer.ToList();
+                result = infoComp.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {

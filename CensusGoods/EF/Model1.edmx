@@ -152,10 +152,12 @@
         <EntityType Name="Vm_InfoContainer">
           <Key>
             <PropertyRef Name="Название продукта" />
+            <PropertyRef Name="Название компании" />
             <PropertyRef Name="Доступность" />
           </Key>
           <Property Name="Название контейнера" Type="nvarchar" MaxLength="50" />
           <Property Name="Название продукта" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Название компании" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Доступность" Type="bit" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
@@ -370,6 +372,7 @@
             <DefiningQuery>SELECT 
     [Vm_InfoContainer].[Название контейнера] AS [Название контейнера], 
     [Vm_InfoContainer].[Название продукта] AS [Название продукта], 
+    [Vm_InfoContainer].[Название компании] AS [Название компании], 
     [Vm_InfoContainer].[Доступность] AS [Доступность]
     FROM [dbo].[Vm_InfoContainer] AS [Vm_InfoContainer]</DefiningQuery>
           </EntitySet>
@@ -840,10 +843,12 @@
           <Key>
             <PropertyRef Name="Название_продукта" />
             <PropertyRef Name="Доступность" />
+            <PropertyRef Name="Название_компании" />
           </Key>
           <Property Name="Название_контейнера" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Название_продукта" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Доступность" Type="Boolean" Nullable="false" />
+          <Property Name="Название_компании" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1048,6 +1053,7 @@
           <EntitySetMapping Name="Vm_InfoContainer">
             <EntityTypeMapping TypeName="CensusGoodsModel.Vm_InfoContainer">
               <MappingFragment StoreEntitySet="Vm_InfoContainer">
+                <ScalarProperty Name="Название_компании" ColumnName="Название компании" />
                 <ScalarProperty Name="Доступность" ColumnName="Доступность" />
                 <ScalarProperty Name="Название_продукта" ColumnName="Название продукта" />
                 <ScalarProperty Name="Название_контейнера" ColumnName="Название контейнера" />

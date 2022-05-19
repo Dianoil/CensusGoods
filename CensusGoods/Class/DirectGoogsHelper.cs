@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using static CensusGoods.Class.Enti;
+using static CensusGoods.Class.DataUser;
 namespace CensusGoods.Class
 {
     class DirectGoogsHelper
@@ -32,11 +33,14 @@ namespace CensusGoods.Class
         }
         public List<EF.Vm_TotalReceipt> GetVm_TotalReceipts()
         {
+            string idCompany;
+            var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => User1.id == i.idUser).FirstOrDefault();
+            idCompany = addedCompany.Company.name;
+            var infoComp = CensGoodsEnt.Vm_TotalReceipt.Where(s => s.Название_компании == idCompany);
             List<EF.Vm_TotalReceipt> result;
-
             try
             {
-                result = CensGoodsEnt.Vm_TotalReceipt.ToList();
+                result = infoComp.ToList();
             }
             catch (System.Data.Entity.Core.EntityException)
             {

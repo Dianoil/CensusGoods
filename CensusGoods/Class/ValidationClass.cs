@@ -20,11 +20,8 @@ namespace CensusGoods.Class
                 {
                     while (s < name.Length)
                     {
-                        if (name[s] >= 'А' && name[s] <= 'Я' ||
-                            name[s] >= 'а' && name[s] <= 'я' ||
-                            ((name[s] == '-' || name[s] == ' ') &&
-                            (name[s] >= 'А' && name[s] <= 'Я' ||
-                            name[s] >= 'а' && name[s] <= 'я')))
+                        if ((name[s] >= 'А' && name[s] <= 'Я' || name[s] >= 'а' && name[s] <= 'я' )||
+                            (name[s] == '-' || name[s] == ' '))
                         {
                             s++;
                         }
@@ -38,58 +35,67 @@ namespace CensusGoods.Class
         }
         public static bool ValidatePassw(string passw)
         {
-            int s = 0;
             int t = 7;
 
-            if (passw != "Пароль")
+            if (passw.Length >= t)
             {
-                if (t < passw.Length)
-                {
-                    while (s < passw.Length)
+                for (int i = 0; i < passw.Length; i++)
+                    if ((passw[i] >= '0') && (passw[i] <= '9'))
                     {
-                        if (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я' ||
-                            (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я'))
-                            
-                        {
-                            s++;
-                        }
-                        else return false;
+                        for (int d = 0; d < passw.Length; d++)
+                                for (int j = 0; j < passw.Length; j++)
+                                    if ((passw[j] >= 'a') && (passw[j] <= 'z'))
+                                    {
+                                        for (int k = 0; k < passw.Length; k++)
+                                        {
+                                            if ((passw[k] >= 'A') && (passw[k] <= 'Z'))
+                                                return true;
+                                        }
+                                        return false;
+                                    }
+                        return false;
                     }
-                }
-                else return false;
+                return true;
             }
-            else return false;
-            return true;
+            else
+            {
+                return false;
+            }
         }
         public static bool ValidateLogin(string login)
         {
             int t = 7;
             int s = 0;
 
-            if (login != "Логин" && login != "Название тарифа")
+            if (login.Length >= t)
             {
-                if (t < login.Length)
-                {
-                    while (s < login.Length)
+                for (int i = 0; i < login.Length; i++)
+                    if ((login[i] >= '0') && (login[i] <= '9'))
                     {
-                        if (login[s] >= 'А' && login[s] <= 'Я' || login[s] >= 'а' && login[s] <= 'я' ||
-                            (
-                            (login[s] >= 'А' && login[s] <= 'Я' || login[s] >= 'а' && login[s] <= 'я')
-                            )
-                           )
-                        {
-                            s++;
-                        }
-                        else return false;
+                        for (int d = 0; d < login.Length; d++)
+                            if ((login[d] >= '#') && (login[d] <= '&') || login[d] == '^' || login[d] == '_')
+                            {
+                                for (int j = 0; j < login.Length; j++)
+                                    if ((login[j] >= 'а') && (login[j] <= 'я') || (login[j] >= 'a') && (login[j] <= 'z'))
+                                    {
+                                        for (int k = 0; k < login.Length; k++)
+                                        {
+                                            if ((login[k] >= 'А') && (login[k] <= 'Я') || (login[j] >= 'A') && (login[j] <= 'Z'))
+                                                return true;
+                                        }
+                                        return false;
+                                    }
+                                return false;
 
+                            }
+                        return false;
                     }
-
-                }
-                else return false;
-
+                return true;
             }
-            else return false;
-            return true;
+            else
+            {
+                return false;
+            }
         }
 
         public static bool ValidateCompany(string company)
@@ -97,30 +103,35 @@ namespace CensusGoods.Class
             int s = 0;
             int t = 0;
 
-            if ( company != "Название компании")
+            if (company.Length >= t)
             {
-                if (t < company.Length)
-                {
-                    while (s < company.Length)
+                for (int i = 0; i < company.Length; i++)
+                    if ((company[i] >= '0') && (company[i] <= '9'))
                     {
-                        if (company[s] >= 'А' && company[s] <= 'Я' ||
-                            company[s] >= 'а' && company[s] <= 'я' ||
-                            ((company[s] == '-' || company[s] == ' ') &&
-                            (company[s] >= 'А' && company[s] <= 'Я' ||
-                            company[s] >= 'а' && company[s] <= 'я')))
-                        {
-                            s++;
-                        }
-                        else return false;
+                        for (int d = 0; d < company.Length; d++)
+                            if ((company[d] >= '#') && (company[d] <= '&') || company[d] == '^' || company[d] == '_')
+                            {
+                                for (int j = 0; j < company.Length; j++)
+                                    if ((company[j] >= 'а') && (company[j] <= 'я') || (company[j] >= 'a') && (company[j] <= 'z'))
+                                    {
+                                        for (int k = 0; k < company.Length; k++)
+                                        {
+                                            if ((company[k] >= 'А') && (company[k] <= 'Я') || (company[j] >= 'A') && (company[j] <= 'Z'))
+                                                return true;
+                                        }
+                                        return false;
+                                    }
+                                return false;
 
+                            }
+                        return false;
                     }
-
-
-                }
-                else return false;
+                return true;
             }
-            else return false;
-            return true;
+            else
+            {
+                return false;
+            }
         }
         public static bool ValidateEmail(string email)
         {
@@ -212,9 +223,9 @@ namespace CensusGoods.Class
         {
             int s = 0;
             int t = 3;
-            if ( disk != "Персональная скидка")
+            if (disk != "Персональная скидка")
             {
-                if (t == disk.Length)
+                if (t >= disk.Length)
                 {
                     while (s == disk.Length)
                     {
@@ -232,6 +243,58 @@ namespace CensusGoods.Class
             }
             else return false;
             return true;
+        }
+        public static bool ValidatePersTariff(string disk)
+        {
+            int s = 0;
+            if (disk != "Процент по тарифу")
+            {
+                if (s >= disk.Length)
+                {
+                    for (int j = 0; j < disk.Length; j++)
+                        if ((disk[j] >= '0') && (disk[j] <= '9'))
+                        {
+                            for (int k = 0; k < disk.Length; k++)
+                            {
+                                if (disk[k] == ',')
+                                    return true;
+                            }
+                            return false;
+                        }
+                    return false;
+                }
+                else return false;
+
+            }
+            else return false;
+            return true;
+        }
+        
+        public static bool ValidatePhone(string phone)
+        {
+            return true;
+            //int s = 0;
+
+            //    if (phone != "+7 (900) 000-00-00")
+            //    {
+            //    if (s == phone.Length)
+            //    {
+            //        while (s == phone.Length)
+            //        {
+            //            if (phone[s] >= '0' && phone[s] <= '9')
+            //            {
+            //                s++;
+            //            }
+            //            else return false;
+
+            //        }
+
+            //    }
+            //    else return false;
+
+            //}
+            //else return false;
+            //return true;
         }
         public static bool ValidateDate(DateTime? birth)
         {

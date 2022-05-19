@@ -612,9 +612,15 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+            else if (ValidatePhone(NumberMainGoods.Text) == false)
+            {
+                MessageBox.Show("Недопустимый номер телефона, проверьте написание",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
             else if (ValidateFIO(NameMainGoods.Text) == false)
             {
                 MessageBox.Show("Недопустимое имя пользователя",
@@ -627,7 +633,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidateLogin(loginTBox.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -680,21 +686,25 @@ namespace CensusGoods.Windows
                 MessageBox.Show("Недопустимое имя пользователя",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-
+            else if (ValidatePhone(NumberMainCompany.Text) == false)
+            {
+                MessageBox.Show("Недопустимый номер телефона, проверьте написание",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
             else if (ValidatePassw(PasswTBox1.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailMainCompany.Text) == false)
             {
                 MessageBox.Show("Неверная почта, проверьте написание",
-                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); 
             }
             else if (ValidateLogin(loginTBox1.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
-                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); //обычная маска почты %@%.ru или %@%.com
+                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); 
             }
 
             else
@@ -745,7 +755,12 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox2.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else if (ValidatePhone(NumberEmployee.Text) == false)
+            {
+                MessageBox.Show("Недопустимый номер телефона, проверьте написание",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateFIO(NameEmployee.Text) == false)
@@ -761,7 +776,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidateLogin(loginTBox2.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
@@ -786,9 +801,11 @@ namespace CensusGoods.Windows
                         idRole = 1,
                         
                     }) ;
-                    var addedUser = CensGoodsEnt.User.Where(x => x.login == loginTBox2.Text).FirstOrDefault();
+                    CensGoodsEnt.SaveChanges();
+
+                    var addedUser = CensGoodsEnt.User.Where(x => EmailEmployee.Text == x.emailContactFace).FirstOrDefault();
                     idAdUs = addedUser.id;
-                    var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => i.id == User1.id).FirstOrDefault();
+                    var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => i.idUser == User1.id).FirstOrDefault();
                     idAdCom = addedCompany.idCompany;
                     CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
                     {
@@ -815,14 +832,14 @@ namespace CensusGoods.Windows
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
-            else if (ValidateLogin(NameTariff.Text) == false)
+            else if (ValidateFIO(NameTariff.Text) == false)
             {
-                MessageBox.Show("Недопустимое название тарифа, проыерьте написание",
+                MessageBox.Show("Недопустимое название тарифа, проверьте написание",
                     "Добавление тарифа", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            else if (ValidateDiscount(precentForTariff.Text) == false)
+            else if (ValidatePersTariff(precentForTariff.Text) == false)
             {
-                MessageBox.Show("Недопустимое значение, проыерьте написание",
+                MessageBox.Show("Недопустимое значение, проверьте написание",
                 "Добавление тарифа", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -835,7 +852,7 @@ namespace CensusGoods.Windows
                     CensGoodsEnt.Tariff.Add(new EF.Tariff()
                     {
                         name = NameTariff.Text.ToString(),
-                        cost = Convert.ToDecimal(precentForTariff),
+                        cost =  Convert.ToDecimal(precentForTariff.Text),
                         available = false,
                     });
                     CensGoodsEnt.SaveChanges();

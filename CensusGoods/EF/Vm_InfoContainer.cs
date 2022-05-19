@@ -17,5 +17,6 @@ namespace CensusGoods.EF
         public string Название_контейнера { get; set; }
         public string Название_продукта { get; set; }
         public bool Доступность { get; set; }
+        public string Название_компании { get; set; }
     }
 }
