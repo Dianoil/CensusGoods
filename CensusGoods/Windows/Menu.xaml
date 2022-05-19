@@ -164,6 +164,24 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+                
+                <!--<Button
+                Width="35"
+                Height="35"
+                Background="{x:Null}"
+                x:Name="AddInfoCompanyUser"
+                Click="AddInfoCompanyUser_Click"
+                BorderBrush="{x:Null}">
+                    <Image  Source="/Image/order.png"/>
+                    <Button.ToolTip>
+                        <ToolTip VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                             HorizontalAlignment="Right">
+                            <Label Content="Присвоение компании руководителю"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>-->
+
             </StackPanel>
             
             <!--Функции директора склада-->

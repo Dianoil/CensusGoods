@@ -187,5 +187,10 @@ namespace CensusGoods.Wind
             FrameMenu.Navigate(new Pages.PageInfoContainer());
 
         }
+
+        private void AddInfoCompanyUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

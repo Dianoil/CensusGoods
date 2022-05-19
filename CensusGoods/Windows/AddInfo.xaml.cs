@@ -500,6 +500,8 @@ namespace CensusGoods.Windows
             NameProductCBox.SelectedIndex = 0;
             NumContainerCBox.ItemsSource = boxHelper.GetContainers("Все типы");
             NumContainerCBox.SelectedIndex = 0;
+            NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
+            NumCompanyCbox.SelectedIndex = 0;
 
         }
 
@@ -511,6 +513,8 @@ namespace CensusGoods.Windows
             NameProductCBox.SelectedIndex = i;
             NumContainerCBox.ItemsSource = boxHelper.GetContainers("Все типы");
             NumContainerCBox.SelectedIndex = i;
+            NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
+            NumCompanyCbox.SelectedIndex = i;
 
         }
         private void undo_Click(object sender, RoutedEventArgs e)
@@ -673,7 +677,7 @@ namespace CensusGoods.Windows
 
             if (loginTBox1.Text == "" || PasswTBox1.Text == "" ||
             NameMainCompany.Text == "" || NumberMainCompany.Text == ""
-            || EmailMainCompany.Text == "")
+            || EmailMainCompany.Text == "" || NumCompanyCbox.SelectedItem == "Все компании")
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -724,6 +728,15 @@ namespace CensusGoods.Windows
                         numberContactFace = NumberMainCompany.Text.ToString(),
                         emailContactFace = EmailMainCompany.Text.ToString(),
                         idRole = 2
+                    });
+                    CensGoodsEnt.SaveChanges();
+                    int idAdUs;
+                    var addedUser = CensGoodsEnt.User.Where(x => EmailEmployee.Text == x.emailContactFace).FirstOrDefault();
+                    idAdUs = addedUser.id;
+                    CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
+                    {
+                        idCompany = NumCompanyCbox.SelectedIndex,
+                        idUser = idAdUs
                     });
                     CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();
@@ -952,5 +965,9 @@ namespace CensusGoods.Windows
 
         #endregion
 
+        //private void SaveInfoCompUser_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }

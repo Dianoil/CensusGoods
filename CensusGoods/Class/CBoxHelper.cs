@@ -126,5 +126,44 @@ namespace CensusGoods.Class
         }
 
 
+        public List<EF.Company> GetCompanies()
+        {
+            try
+            {
+                return CensGoodsEnt.Company.ToList();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                return new List<EF.Company>();
+            }
+            catch (Exception ex)
+            {
+                return new List<EF.Company>();
+            }
+        }
+
+        public List<EF.Company> GetCompanies(string element)
+        {
+            List<EF.Company> typeMaterials;
+            try
+            {
+                typeMaterials = CensGoodsEnt.Company.AsNoTracking().ToList();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                typeMaterials = new List<EF.Company>();
+            }
+            catch (Exception ex)
+            {
+                typeMaterials = new List<EF.Company>();
+            }
+            typeMaterials.Insert(0, new EF.Company
+            {
+                name = element
+            });
+            return typeMaterials;
+
+        }
+
     }
 }

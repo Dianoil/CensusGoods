@@ -55,7 +55,6 @@
                 <Image Source="/Image/home.png"/>
             </Button>
         </Grid>
-        <!--Сделать маску телефону, календарю-->
         <!--Добавление директора склада-->
         <StackPanel Grid.Row="1"
                     Margin="10"
@@ -121,7 +120,7 @@
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
 
-            <Grid Margin="0 260 0 0">
+            <Grid Margin="0 260 0 0" Height="50">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -137,7 +136,8 @@
                      BorderBrush="{x:Null}"
                      Background="{x:Null}"
                      Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
             </Grid>
         </StackPanel>
@@ -205,9 +205,17 @@
                  LostFocus="EmailMainCompany_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
-
-            <Grid Margin="0 260 0 0">
-                <Image Source="/Image/linelogin.png"
+            <ComboBox 
+                 Text="Название компании"
+                 FontSize="22"
+                 HorizontalContentAlignment="Center"
+                 SelectedIndex="0"
+                 x:Name="NumCompanyCbox"
+                 DisplayMemberPath="name"
+                 Margin="10"/>
+            <Grid Margin="0 210 0 0"
+                  Height="50">
+                    <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
                     FontSize="22"
@@ -222,9 +230,9 @@
                     BorderBrush="{x:Null}"
                     Background="{x:Null}"
                     Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
-
             </Grid>
         </StackPanel>
         
@@ -291,7 +299,8 @@
                  LostFocus="EmailEmployee_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 260 0 0">
+            <Grid Margin="0 260 0 0"
+                  Height="50">
                   <Image Source="/Image/linelogin.png"
                          VerticalAlignment="Top"/>
                 <Button 
@@ -307,7 +316,8 @@
                       BorderBrush="{x:Null}"
                       Background="{x:Null}"
                       Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
             </Grid>
         </StackPanel>
@@ -340,7 +350,8 @@
                  GotFocus="precentForTariff_GotFocus"
                  LostFocus="precentForTariff_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 400 0 0">
+            <Grid Margin="0 400 0 0"
+                  Height="50">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -356,9 +367,9 @@
                     BorderBrush="{x:Null}"
                     Background="{x:Null}"
                     Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
-
             </Grid>
         </StackPanel>
         
@@ -403,7 +414,8 @@
                  GotFocus="descriptionTBox_GotFocus"
                  LostFocus="descriptionTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 350 0 0">
+            <Grid Margin="0 350 0 0"
+                  Height="50">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -420,7 +432,8 @@
                     Background="{x:Null}"
                     Style="{StaticResource ButtonAutor}"
                 >
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
 
             </Grid>
@@ -476,7 +489,8 @@
                         x:Name="DateStart"
                         HorizontalContentAlignment="Center"
                         Foreground="Gray"/>
-            <Grid Margin="0 230 0 0">
+            <Grid Margin="0 230 0 0"
+                  Height="50">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -492,7 +506,8 @@
                     BorderBrush="{x:Null}"
                     Background="{x:Null}"
                     Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
 
             </Grid>
@@ -571,7 +586,8 @@
                  x:Name="cityCBox"
                  Margin="10"/>
 
-            <Grid Margin="0 210 0 0">
+            <Grid Margin="0 210 0 0"
+                  Height="50">
                 <Image Source="/Image/linelogin.png"
                          VerticalAlignment="Top"/>
                 <Button 
@@ -587,9 +603,55 @@
                       BorderBrush="{x:Null}"
                       Background="{x:Null}"
                       Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"/>
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
                 </Button>
             </Grid>
         </StackPanel>
+
+        <!--Добавление инфы о компаний и ее работников-->
+        <!--<StackPanel Grid.Row="1"
+                    Margin="10"
+                    x:Name="AddCompanyEmploeeyrs"
+                    Visibility="Hidden">
+            <ComboBox 
+                 Text="Название компании"
+                 FontSize="22"
+                 HorizontalContentAlignment="Center"
+                 SelectedIndex="0"
+                 x:Name="NumCompanyCbox"
+                 DisplayMemberPath="name"
+                 Margin="10"/>
+            <ComboBox Text="ФИО Директора компании"
+                      SelectedIndex="0"
+                      Margin="10"
+                      FontSize="22"
+                      DisplayMemberPath="name"
+                      HorizontalContentAlignment="Center"
+                      x:Name="AddDirectCompCBox"/>
+            <Grid Margin="0 380 0 0" Height="50">
+                <Image Source="/Image/linelogin.png"
+                       VerticalAlignment="Top"/>
+                <Button 
+                    FontSize="22"
+                    x:Name="SaveInfoCompUser"
+                    Width="25"
+                    Margin="0 10 0 0"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveInfoCompUser_Click"
+                    BorderBrush="{x:Null}"
+                    Background="{x:Null}"
+                    Style="{StaticResource ButtonAutor}">
+                    <Image Source="/Image/arrow.png"
+                           HorizontalAlignment="Center"/>
+                </Button>
+
+            </Grid>
+        </StackPanel>-->
+
+
     </Grid>
 </Window>
