@@ -90,6 +90,15 @@
           <Property Name="cellSector" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="nameSector" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="question" Type="nvarchar" MaxLength="150" />
+          <Property Name="appeal" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -348,6 +357,7 @@
           <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tariff" EntityType="Self.Tariff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -526,6 +536,7 @@
           </AssociationSet>
           <EntitySet Name="Vm_TotalReceipt" EntityType="CensusGoodsModel.Vm_TotalReceipt" />
           <EntitySet Name="Vm_InfoContainer" EntityType="CensusGoodsModel.Vm_InfoContainer" />
+          <EntitySet Name="Support" EntityType="CensusGoodsModel.Support" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -850,6 +861,15 @@
           <Property Name="Доступность" Type="Boolean" Nullable="false" />
           <Property Name="Название_компании" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="question" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="appeal" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1057,6 +1077,16 @@
                 <ScalarProperty Name="Доступность" ColumnName="Доступность" />
                 <ScalarProperty Name="Название_продукта" ColumnName="Название продукта" />
                 <ScalarProperty Name="Название_контейнера" ColumnName="Название контейнера" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Support">
+            <EntityTypeMapping TypeName="CensusGoodsModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="appeal" ColumnName="appeal" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

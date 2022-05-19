@@ -87,7 +87,8 @@
                   FontSize="18"
                   VerticalAlignment="Center"
                   Height="40"
-                  Margin="50, 0"/>
+                  Margin="50, 0"
+                  SelectedIndex="0"/>
 
         <TextBlock Text="Email для обратной связи"
                    Grid.Column="0"
@@ -98,6 +99,7 @@
                    Margin="0, 0, 20, 0"/>
 
         <TextBox Grid.Column="1"
+                 x:Name="EmailSupportTBox"
                   Grid.Row="3"
                   FontSize="18"
                   VerticalAlignment="Center"
@@ -114,12 +116,16 @@
 
         <TextBox Grid.Column="1"
                  Grid.Row="3"
+                 TextWrapping="Wrap"
+                 ScrollViewer.CanContentScroll="True"
                  Grid.RowSpan="4"
                  FontSize="18"
                  VerticalAlignment="Center"
-                 Height="200"
-                 Margin="50, 0"
-                 AcceptsReturn="True"/>
+                 Height="143"
+                 Margin="50,0,50,0"
+                 AcceptsReturn="True"
+                 x:Name="ApplyTBox"
+                 />
 
         <WrapPanel Grid.Column="1"
                    Grid.Row="7"

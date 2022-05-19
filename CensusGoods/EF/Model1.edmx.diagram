@@ -32,6 +32,7 @@
         <AssociationConnector Association="CensusGoodsModel.FK__User__idRole__286302EC" />
         <EntityTypeShape EntityType="CensusGoodsModel.Vm_TotalReceipt" Width="2.25" PointX="12.375" PointY="3.75" />
         <EntityTypeShape EntityType="CensusGoodsModel.Vm_InfoContainer" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CensusGoodsModel.Support" Width="1.5" PointX="7.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
