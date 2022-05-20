@@ -10,8 +10,7 @@
         Height="640" Width="512"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        MinHeight="640"
-        MinWidth="512"
+        ResizeMode="NoResize"
         Background="#E4E4E4"             
         Icon="/Image/logo2.png">
     <Grid Margin="10" Background="White">
@@ -57,7 +56,7 @@
         </Grid>
         <!--Добавление директора склада-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddDirectoryGoods"
                     Visibility="Hidden">
            
@@ -120,7 +119,7 @@
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
 
-            <Grid Margin="0 260 0 0" Height="50">
+            <Grid Margin="0 250 0 0" Height="60">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -144,7 +143,7 @@
         
         <!--Добавление директора компании-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddDirectoryCompany"
                     Visibility="Hidden">
             <TextBox 
@@ -213,8 +212,8 @@
                  x:Name="NumCompanyCbox"
                  DisplayMemberPath="name"
                  Margin="10"/>
-            <Grid Margin="0 210 0 0"
-                  Height="50">
+            <Grid Margin="0 200 0 0"
+                  Height="60">
                     <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -238,7 +237,7 @@
         
         <!--Добавление работника склада-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddUsers"
                     Visibility="Hidden">
             <TextBox 
@@ -299,8 +298,8 @@
                  LostFocus="EmailEmployee_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 260 0 0"
-                  Height="50">
+            <Grid Margin="0 240 0 0"
+                  Height="60">
                   <Image Source="/Image/linelogin.png"
                          VerticalAlignment="Top"/>
                 <Button 
@@ -324,7 +323,7 @@
         
         <!--Добавление тарифа-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddTariff"
                     Visibility="Hidden">
             <TextBox 
@@ -350,8 +349,8 @@
                  GotFocus="precentForTariff_GotFocus"
                  LostFocus="precentForTariff_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 400 0 0"
-                  Height="50">
+            <Grid Margin="0 380 0 0"
+                  Height="60">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -375,7 +374,7 @@
         
         <!--Добавление продукта-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddProduct"
                     Visibility="Hidden">
             <TextBox 
@@ -390,18 +389,6 @@
                  LostFocus="NameProduct_LostFocus"
                  Margin="10"
                  Style="{StaticResource TextBoxMenu}"/>
-            <!--Тут надо придумать добавление изображение-->
-            <TextBox Text="Изображение"
-                 Margin="10"
-                 FontSize="22"                  
-                 BorderThickness="1"
-                 BorderBrush="Gray"
-                 Foreground="Gray"
-                 HorizontalContentAlignment="Center"
-                 x:Name="imageProduct"
-                 GotFocus="imageProduct_GotFocus"
-                 LostFocus="imageProduct_LostFocus"
-                 Style="{StaticResource TextBoxMenu}"/>
             <TextBox
                  Text="Описание"
                  Margin="10"                  
@@ -414,8 +401,36 @@
                  GotFocus="descriptionTBox_GotFocus"
                  LostFocus="descriptionTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
-            <Grid Margin="0 350 0 0"
-                  Height="50">
+            <!--Тут надо придумать добавление изображение-->
+            <GroupBox Header="Файл" VerticalAlignment="Bottom" Margin="5">
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <StackPanel Orientation="Horizontal">
+                        <xctk:WatermarkTextBox x:Name="NameFiles" 
+                                               Text="{Binding Path=image, 
+                            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               Width="160" IsReadOnly="True"/>
+                        <Button Content="Выбор" Width="40" x:Name="AvatarUser"
+                                Click="AvatarUser_Click"/>
+                    </StackPanel>
+                </Border>
+            </GroupBox>
+            <Button HorizontalAlignment="Left"
+                    Margin="5"
+                    Template="{StaticResource ButtonJPG}"
+                    x:Name="AvatarUser1"
+                    Click="AvatarUser_Click"
+                    >
+                <Grid>
+                    <Rectangle Width="220" Height="220" RadiusX="30" RadiusY="30" Grid.Column="1">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="ImageUser"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+            </Button>
+
+            <Grid Margin="0 90 0 0"
+                  Height="60">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -442,7 +457,7 @@
         
         <!--Добавление инфы о контейнере-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="AddProductForContainer"
                     Visibility="Hidden">
             <ComboBox 
@@ -483,14 +498,22 @@
                  GotFocus="BruttoTBox_GotFocus"
                  LostFocus="BruttoTBox_LostFocus"
                  Style="{StaticResource TextBoxMenu}"/>
+            <ComboBox 
+                 Text="Название компании"
+                 FontSize="22"
+                 HorizontalContentAlignment="Center"
+                 SelectedIndex="0"
+                 x:Name="NumCompanyCbox1"
+                 DisplayMemberPath="name"
+                 Margin="10"/>
             <DatePicker FontSize="22"
                         Margin="10"
                         Width="200"
                         x:Name="DateStart"
                         HorizontalContentAlignment="Center"
                         Foreground="Gray"/>
-            <Grid Margin="0 230 0 0"
-                  Height="50">
+            <Grid Margin="0 160 0 0"
+                  Height="60">
                 <Image Source="/Image/linelogin.png"
                        VerticalAlignment="Top"/>
                 <Button 
@@ -515,7 +538,7 @@
 
         <!--Добавление информации о компании-->
         <StackPanel Grid.Row="1"
-                    Margin="10"
+                    Margin="5"
                     x:Name="addInfoCompany"
                     Visibility="Hidden">
             <TextBox 
@@ -586,8 +609,8 @@
                  x:Name="cityCBox"
                  Margin="10"/>
 
-            <Grid Margin="0 210 0 0"
-                  Height="50">
+            <Grid Margin="0 200 0 0"
+                  Height="60">
                 <Image Source="/Image/linelogin.png"
                          VerticalAlignment="Top"/>
                 <Button 

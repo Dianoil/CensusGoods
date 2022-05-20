@@ -33,6 +33,29 @@ namespace CensusGoods.Class
             else return false;
             return true;
         }
+        public static bool ValidateTariff(string name)
+        {
+            int s = 0;
+            int t = 0;
+            if (name != "Название тарифа")
+            {
+                if (t < name.Length)
+                {
+                    while (s < name.Length)
+                    {
+                        if ((name[s] >= 'А' && name[s] <= 'Я' || name[s] >= 'а' && name[s] <= 'я') ||
+                            (name[s] == '-' || name[s] == ' ') || (name[s] >=0 && name[s] <=9))
+                        {
+                            s++;
+                        }
+                        else return false;
+                    }
+                }
+                else return false;
+            }
+            else return false;
+            return true;
+        }
         public static bool ValidatePassw(string passw)
         {
             int t = 7;
@@ -64,7 +87,7 @@ namespace CensusGoods.Class
         }
         public static bool ValidateLogin(string login)
         {
-            int t = 7;
+            int t = 3;
             int s = 0;
 
             if (login.Length >= t)
@@ -73,21 +96,16 @@ namespace CensusGoods.Class
                     if ((login[i] >= '0') && (login[i] <= '9'))
                     {
                         for (int d = 0; d < login.Length; d++)
-                            if ((login[d] >= '#') && (login[d] <= '&') || login[d] == '^' || login[d] == '_')
-                            {
-                                for (int j = 0; j < login.Length; j++)
-                                    if ((login[j] >= 'а') && (login[j] <= 'я') || (login[j] >= 'a') && (login[j] <= 'z'))
+                            for (int j = 0; j < login.Length; j++)
+                                if ((login[j] >= 'a') && (login[j] <= 'z'))
+                                {
+                                    for (int k = 0; k < login.Length; k++)
                                     {
-                                        for (int k = 0; k < login.Length; k++)
-                                        {
-                                            if ((login[k] >= 'А') && (login[k] <= 'Я') || (login[j] >= 'A') && (login[j] <= 'Z'))
-                                                return true;
-                                        }
-                                        return false;
+                                        if ((login[k] >= 'A') && (login[k] <= 'Z'))
+                                            return true;
                                     }
-                                return false;
-
-                            }
+                                    return false;
+                                }
                         return false;
                     }
                 return true;

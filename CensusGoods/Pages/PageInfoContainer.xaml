@@ -43,19 +43,6 @@
                                 Width="150"
                                 />
                         </StackPanel>
-                        <StackPanel
-                            x:Name="NumberCompanySP"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Left">
-                            <Label Content="Название продукта"
-                                   Width="110"/>
-                            <xctk:MaskedTextBox
-                                Margin="30 0 0 0"
-                                x:Name="NameComp"
-                                FontSize="18"
-                                VerticalAlignment="Center" Width="150"
-                                />
-                        </StackPanel>
                     </StackPanel>
                     <StackPanel
                         Orientation="Horizontal"

@@ -56,5 +56,43 @@
             <Setter Property="SelectionBrush" Value="{x:Null}"/>
             <Setter Property="BorderBrush" Value="{x:Null}"/>
         </Style>
+        
+        <ControlTemplate TargetType="Button" x:Key="ButtonJPG">
+            <!--TemplateBinding-Унаследовать из Xaml-->
+            <Border x:Name="buttonBorder"   CornerRadius="13"
+                          BorderThickness="{TemplateBinding BorderThickness}" 
+                          BorderBrush="{TemplateBinding BorderBrush}" 
+                          Background="#E4E4E4"
+                          Height="{TemplateBinding  Height}">
+                <ContentControl x:Name="Contet_Name1"  Margin="{TemplateBinding Padding}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Content="{TemplateBinding Content}" />
+                <!--тень кнопки-->
+                <Border.Effect x:Uid="ssss">
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="4"/>
+                </Border.Effect>
+            </Border>
+            <!--Действие-->
+            <ControlTemplate.Triggers>
+                <!--указатель мыши находится над элементом-->
+                <Trigger Property="IsMouseOver" Value="true">
+                    <!--<Setter  TargetName="Contet_Name" Property="FontSize" Value="34"/>-->
+                    <!--<-->
+                    <!--Setter  Property="FontStyle" Value="Italic"/>-->
+                    <Setter  TargetName="buttonBorder" Property="Background"  Value="#DEDEDE"/>
+                </Trigger>
+                <!--кнопка нажата-->
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter TargetName="buttonBorder" Property="BorderThickness" Value="1" />
+                    <Setter  TargetName="Contet_Name1" Property="FontSize" Value="12"/>
+                </Trigger>
+                <!--обычный режим-->
+                <Trigger Property="IsEnabled" Value="false">
+                    <!--<Setter  TargetName="Contet_Name" Property="FontSize" Value="34"/>-->
+                    <Setter TargetName="buttonBorder" Property="Background" Value="#F2F2F2"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

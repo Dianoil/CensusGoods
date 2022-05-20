@@ -16,6 +16,8 @@ using static CensusGoods.Class.Enti;
 using static CensusGoods.Class.ValidationClass;
 using static CensusGoods.Class.SeectorHelper;
 using static CensusGoods.Class.DataUser;
+using Microsoft.Win32;
+
 namespace CensusGoods.Windows
 {
     /// <summary>
@@ -329,24 +331,6 @@ namespace CensusGoods.Windows
 
         }
 
-        private void imageProduct_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (imageProduct.Text == "Изображение")
-            {
-                imageProduct.Text = "";
-            }
-
-        }
-
-        private void imageProduct_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (imageProduct.Text == "")
-            {
-                imageProduct.Text = "Изображение";
-            }
-
-        }
-
         private void descriptionTBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (descriptionTBox.Text == "Описание")
@@ -502,6 +486,9 @@ namespace CensusGoods.Windows
             NumContainerCBox.SelectedIndex = 0;
             NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
             NumCompanyCbox.SelectedIndex = 0;
+            NumCompanyCbox1.ItemsSource = boxHelper.GetCompanies("Все компании");
+            NumCompanyCbox1.SelectedIndex = 0;
+
 
         }
 
@@ -515,6 +502,9 @@ namespace CensusGoods.Windows
             NumContainerCBox.SelectedIndex = i;
             NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
             NumCompanyCbox.SelectedIndex = i;
+            NumCompanyCbox1.ItemsSource = boxHelper.GetCompanies("Все компании");
+            NumCompanyCbox1.SelectedIndex = i;
+
 
         }
         private void undo_Click(object sender, RoutedEventArgs e)
@@ -531,7 +521,6 @@ namespace CensusGoods.Windows
             string logBD = CensGoodsEnt.User.Where(i => i.emailContactFace ==
             loginTBox.Text.ToString()).Select(j => j.emailContactFace)
             .FirstOrDefault();
-
 
             #region Добавление информации о компании
             if (NameCompany.Text == "" || inn.Text == "" ||
@@ -602,7 +591,6 @@ namespace CensusGoods.Windows
             loginTBox.Text.ToString()).Select(j => j.emailContactFace)
             .FirstOrDefault();
 
-
             #region Директор склада
             if (loginTBox.Text == "" || PasswTBox.Text == "" ||
             NameMainGoods.Text == "" || NumberMainGoods.Text == ""
@@ -658,14 +646,24 @@ namespace CensusGoods.Windows
                         idRole = 3
 
                     });
+
                     CensGoodsEnt.SaveChanges();
+                    var addedUser = CensGoodsEnt.User.Where(x => EmailMainGoods.Text == x.emailContactFace).FirstOrDefault();
+                    int idAdUs;
+                    idAdUs = addedUser.id;
+                    CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
+                    {
+                        idCompany = 104,
+                        idUser = idAdUs
+                    });
+                    CensGoodsEnt.SaveChanges();
+
                     Menu menu = new Menu();
                     menu.IsEnabled = true;
                     this.Close();
                 }
             }
             #endregion
-
         }
 
         private void SaveAddCompany_Click(object sender, RoutedEventArgs e)
@@ -729,9 +727,9 @@ namespace CensusGoods.Windows
                         emailContactFace = EmailMainCompany.Text.ToString(),
                         idRole = 2
                     });
+                    var addedUser = CensGoodsEnt.User.Where(x => EmailEmployee.Text == x.emailContactFace).FirstOrDefault();
                     CensGoodsEnt.SaveChanges();
                     int idAdUs;
-                    var addedUser = CensGoodsEnt.User.Where(x => EmailEmployee.Text == x.emailContactFace).FirstOrDefault();
                     idAdUs = addedUser.id;
                     CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
                     {
@@ -845,7 +843,7 @@ namespace CensusGoods.Windows
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
-            else if (ValidateFIO(NameTariff.Text) == false)
+            else if (ValidateTariff(NameTariff.Text) == false)
             {
                 MessageBox.Show("Недопустимое название тарифа, проверьте написание",
                     "Добавление тарифа", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -904,7 +902,7 @@ namespace CensusGoods.Windows
                     CensGoodsEnt.Product.Add(new EF.Product()
                     {
                         name = NameProduct.Text.ToString(),
-                        image = imageProduct.Text.ToString(),
+                        image = NameFiles.Text.ToString(),
                         description = descriptionTBox.Text.ToString()
                     });
                     CensGoodsEnt.SaveChanges();
@@ -928,7 +926,8 @@ namespace CensusGoods.Windows
                 NameProductCBox.SelectedItem == "Все продукты" ||
                 QuantityProductTBox.Text == ""
             || BruttoTBox.Text == ""
-            || DateStart.Text == "")
+            || DateStart.Text == "" ||
+            NumCompanyCbox1.SelectedItem == "Все компании")
                  {
                       MessageBox.Show("Не все поля заполнены!");
                   }
@@ -954,6 +953,19 @@ namespace CensusGoods.Windows
                         available = false
                     }) ;
                     CensGoodsEnt.SaveChanges();
+                    var addedUser = CensGoodsEnt.InfoContainer.Where(x => NameProductCBox.SelectedIndex == x.idProduct && NumContainerCBox.SelectedIndex == x.idContainer &&
+                    DateStart.SelectedDate.Value == x.dateStart).FirstOrDefault();
+                    int idAdUs;
+                    idAdUs = addedUser.id;
+                    CensGoodsEnt.Receipt.Add(new EF.Receipt()
+                    {
+                        idCompany = NumCompanyCbox1.SelectedIndex,
+                        idTariff = 1,
+                        infoContainer = idAdUs,
+                        delay = true
+                    });
+
+                    CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();
                     menu.IsEnabled = true;
                     this.Close();
@@ -965,9 +977,27 @@ namespace CensusGoods.Windows
 
         #endregion
 
-        //private void SaveInfoCompUser_Click(object sender, RoutedEventArgs e)
-        //{
+        private void AvatarUser_Click(object sender, RoutedEventArgs e)
+        {
+            string fullPathFile = "";
+            OpenFileDialog photo = new OpenFileDialog();
+            photo.Multiselect = false;
+            photo.Filter = "Image files (*.png;*.jpg;*.ico;*.jpeg)|*.png;*.jpg;*.ico;*.jpeg|All files (*.*)|*.*";
+            photo.InitialDirectory = Class.DataUser.PatchApplication(Class.DataUser.PatchUser);
+            var aaa = photo.ShowDialog();
+            if (aaa == true)
+            {
+                fullPathFile = PatchApplication(PatchUser + photo.SafeFileName);
 
-        //}
+                if (string.Equals(photo.FileName, fullPathFile))
+                {
+                    NameFiles.Text = photo.SafeFileName;
+                    ImageUser.ImageSource = new BitmapImage(new Uri(fullPathFile));
+                    ImageUser.Stretch = Stretch.UniformToFill;
+                }
+                else
+                    MessageBox.Show("Полные пути файлов не совпадают ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

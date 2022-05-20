@@ -74,7 +74,7 @@
                 </GroupBox.Header>
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           CanUserAddRows="False"
                           SelectionMode="Single"
                           CellEditEnding="GridMain_CellEditEnding"
@@ -94,10 +94,12 @@
 
                         <DataGridTextColumn x:Name="discount"
                                             Header="Персональная скидка"
-                                            Binding="{Binding Path=Скидка_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        <DataGridComboBoxColumn x:Name="tariff"
+                                            Binding="{Binding Path=Скидка_компании,
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="tariff"
                                             Header="Тариф"
-                                            SelectedValueBinding="{Binding Path=Тариф_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                            Binding="{Binding Path=Тариф_компании, 
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                     </DataGrid.Columns>
 
