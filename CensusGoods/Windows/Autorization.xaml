@@ -76,6 +76,7 @@
                 VerticalAlignment="Center"
                 x:Name="vhodinsystem"
                 Style="{StaticResource ButtonStateMenu}"
+                IsDefault="True"
                 Click="vhodinsystem_Click" Margin="81,69,81,69.4"/>
         <Image Source="/Image/lineemail.png"
                Grid.ColumnSpan="4"
@@ -173,7 +174,8 @@
                 x:Name="entry"
                 Click="entry_Click"
                 Style="{StaticResource ButtonStateMenu}"
-                Margin="5,30,5,5"/>
+                Margin="5,30,5,5"
+                IsDefault="True"/>
         </StackPanel>
         <StackPanel x:Name="StackEye"
                     Grid.Row="3"
