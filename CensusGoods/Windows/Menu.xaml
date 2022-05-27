@@ -38,7 +38,7 @@
             >
         </Frame>
         <Button 
-                Content="Тут название акка"
+                Content="Тут name акка"
                 Background="{x:Null}"
                 FontSize="20"
                 Grid.Column="3"
