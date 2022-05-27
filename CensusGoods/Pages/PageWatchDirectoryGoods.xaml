@@ -42,7 +42,6 @@
                                 x:Name="NameCompanyTBox"
                                 Width="150"
                                 />
-                            <!--TextChanged="NameCompanyTBox_TextChanged"-->
 
                         </StackPanel>
                     </StackPanel>
@@ -75,10 +74,9 @@
                 </GroupBox.Header>
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           CanUserAddRows="False"
                           SelectionMode="Single"
-                          CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"
                           Focusable="True"
                           RowDetailsVisibilityMode="VisibleWhenSelected">
@@ -86,9 +84,6 @@
                         <DataGridTextColumn x:Name="NameDirectory"
                                             Header="ФИО Директора склада"
                                             Binding="{Binding Path=Директор_склада, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        <DataGridTextColumn x:Name="NameCompany"
-                                            Header="Название компании"
-                                            Binding="{Binding Path=Название_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridTextColumn x:Name="Phone"
                                             Header="Номер телефона директора"
                                             Binding="{Binding Path=Номер_телефона_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>

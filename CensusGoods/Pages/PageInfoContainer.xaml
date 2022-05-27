@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:CensusGoods.Pages"
       mc:Ignorable="d"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageInfoContainer">
     <Grid>
@@ -73,10 +72,9 @@
                 </GroupBox.Header>
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           CanUserAddRows="False"
                           SelectionMode="Single"
-                          CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"
                           Focusable="True"
                           RowDetailsVisibilityMode="VisibleWhenSelected">
@@ -88,16 +86,11 @@
                         <DataGridTextColumn x:Name="NameCompany"
                                             Header="Название продукта"
                                             Binding="{Binding Path=Название_продукта, 
-                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                         <DataGridTextColumn x:Name="Delay"
                                             Header="Доступность"
                                             Binding="{Binding Path=Доступность,
                             Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        <DataGridTextColumn x:Name="NameCompanyu"
-                                            Header="Название компании"
-                                            Binding="{Binding Path=Название_компании,
-                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-
                     </DataGrid.Columns>
 
                 </DataGrid>

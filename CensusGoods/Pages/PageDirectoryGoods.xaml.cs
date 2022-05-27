@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static CensusGoods.Class.DataUser;
+using static CensusGoods.Class.Enti;
 namespace CensusGoods.Pages
 {
     /// <summary>
@@ -21,7 +22,6 @@ namespace CensusGoods.Pages
     /// </summary>
     public partial class PageDirectoryGoods : Page
     {
-        int isAddEdit = 1;
         private Class.DirectGoogsHelper googsHelper = new Class.DirectGoogsHelper();
 
         public PageDirectoryGoods()
@@ -50,15 +50,5 @@ namespace CensusGoods.Pages
             GridMain.ItemsSource = googsHelper.GetVm_DirComps();
         }
 
-        private void IsAddEdit(object sender, AddingNewItemEventArgs e)
-        {
-
-            isAddEdit = 1;
-        }
-
-        private void GridMain_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            isAddEdit = 1;
-        }
     }
 }

@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical"
                     VerticalAlignment="Center">
-            <GroupBox x:Name="GRBox"
+            <!--<GroupBox x:Name="GRBox"
                       HorizontalAlignment="Left"
                       Width="640"
                       Margin="0 10 0 0">
@@ -65,7 +65,7 @@
 
                     </StackPanel>
                 </StackPanel>
-            </GroupBox>
+            </GroupBox>-->
             <GroupBox>
                 <GroupBox.Header>
                     <TextBlock Text="Список"
@@ -73,10 +73,9 @@
                 </GroupBox.Header>
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           CanUserAddRows="False"
                           SelectionMode="Single"
-                          CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"
                           Focusable="True"
                           RowDetailsVisibilityMode="VisibleWhenSelected">

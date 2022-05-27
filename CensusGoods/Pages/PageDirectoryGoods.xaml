@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:CensusGoods.Pages"
      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
-
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDirectoryGoods">
 
@@ -77,7 +76,6 @@
                           IsReadOnly="True"
                           CanUserAddRows="False"
                           SelectionMode="Single"
-                          CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="FullRow"
                           Focusable="True"
                           RowDetailsVisibilityMode="VisibleWhenSelected">
@@ -85,9 +83,6 @@
                         <DataGridTextColumn x:Name="NameDirectory"
                                             Header="ФИО Директора компании"
                                             Binding="{Binding Path=Директор_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        <DataGridTextColumn x:Name="NameCompany"
-                                            Header="Название компании"
-                                            Binding="{Binding Path=Название_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridTextColumn x:Name="Phone"
                                             Header="Номер телефона директора"
                                             Binding="{Binding Path=Номер_телефона_компании, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -96,11 +91,14 @@
                                             Header="Персональная скидка"
                                             Binding="{Binding Path=Скидка_компании,
                             Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGridTextColumn x:Name="NameCompany"
+                                            Header="Название компании"
+                                            Binding="{Binding Path=Название_компании, 
+                            Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <DataGridTextColumn x:Name="tariff"
                                             Header="Тариф"
                                             Binding="{Binding Path=Тариф_компании, 
                             Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-
                     </DataGrid.Columns>
 
                 </DataGrid>

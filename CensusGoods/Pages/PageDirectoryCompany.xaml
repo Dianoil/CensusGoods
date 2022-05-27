@@ -28,7 +28,7 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" 
                                 VerticalAlignment="Center">
-                        <StackPanel x:Name="NameSearch"
+                        <!--<StackPanel x:Name="NameSearch"
                                     Orientation="Horizontal"
                                     HorizontalAlignment="Left"
                                     >
@@ -41,7 +41,7 @@
                                 x:Name="NameCompanyTBox"
                                 Width="150"
                                 />
-                        </StackPanel>
+                        </StackPanel>-->
                         <StackPanel
                             x:Name="NumberCompanySP"
                             Orientation="Horizontal"
@@ -88,12 +88,12 @@
 
                 <DataGrid x:Name="GridMain"
                           AutoGenerateColumns="False"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           MaxHeight="500"
                           SelectionMode="Single"
-                          CellEditEnding="GridMain_CellEditEnding"
                           SelectionUnit="Cell"
                           Focusable="True"
+                          CanUserDeleteRows="False"
                           RowDetailsVisibilityMode="VisibleWhenSelected"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
                           ScrollViewer.CanContentScroll="True">

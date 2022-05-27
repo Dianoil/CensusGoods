@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using static CensusGoods.Class.Enti;
 namespace CensusGoods.Pages
 {
     /// <summary>
@@ -20,7 +20,6 @@ namespace CensusGoods.Pages
     /// </summary>
     public partial class PageReceipt : Page
     {
-        int isAddEdit = 1;
         private Class.DirectGoogsHelper googsHelper = new Class.DirectGoogsHelper();
 
         public PageReceipt()
@@ -30,56 +29,10 @@ namespace CensusGoods.Pages
 
         }
 
-        private void IsAddEdit(object sender, AddingNewItemEventArgs e)
-        {
-
-            isAddEdit = 1;
-        }
-
-        private void GridMain_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            isAddEdit = 1;
-        }
-
         private void RebootButton_Click(object sender, RoutedEventArgs e)
         {
-            NameCompanyTBox.Text = null;
-            //NameComp.Text = null;
             GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts();
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (NameCompanyTBox.Text is null)
-                return;
-            else if (NameCompanyTBox.Text != null)
-            {
-                    GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
-            }
-
-
-            //if (NameCompanyTBox.Text is null && NameComp.Text is null)
-            //    return;
-            //if (NameCompanyTBox.Text is null)
-            //{
-            //    if (NameComp.Text != null)
-            //    {
-            //        GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_контейнера == (string)NameComp.Text).ToList();
-            //    }
-            //}
-            //else if (NameCompanyTBox.Text != null)
-            //{
-            //    if (NameComp.Text is null)
-            //    {
-            //        GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
-            //    }
-            //    else
-            //    {
-            //        GridMain.ItemsSource = googsHelper.GetVm_TotalReceipts().Where(i => i.Название_компании == (string)NameCompanyTBox.Text && i.Название_контейнера
-            //        == (string)NameComp.Text).ToList();
-            //    }
-            //}
-
-        }
     }
 }

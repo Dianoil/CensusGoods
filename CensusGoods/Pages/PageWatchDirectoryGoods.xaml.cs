@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using static CensusGoods.Class.Enti;
 namespace CensusGoods.Pages
 {
     /// <summary>
@@ -21,26 +21,13 @@ namespace CensusGoods.Pages
     /// </summary>
     public partial class PageWatchDirectoryGoods : Page
     {
-        int isAddEdit = 1;
         private Class.DirectCompanyHelper googsHelper = new Class.DirectCompanyHelper();
-        //ObservableCollection<EF.Vm_DirGoods> productList = new ObservableCollection<EF.Vm_DirGoods>();
         public PageWatchDirectoryGoods()
         {
             InitializeComponent();
             GridMain.ItemsSource = googsHelper.GetVm_DirGoods();
-            //productList = new ObservableCollection<EF.Vm_DirGoods>();
         }
 
-        private void IsAddEdit(object sender, AddingNewItemEventArgs e)
-        {
-
-            isAddEdit = 1;
-        }
-
-        private void GridMain_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            isAddEdit = 1;
-        }
 
         private void RebootButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,24 +44,6 @@ namespace CensusGoods.Pages
             {
                 GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
             }
-
         }
-
-        //private void NameCompanyTBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    string txtOrig = NameCompanyTBox.Text;
-        //    string upper = txtOrig.ToUpper();
-        //    string lower = txtOrig.ToLower();
-
-        //    var empFiltered = from Emp in productList
-        //                      let ename = Emp.Название_компании
-        //                      where
-        //                       ename.StartsWith(lower)
-        //                       || ename.StartsWith(upper)
-        //                       || ename.Contains(txtOrig)
-        //                      select Emp;
-
-        //    GridMain.ItemsSource = empFiltered;
-        //}
     }
 }

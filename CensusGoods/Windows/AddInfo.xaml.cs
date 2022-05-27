@@ -486,8 +486,6 @@ namespace CensusGoods.Windows
             NumContainerCBox.SelectedIndex = 0;
             NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
             NumCompanyCbox.SelectedIndex = 0;
-            NumCompanyCbox1.ItemsSource = boxHelper.GetCompanies("Все компании");
-            NumCompanyCbox1.SelectedIndex = 0;
 
 
         }
@@ -502,8 +500,6 @@ namespace CensusGoods.Windows
             NumContainerCBox.SelectedIndex = i;
             NumCompanyCbox.ItemsSource = boxHelper.GetCompanies("Все компании");
             NumCompanyCbox.SelectedIndex = i;
-            NumCompanyCbox1.ItemsSource = boxHelper.GetCompanies("Все компании");
-            NumCompanyCbox1.SelectedIndex = i;
 
 
         }
@@ -526,7 +522,7 @@ namespace CensusGoods.Windows
             if (NameCompany.Text == "" || inn.Text == "" ||
             ogrn.Text == "" || regNumber.Text == ""
             || personDiscount.Text == "" ||
-             cityCBox.SelectedItem == "Все города")
+             cityCBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -537,22 +533,22 @@ namespace CensusGoods.Windows
             }
             else if (ValidateINN(inn.Text) == false)
             {
-                MessageBox.Show("Неверный формат инн, проверьте написание",
+                MessageBox.Show("Неверный формат инн, проверьте написание (инн состоит из 11 символов)",
                     "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateOGRN(ogrn.Text) == false)
             {
-                MessageBox.Show("Неверный формат огрн, проверьте написание)",
+                MessageBox.Show("Неверный формат огрн, проверьте написание (огрн состоит из 12 символов))",
                     "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateOGRN(regNumber.Text) == false)
             {
-                MessageBox.Show("Неверный формат регистрационного номера, проверьте написание)",
+                MessageBox.Show("Неверный формат регистрационного номера, проверьте написание (рег. номер состоит из 12 символов))",
                     "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateDiscount(personDiscount.Text) == false)
             {
-                MessageBox.Show("Неверный формат скидки, проверьте написание)",
+                MessageBox.Show("Неверный формат скидки, проверьте написание (макс значение - 3 символа, без каких либо знаков))",
                     "Регистрация компании", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -604,7 +600,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, латиница, минимум одна: заглавная, строчная, число)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidatePhone(NumberMainGoods.Text) == false)
@@ -615,7 +611,7 @@ namespace CensusGoods.Windows
 
             else if (ValidateFIO(NameMainGoods.Text) == false)
             {
-                MessageBox.Show("Недопустимое имя пользователя",
+                MessageBox.Show("Недопустимое имя пользовател, (введите фио в подряд через пробел)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailMainGoods.Text) == false)
@@ -625,7 +621,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidateLogin(loginTBox.Text) == false)
             {
-                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый логин, необходимо ввести (латиницей, от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -675,7 +671,7 @@ namespace CensusGoods.Windows
 
             if (loginTBox1.Text == "" || PasswTBox1.Text == "" ||
             NameMainCompany.Text == "" || NumberMainCompany.Text == ""
-            || EmailMainCompany.Text == "" || NumCompanyCbox.SelectedItem == "Все компании")
+            || EmailMainCompany.Text == "" || NumCompanyCbox.SelectedIndex == 0)
             {
                 MessageBox.Show("Не все поля заполнены!");
             }
@@ -695,7 +691,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox1.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (латиницей, от 8 символов, минимум одна: заглавная, строчная, число)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(EmailMainCompany.Text) == false)
@@ -705,7 +701,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidateLogin(loginTBox1.Text) == false)
             {
-                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый логин, необходимо ввести (литиницей, от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation); 
             }
 
@@ -713,8 +709,8 @@ namespace CensusGoods.Windows
             {
                 MessageBoxResult result = MessageBox.Show(
                  NameMainCompany.Text + " " +
-                 "Логин:  " + loginTBox.Text + "\n" +
-                 "Пароль:  " + PasswTBox.Text + "\n",
+                 "Логин:  " + loginTBox1.Text + "\n" +
+                 "Пароль:  " + PasswTBox1.Text + "\n",
                  "Создать пользователя:", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -726,16 +722,15 @@ namespace CensusGoods.Windows
                         numberContactFace = NumberMainCompany.Text.ToString(),
                         emailContactFace = EmailMainCompany.Text.ToString(),
                         idRole = 2
-                    });
-                    var addedUser = CensGoodsEnt.User.Where(x => EmailEmployee.Text == x.emailContactFace).FirstOrDefault();
+                    }); 
                     CensGoodsEnt.SaveChanges();
-                    int idAdUs;
-                    idAdUs = addedUser.id;
+                    int addedUser = CensGoodsEnt.User.Where(x => EmailMainCompany.Text == x.emailContactFace.ToString()).Select(j => j.id).FirstOrDefault();
                     CensGoodsEnt.InfoUserCompany.Add(new EF.InfoUserCompany()
                     {
                         idCompany = NumCompanyCbox.SelectedIndex,
-                        idUser = idAdUs
+                        idUser = addedUser
                     });
+
                     CensGoodsEnt.SaveChanges();
                     Menu menu = new Menu();
                     menu.IsEnabled = true;
@@ -766,7 +761,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePassw(PasswTBox2.Text) == false)
             {
-                MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, число)",
+                MessageBox.Show("Недопустимый пароль, необходимо ввести (латиницей, от 8 символов, минимум одна: заглавная, строчная, число)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidatePhone(NumberEmployee.Text) == false)
@@ -787,7 +782,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidateLogin(loginTBox2.Text) == false)
             {
-                MessageBox.Show("Недопустимый логин, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная)",
+                MessageBox.Show("Недопустимый логин, необходимо ввести (латиницей, от 8 символов, минимум одна: заглавная, строчная)",
                     "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
@@ -850,7 +845,7 @@ namespace CensusGoods.Windows
             }
             else if (ValidatePersTariff(precentForTariff.Text) == false)
             {
-                MessageBox.Show("Недопустимое значение, проверьте написание",
+                MessageBox.Show("Недопустимое значение, проверьте написание (введите значение состоящее из чисел и знака ,)",
                 "Добавление тарифа", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -886,7 +881,7 @@ namespace CensusGoods.Windows
             {
                 MessageBox.Show("Не заполнено поле с названием!");
             }
-            else if (ValidateLogin(NameProduct.Text) == false)
+            else if (ValidateFIO(NameProduct.Text) == false)
             {
                 MessageBox.Show("Недопустимое название продукта, проверьте написание",
                     "Добавление продукта", MessageBoxButton.OK, MessageBoxImage.Exclamation); 
@@ -922,12 +917,11 @@ namespace CensusGoods.Windows
         {
             #region Инфоконтенер
 
-            if (NumContainerCBox.SelectedItem == "Все типы" ||
-                NameProductCBox.SelectedItem == "Все продукты" ||
+            if (NumContainerCBox.SelectedIndex == 0 ||
+                NameProductCBox.SelectedIndex == 0||
                 QuantityProductTBox.Text == ""
             || BruttoTBox.Text == ""
-            || DateStart.Text == "" ||
-            NumCompanyCbox1.SelectedItem == "Все компании")
+            || DateStart.Text == "")
                  {
                       MessageBox.Show("Не все поля заполнены!");
                   }
@@ -957,9 +951,13 @@ namespace CensusGoods.Windows
                     DateStart.SelectedDate.Value == x.dateStart).FirstOrDefault();
                     int idAdUs;
                     idAdUs = addedUser.id;
+                    var addedCompany = CensGoodsEnt.InfoUserCompany.Where(i => i.idUser == User1.id).FirstOrDefault();
+                    int idAdCom = addedCompany.idCompany;
+
+                    
                     CensGoodsEnt.Receipt.Add(new EF.Receipt()
                     {
-                        idCompany = NumCompanyCbox1.SelectedIndex,
+                        idCompany = idAdCom,
                         idTariff = 1,
                         infoContainer = idAdUs,
                         delay = true

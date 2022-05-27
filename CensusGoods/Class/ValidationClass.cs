@@ -89,25 +89,28 @@ namespace CensusGoods.Class
         {
             int t = 3;
             int s = 0;
-
-            if (login.Length >= t)
+            if (login != "Логин")
             {
-                for (int i = 0; i < login.Length; i++)
-                    if ((login[i] >= '0') && (login[i] <= '9'))
-                    {
-                        for (int d = 0; d < login.Length; d++)
-                            for (int j = 0; j < login.Length; j++)
-                                if ((login[j] >= 'a') && (login[j] <= 'z'))
-                                {
-                                    for (int k = 0; k < login.Length; k++)
+                if (login.Length >= t)
+                {
+                    for (int i = 0; i < login.Length; i++)
+                        if ((login[i] >= '0') && (login[i] <= '9'))
+                        {
+                            for (int d = 0; d < login.Length; d++)
+                                for (int j = 0; j < login.Length; j++)
+                                    if ((login[j] >= 'a') && (login[j] <= 'z'))
                                     {
-                                        if ((login[k] >= 'A') && (login[k] <= 'Z'))
-                                            return true;
+                                        for (int k = 0; k < login.Length; k++)
+                                        {
+                                            if ((login[k] >= 'A') && (login[k] <= 'Z'))
+                                                return true;
+                                        }
+                                        return false;
                                     }
-                                    return false;
-                                }
-                        return false;
-                    }
+                            return false;
+                        }
+                    return true;
+                }
                 return true;
             }
             else
@@ -267,7 +270,7 @@ namespace CensusGoods.Class
             int s = 0;
             if (disk != "Процент по тарифу")
             {
-                if (s >= disk.Length)
+                if (s <= disk.Length)
                 {
                     for (int j = 0; j < disk.Length; j++)
                         if ((disk[j] >= '0') && (disk[j] <= '9'))
@@ -284,35 +287,27 @@ namespace CensusGoods.Class
                 else return false;
 
             }
-            else return false;
             return true;
         }
         
         public static bool ValidatePhone(string phone)
         {
-            return true;
-            //int s = 0;
 
-            //    if (phone != "+7 (900) 000-00-00")
-            //    {
-            //    if (s == phone.Length)
-            //    {
-            //        while (s == phone.Length)
-            //        {
-            //            if (phone[s] >= '0' && phone[s] <= '9')
-            //            {
-            //                s++;
-            //            }
-            //            else return false;
+            int s = 0;
 
-            //        }
-
-            //    }
-            //    else return false;
-
-            //}
-            //else return false;
-            //return true;
+            if (phone != "+7 (___) ___-__-__")
+            {
+                while (s == phone.Length)
+                {
+                    if (phone[s] >= '0' && phone[s] <= '9')
+                    {
+                        s++;
+                    }
+                    else return false;
+                }
+                return true;
+            }
+            else return false;
         }
         public static bool ValidateDate(DateTime? birth)
         {
