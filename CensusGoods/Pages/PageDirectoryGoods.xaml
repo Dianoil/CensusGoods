@@ -52,16 +52,18 @@
                                 x:Name="SearchButton"
                                 Click="SearchButton_Click"
                                 Width="60"
+                                Height="30"
                                 Margin="15"
                                 FontSize="16"
-                                Style="{StaticResource ButtonAutor}"/>
+                                Style="{StaticResource ButtonStateMenu}"/>
                         <Button Content="Сброс"
                                 x:Name="RebootButton"
                                 Click="RebootButton_Click"
                                 Width="60"
+                                Height="30"
                                 Margin="15"
                                 FontSize="16"
-                                Style="{StaticResource ButtonAutor}"/>
+                                Style="{StaticResource ButtonStateMenu}"/>
 
                     </StackPanel>
                 </StackPanel>

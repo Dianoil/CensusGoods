@@ -96,7 +96,7 @@
                  x:Name="LoginTxt"
                  Margin="0,0,0,5"
                  BorderBrush="{x:Null}"
-                 
+                 Visibility="Visible"
                  />
         <Label Content="Логин"
                Foreground="#C4C4C4"
@@ -108,13 +108,14 @@
                FontSize="22"
                Margin="-5 40 0 0"
                VerticalContentAlignment="Top"
-               
+               Visibility="Visible"
                />
         <Image Source="/Image/linelogin.png"
                Grid.Row="3"
                Grid.ColumnSpan="2"
                Grid.Column="1"
-               VerticalAlignment="Top"/>
+               VerticalAlignment="Top"
+               Visibility="Visible"/>
         <StackPanel Grid.Row="2"
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
@@ -135,7 +136,7 @@
                VerticalAlignment="Top"
                FontSize="22"
                VerticalContentAlignment="Top"
-               Margin="-5,25,5,25"
+               Margin="-7 25 0 0"
                />
             <PasswordBox
                  Visibility="Visible"
@@ -147,7 +148,7 @@
                  VerticalAlignment="Bottom"
                  x:Name="PasswTxt"
                  BorderBrush="{x:Null}"
-                 Margin="0,5,25,5"
+                 Margin="0 20 40 0"
                  />
             <Button 
                 Background="{x:Null}"
@@ -159,9 +160,9 @@
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
                 x:Name="EyeBut"
-                Visibility="Visible"
+                Visibility="Hidden"
                 Click="EyeBut_Click"
-                Margin="0,-45,0,0">
+                Margin="5,-30,10,0">
                 <Button.Content>
                     <Image Source="/Image/eye1.png"/>
                 </Button.Content>
@@ -174,7 +175,7 @@
                 x:Name="entry"
                 Click="entry_Click"
                 Style="{StaticResource ButtonStateMenu}"
-                Margin="5,30,5,5"
+                Margin="5,40,5,5"
                 IsDefault="True"/>
         </StackPanel>
         <StackPanel x:Name="StackEye"
@@ -184,8 +185,8 @@
                     Grid.ColumnSpan="2"
                     >
             <TextBox x:Name="PasswEye"
-                     FontSize="22" 
-                     Margin="0,5,25,5"/>
+                     FontSize="22"
+                     Margin="0 -5 40 0"/>
             <Button 
                 Background="{x:Null}"
                 FontSize="22"
@@ -197,7 +198,7 @@
                 VerticalContentAlignment="Center"
                 x:Name="EyeBut1"
                 Visibility="Hidden"
-                Margin="0,-45,0,0"
+                Margin="0,-35,10,0"
                 Click="EyeBut1_Click">
                 <Button.Content>
                     <Image Source="/Image/eye2.PNG"/>

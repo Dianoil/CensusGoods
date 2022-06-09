@@ -42,7 +42,7 @@ namespace CensusGoods.Pages
                 return;
             else if (NameCompanyTBox.Text != null)
             {
-                GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Название_компании == (string)NameCompanyTBox.Text).ToList();
+                GridMain.ItemsSource = googsHelper.GetVm_DirGoods().Where(i => i.Директор_склада == (string)NameCompanyTBox.Text).ToList();
             }
         }
     }
