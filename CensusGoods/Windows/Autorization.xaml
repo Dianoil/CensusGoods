@@ -210,34 +210,5 @@
                 Grid.Row="3"
                 VerticalAlignment="Bottom"
                 Height="24" Grid.RowSpan="2"/>
-        <!--<Button Content="Tex. поддержка"
-               Grid.Column="1"
-                x:Name="tehsupport"
-                Click="tehsupport_Click"/>-->
-        <!--<Button Grid.Column="1"
-                Grid.Row="5"
-                Content="Регистрация"
-                x:Name="registr"
-                Click="registr_Click"/>-->
-        <!--<Button Grid.Column="2"
-                Grid.Row="5"
-                Content="Не могу войти"
-                x:Name="help"
-                Click="help_Click"/>-->
-        <!--<Button Grid.Column="2"
-                Grid.Row="4"
-                Content="Отмена"
-                x:Name="undo"
-                Click="undo_Click"/>-->
-        <!--<TextBox Grid.Row="2"
-                 Grid.Column="1"
-                 FontSize="20"
-                 HorizontalContentAlignment="Left"
-                 VerticalAlignment="Center"
-                 Grid.ColumnSpan="2"
-                 x:Name="PasswTxt"/>-->
-
-        <!--<Label Content="Пароль"
-               Grid.Row="2"/>-->
     </Grid>
 </Window>

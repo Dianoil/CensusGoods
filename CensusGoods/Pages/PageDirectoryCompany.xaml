@@ -28,20 +28,6 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" 
                                 VerticalAlignment="Center">
-                        <!--<StackPanel x:Name="NameSearch"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Left"
-                                    >
-                            <Label Content="Название компании"
-                                   VerticalContentAlignment="Center"
-                                   HorizontalAlignment="Left"/>
-                            <xctk:WatermarkTextBox
-                                Margin="10"
-                                FontSize="16"
-                                x:Name="NameCompanyTBox"
-                                Width="150"
-                                />
-                        </StackPanel>-->
                         <StackPanel
                             x:Name="NumberCompanySP"
                             Orientation="Horizontal"

@@ -649,47 +649,5 @@
                 </Button>
             </Grid>
         </StackPanel>
-        <!--Добавление инфы о компаний и ее работников-->
-        <!--<StackPanel Grid.Row="1"
-                    Margin="10"
-                    x:Name="AddCompanyEmploeeyrs"
-                    Visibility="Hidden">
-            <ComboBox 
-                 Text="Название компании"
-                 FontSize="22"
-                 HorizontalContentAlignment="Center"
-                 SelectedIndex="0"
-                 x:Name="NumCompanyCbox"
-                 DisplayMemberPath="name"
-                 Margin="10"/>
-            <ComboBox Text="ФИО Директора компании"
-                      SelectedIndex="0"
-                      Margin="10"
-                      FontSize="22"
-                      DisplayMemberPath="name"
-                      HorizontalContentAlignment="Center"
-                      x:Name="AddDirectCompCBox"/>
-            <Grid Margin="0 380 0 0" Height="50">
-                <Image Source="/Image/linelogin.png"
-                       VerticalAlignment="Top"/>
-                <Button 
-                    FontSize="22"
-                    x:Name="SaveInfoCompUser"
-                    Width="25"
-                    Margin="0 10 0 0"
-                    Height="25"
-                    HorizontalContentAlignment="Center"
-                    HorizontalAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Click="SaveInfoCompUser_Click"
-                    BorderBrush="{x:Null}"
-                    Background="{x:Null}"
-                    Style="{StaticResource ButtonAutor}">
-                    <Image Source="/Image/arrow.png"
-                           HorizontalAlignment="Center"/>
-                </Button>
-
-            </Grid>
-        </StackPanel>-->
     </Grid>
 </Window>

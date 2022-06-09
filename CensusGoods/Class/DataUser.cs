@@ -10,7 +10,6 @@ namespace CensusGoods.Class
     public partial class DataUser
     {
         public static string PatchUser = "materials\\";  //Ссылка на аватары пользователей
-        //public static string PatchJpg = "JPG\\";   //Ссылка на иконки
         public static string PatchApplication(string str) =>
         System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\" + str;
 

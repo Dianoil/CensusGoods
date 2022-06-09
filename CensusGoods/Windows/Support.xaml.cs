@@ -78,10 +78,5 @@ namespace CensusGoods.Wind
                 Application.Current.Shutdown();
             }
         }
-
-        private void TextBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
     }
 }

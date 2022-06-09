@@ -16,56 +16,6 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical"
                     VerticalAlignment="Center">
-            <!--<GroupBox x:Name="GRBox"
-                      HorizontalAlignment="Left"
-                      Width="640"
-                      Margin="0 10 0 0">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Поиск:"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
-                </GroupBox.Header>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical" 
-                                VerticalAlignment="Center">
-                        <StackPanel x:Name="NameSearch"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Left"
-                                    >
-                            <Label Content="Название компании"
-                                   VerticalContentAlignment="Center"
-                                   HorizontalAlignment="Left"/>
-                            <xctk:WatermarkTextBox
-                                Margin="10"
-                                FontSize="16"
-                                x:Name="NameCompanyTBox"
-                                Width="150"
-                                />
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Right"
-                        Margin="10 0 0 0">
-                        <Button Content="Найти"
-                                x:Name="SearchButton"
-                                Click="SearchButton_Click"
-                                Width="60"
-                                Margin="15"
-                                FontSize="16"
-                                Style="{StaticResource ButtonAutor}"/>
-                        <Button Content="Сброс"
-                                x:Name="RebootButton"
-                                Click="RebootButton_Click"
-                                Width="60"
-                                Margin="15"
-                                FontSize="16"
-                                Style="{StaticResource ButtonAutor}"/>
-
-                    </StackPanel>
-                </StackPanel>
-            </GroupBox>-->
             <GroupBox>
                 <GroupBox.Header>
                     <TextBlock Text="Список"
