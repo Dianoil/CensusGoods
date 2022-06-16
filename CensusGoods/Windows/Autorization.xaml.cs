@@ -28,6 +28,10 @@ namespace CensusGoods.Wind
 
         private void entry_Click(object sender, RoutedEventArgs e)
         {
+            if (PasswTxt.Password is null || ((PasswEye.Text != "") && (PasswTxt.Password != PasswEye.Text)))
+            {
+                PasswTxt.Password = PasswEye.Text;
+            }
             try
             {
                 User user = CensGoodsEnt.User
